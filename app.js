@@ -116,12 +116,8 @@ function contact(){
     btn.disabled=true; 
     btn.style.opacity='0.7'; 
     
-    // Send email to you (owner)
-    emailjs.send('service_uore6zr', 'template_td74g8g', data)
-      .then(() => {
-        // Send confirmation email to user
-        return emailjs.send('service_uore6zr', 'template_qzn9hoa', data);
-      })
+    // Send confirmation email to user (with you in BCC via template settings)
+    emailjs.send('service_uore6zr', 'template_qzn9hoa', data)
       .then(() => {
         show('Thank you for your message! I\'ll get back to you soon.','success'); 
         form.reset(); 
