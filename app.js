@@ -53,8 +53,91 @@ function horizontalScroll(){ const defs=[['.skills.skills--hscroll','.skills.ski
 // --- Ripple (delegated) ---------------------------------------------------
 function rippleDelegated(){ document.addEventListener('click',e=>{ const btn=e.target.closest('.btn'); if(!btn) return; const r=btn.getBoundingClientRect(); const size=Math.max(r.width,r.height); const span=document.createElement('span'); span.className='ripple-circle'; span.style.width=span.style.height=size+'px'; span.style.left=(e.clientX-r.left-size/2)+'px'; span.style.top=(e.clientY-r.top-size/2)+'px'; btn.appendChild(span); setTimeout(()=>span.remove(),520); }); }
 
-// --- Notifications + Contact Form ----------------------------------------
-function contact(){ const form=q('#contact-form'); if(!form) return; const email=/^[^\s@]+@[^\s@]+\.[^\s@]+$/; let note=null; const show=(msg,type='info')=>{ if(!note){ note=document.createElement('div'); document.body.appendChild(note); } note.className=`notification notification--${type}`; note.setAttribute('role','status'); note.setAttribute('aria-live','polite'); note.innerHTML=`<div class="notification-content"><span class="notification-message">${msg}</span><button class="notification-close" type="button" aria-label="Close">×</button></div>`; requestAnimationFrame(()=>note.classList.add('notification--visible')); clearTimeout(show._t); show._t=setTimeout(()=>{ hide(); },4800); }; const hide=()=>{ if(note){ note.classList.remove('notification--visible'); setTimeout(()=>note&&note.remove(),280); note=null; } }; document.addEventListener('click',e=>{ if(e.target.closest('.notification-close')) hide(); }); form.addEventListener('submit',e=>{ e.preventDefault(); const fd=new FormData(form); const data={ name:fd.get('name')?.trim(), email:fd.get('email')?.trim(), subject:fd.get('subject')?.trim(), message:fd.get('message')?.trim() }; if(Object.values(data).some(v=>!v)){ show('Please fill in all fields.','error'); return; } if(!email.test(data.email)){ show('Please enter a valid email address.','error'); return; } const btn=form.querySelector('button[type="submit"]'); const orig=btn.textContent; btn.textContent='Sending...'; btn.disabled=true; btn.style.opacity='0.7'; setTimeout(()=>{ show('Thank you for your message! I\'ll get back to you soon.','success'); form.reset(); btn.textContent=orig; btn.disabled=false; btn.style.opacity='1'; },1400); }); }
+// --- Notifications + Contact Form with EmailJS ----------------------------------------
+function contact(){ 
+  const form=q('#contact-form'); 
+  if(!form) return; 
+  
+  // Initialize EmailJS
+  emailjs.init('h81hTW_zBRE5hrLhv');
+  
+  const email=/^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
+  let note=null; 
+  
+  const show=(msg,type='info')=>{ 
+    if(!note){ 
+      note=document.createElement('div'); 
+      document.body.appendChild(note); 
+    } 
+    note.className=`notification notification--${type}`; 
+    note.setAttribute('role','status'); 
+    note.setAttribute('aria-live','polite'); 
+    note.innerHTML=`<div class="notification-content"><span class="notification-message">${msg}</span><button class="notification-close" type="button" aria-label="Close">×</button></div>`; 
+    requestAnimationFrame(()=>note.classList.add('notification--visible')); 
+    clearTimeout(show._t); 
+    show._t=setTimeout(()=>{ hide(); },5000); 
+  }; 
+  
+  const hide=()=>{ 
+    if(note){ 
+      note.classList.remove('notification--visible'); 
+      setTimeout(()=>note&&note.remove(),280); 
+      note=null; 
+    } 
+  }; 
+  
+  document.addEventListener('click',e=>{ 
+    if(e.target.closest('.notification-close')) hide(); 
+  }); 
+  
+  form.addEventListener('submit',e=>{ 
+    e.preventDefault(); 
+    const fd=new FormData(form); 
+    const data={ 
+      from_name:fd.get('name')?.trim(), 
+      reply_to:fd.get('email')?.trim(), 
+      subject:fd.get('subject')?.trim(), 
+      message:fd.get('message')?.trim() 
+    }; 
+    
+    if(Object.values(data).some(v=>!v)){ 
+      show('Please fill in all fields.','error'); 
+      return; 
+    } 
+    
+    if(!email.test(data.reply_to)){ 
+      show('Please enter a valid email address.','error'); 
+      return; 
+    } 
+    
+    const btn=form.querySelector('button[type="submit"]'); 
+    const orig=btn.textContent; 
+    btn.textContent='Sending...'; 
+    btn.disabled=true; 
+    btn.style.opacity='0.7'; 
+    
+    // Send email to you (owner)
+    emailjs.send('service_uore6zr', 'template_td74g8g', data)
+      .then(() => {
+        // Send confirmation email to user
+        return emailjs.send('service_uore6zr', 'template_qzn9hoa', data);
+      })
+      .then(() => {
+        show('Thank you for your message! I\'ll get back to you soon.','success'); 
+        form.reset(); 
+        btn.textContent=orig; 
+        btn.disabled=false; 
+        btn.style.opacity='1'; 
+      })
+      .catch((error) => {
+        console.error('EmailJS Error:', error);
+        show('Oops! Something went wrong. Please try again or email me directly.','error'); 
+        btn.textContent=orig; 
+        btn.disabled=false; 
+        btn.style.opacity='1'; 
+      });
+  }); 
+}
 
 // --- Init (critical first, extras deferred) --------------------------------
 document.addEventListener('DOMContentLoaded',()=>{
