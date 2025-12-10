@@ -1,72 +1,142 @@
-# Personal Portfolio ⚡️ 
-> A clean, beautiful, responsive portfolio template for Software Developers!
+# Thiyanayugi Mariraj - Portfolio ⚡️
 
-> https://varadbhogayata.github.io
+> Professional portfolio website showcasing my expertise in AI Engineering, Robotics, and Autonomous Systems
 
-![GitHub stars](https://img.shields.io/github/stars/varadbhogayata/varadbhogayata.github.io) 
-![GitHub forks](https://img.shields.io/github/forks/varadbhogayata/varadbhogayata.github.io)
-[![Maintenance](https://img.shields.io/badge/maintained-yes-green.svg)](https://github.com/varadbhogayata/varadbhogayata.github.io/commits/master)
-[![Website shields.io](https://img.shields.io/badge/website-up-yellow)](http://varadbhogayata.github.io/)
-[![Ask Me Anything !](https://img.shields.io/badge/ask%20me-linkedin-1abc9c.svg)](https://www.linkedin.com/in/varadbhogayata/)
-[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
+> https://thiyanayugi.github.io
 
-### Website Preview
-<p align="center"> 
-  <kbd>
-    <a href="https://varadbhogayata.github.io" target="_blank"><img src="examples/preview.gif">
-  </a>
-  </kbd>
-</p>
+[![Website](https://img.shields.io/badge/website-live-green)](https://thiyanayugi.github.io)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://linkedin.com/in/thiyanayugi-mariraj-a2b1b820b)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-black)](https://github.com/thiyanayugi)
 
-:star: Star me on GitHub — it helps!
+## About Me 👨‍💻
+
+I'm a **Graduate Engineer in Automation and Robotics** completing my Master's at **Technical University Dortmund**. I specialize in:
+
+- 🤖 AI-driven systems and autonomous robotics
+- 👁️ Computer vision and perception systems
+- 🧠 Generative AI and LLM applications
+- 🏭 Industrial automation and smart manufacturing
 
 ## Features 📋
-⚡️ Fully Responsive\
-⚡️ Valid HTML5 & CSS3\
-⚡️ Typing animation using `Typed.js`\
-⚡️ Easy to modify
 
-## Installation & Deployment 📦
-- Clone the repository and modify the content of <b>index.html</b> according to your requirement.
-- Add or remove images from `varadbhogayata.github.io/assets/img/` directory as per your requirement.
-- I highly recommend to use [Github Pages](https://create-react-app.dev/docs/deployment/#github-pages) to deploy the website the EASIEST WAY.
-- To deploy your website, first you need to create github repository with name `<your-github-username>.github.io`. Please don't give any other name.
-- Push the generated code to the `master` branch of this repository.
-- <b>NOTE:</b> Make sure to set `analyticsId` from your Google Analytics account inside the Google Analytics script tag, if you want to use your own Google Analytics account.
+✅ Fully Responsive Design  
+✅ Clean and Professional Layout  
+✅ Typing Animation using `Typed.js`  
+✅ Project Showcase with GitHub Links  
+✅ Experience Timeline  
+✅ Skills Section with Technology Logos  
+✅ Contact Information
 
 ## Sections 📚
-✔️ About me\
-✔️ Experience\
-✔️ Projects \
-✔️ Skills \
-✔️ Education\
-✔️ Contact Info\
-✔️ Resume
 
-To view a live example, **[click here](https://varadbhogayata.github.io/)**
+- **About** - Professional background and skills
+- **Experience** - Research positions and internships
+- **Projects** - 7 featured projects including:
+  - LinkedIn Job Automation
+  - RoboVision-3D
+  - AI Teaching Platform
+  - AI Agent Framework
+  - Edge Detection ROS Challenge
+  - Industrial Signal Processing
+  - Robotic Automation Platform
+- **Skills** - Technologies and tools
+- **Education** - TU Dortmund & PSG College
+- **Contact** - Get in touch
 
-## Tools Used 🛠️
-* [<b>GitHub Pages</b>](https://create-react-app.dev/docs/deployment/#github-pages) - To host my static website (HTML, CSS, JS).
-* [<b>Materialize</b>](https://materializecss.com/) - A CSS framework to get Google's Material Design components.
-* [<b>Typed.js</b>](https://mattboldt.com/demos/typed-js/) - JavaScript Library
+## Technologies Used 🛠️
 
-## Contributing 💡
-#### Step 1
+- **Frontend**: HTML5, CSS3, JavaScript
+- **Framework**: Materialize CSS
+- **Animation**: Typed.js
+- **Hosting**: GitHub Pages
+- **Version Control**: Git
 
-- **Option 1**
-    - 🍴 Fork this repo!
+## Projects Highlighted 🚀
 
-- **Option 2**
-    - 👯 Clone this repo to your local machine.
+### 1. LinkedIn Job Automation
 
+Intelligent job search and application tracking system built with Python.
 
-#### Step 2
+### 2. RoboVision-3D
 
-- **Build your code** 🔨🔨🔨
+Computer vision system for indoor robotics with multi-sensor fusion (RGB-D cameras + LiDAR).
 
-#### Step 3
+### 3. AI Teaching Platform
 
-- 🔃 Create a new pull request.
+Production web platform with Claude API-powered chatbot deployed on Google Cloud Run.
+
+### 4. AI Agent Framework
+
+Multi-agent system integrating CLIP vision, GPT-3.5, and ChromaDB RAG.
+
+### 5. Edge Detection ROS Challenge
+
+3D vision system with real-time image processing using ROS.
+
+### 6. Industrial Signal Processing
+
+Neural networks for predictive maintenance in manufacturing environments.
+
+### 7. Robotic Automation Platform
+
+Multi-DOF robotic arm with omnidirectional base for factory automation.
+
+## Setup & Deployment 📦
+
+This portfolio is deployed using **GitHub Pages**. To view it live:
+
+👉 **[Visit Portfolio](https://thiyanayugi.github.io)**
+
+### Local Development
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/thiyanayugi/thiyanayugi.github.io.git
+cd thiyanayugi.github.io
+```
+
+2. Open `index.html` in your browser or use a local server:
+
+```bash
+python -m http.server 8000
+```
+
+3. Visit `http://localhost:8000`
+
+## Customization 🎨
+
+To customize this portfolio for your own use:
+
+1. Update personal information in `index.html`
+2. Replace profile photo in `/assets/img/`
+3. Add your resume to `/assets/resume/`
+4. Update project details and links
+5. Modify contact information
+6. Update company logos in `/assets/img/`
+
+## Contact 📫
+
+- **Email**: yugimariraj01@gmail.com
+- **Phone**: +49-163-4253579
+- **LinkedIn**: [thiyanayugi-mariraj-a2b1b820b](https://linkedin.com/in/thiyanayugi-mariraj-a2b1b820b)
+- **GitHub**: [thiyanayugi](https://github.com/thiyanayugi)
+- **Location**: Dortmund, Germany
 
 ## License 📄
-This project is licensed under the MIT License - see the [LICENSE.md](./LICENSE) file for details.
+
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+
+---
+
+**Original Template Credits**: Based on the portfolio template by [Varad Bhogayata](https://github.com/varadbhogayata/varadbhogayata.github.io)
+
+**Customized by**: Thiyanayugi Mariraj © 2025
+
+---
+
+<div align="center">
+  <b>Open to opportunities in Germany 🇩🇪</b>
+  <br>
+  <i>Building intelligent systems that bridge the gap between AI and the physical world</i>
+</div>
