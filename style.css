@@ -1892,3 +1892,122 @@ textarea.form-control {
   will-change: transform;
   transform: translate3d(0, 0, 0);
 }
+/* Education Carousel Styles */
+.education-carousel {
+  background: transparent;
+  border-radius: 14px;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+  position: relative;
+}
+
+.carousel-container {
+  position: relative;
+  margin-top: 1.5rem;
+  padding: 0 50px;
+}
+
+.carousel-track {
+  position: relative;
+  overflow: hidden;
+  min-height: 300px;
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  position: relative;
+}
+
+.carousel-slide.prev {
+  transform: translateX(-100%);
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(44, 62, 80, 0.1);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  color: var(--primary-dark);
+}
+
+.carousel-btn:hover {
+  background: white;
+  box-shadow: 0 4px 12px rgba(44, 62, 80, 0.15);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-btn-prev {
+  left: 0;
+}
+
+.carousel-btn-next {
+  right: 0;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1.5rem;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(44, 62, 80, 0.2);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.carousel-dot.active {
+  background: var(--accent-warm);
+  width: 24px;
+  border-radius: 5px;
+}
+
+.carousel-dot:hover:not(.active) {
+  background: rgba(44, 62, 80, 0.4);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .carousel-container {
+    padding: 0 40px;
+  }
+  
+  .carousel-btn {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .carousel-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+}

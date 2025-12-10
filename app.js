@@ -135,11 +135,64 @@ function contact(){
   }); 
 }
 
+// --- Education Carousel ----------------------------------------------------
+function educationCarousel() {
+  const track = q('.carousel-track');
+  if (!track) return;
+  
+  const slides = qa('.carousel-slide');
+  const dots = qa('.carousel-dot');
+  const prevBtn = q('.carousel-btn-prev');
+  const nextBtn = q('.carousel-btn-next');
+  
+  if (!slides.length) return;
+  
+  let currentIndex = 0;
+  
+  function goToSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.remove('active', 'prev');
+      if (i === index) {
+        slide.classList.add('active');
+      } else if (i < index) {
+        slide.classList.add('prev');
+      }
+    });
+    
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+    
+    currentIndex = index;
+  }
+  
+  function nextSlide() {
+    const next = (currentIndex + 1) % slides.length;
+    goToSlide(next);
+  }
+  
+  function prevSlide() {
+    const prev = (currentIndex - 1 + slides.length) % slides.length;
+    goToSlide(prev);
+  }
+  
+  if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+  if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+  
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => goToSlide(index));
+  });
+  
+  // Auto-advance every 5 seconds
+  setInterval(nextSlide, 5000);
+}
+
 // --- Init (critical first, extras deferred) --------------------------------
 document.addEventListener('DOMContentLoaded',()=>{
   typewriter();
   navigation();
   contact();
+  educationCarousel();
   (window.requestIdleCallback?requestIdleCallback:fn=>setTimeout(fn,50))(()=>{ parallax(); horizontalScroll(); rippleDelegated(); });
   document.body.classList.add('loaded');
 });
