@@ -2011,3 +2011,104 @@ textarea.form-control {
     height: 18px;
   }
 }
+
+/* Certificates Section */
+.certificates {
+  padding: 80px 0;
+  background: var(--wood-white);
+}
+
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.certificate-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(44, 62, 80, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(44, 62, 80, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+.certificate-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(44, 62, 80, 0.15);
+  border-color: var(--accent-warm);
+}
+
+.certificate-icon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, rgba(139, 115, 85, 0.1), rgba(44, 62, 80, 0.1));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: var(--accent-warm);
+}
+
+.certificate-card h3 {
+  font-size: 1.25rem;
+  color: var(--primary-dark);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.certificate-issuer {
+  font-size: 0.9rem;
+  color: var(--accent-warm);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.certificate-description {
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.certificate-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, var(--accent-warm), var(--primary-dark));
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.certificate-link:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(139, 115, 85, 0.3);
+  color: white;
+}
+
+.certificate-link svg {
+  flex-shrink: 0;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .certificates-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .certificate-card {
+    padding: 1.5rem;
+  }
+}
