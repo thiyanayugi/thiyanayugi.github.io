@@ -33,6 +33,26 @@
     <link rel="dns-prefetch" href="//linkedin.com">
 </head>
 <body>
+    <!-- Hamburger Menu Button -->
+    <button id="hamburger-menu" class="hamburger-menu" aria-label="Toggle navigation menu" style="display: flex !important; position: fixed !important; top: 20px !important; right: 20px !important; z-index: 99999 !important; background: rgba(255, 255, 255, 0.95) !important; border: 1px solid rgba(0, 0, 0, 0.1) !important; border-radius: 8px !important; cursor: pointer !important; padding: 12px !important; width: 50px !important; height: 50px !important; flex-direction: column !important; justify-content: center !important; align-items: center !important; gap: 6px !important; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important; transition: all 0.3s ease !important;">
+        <span class="hamburger-line" style="display: block !important; width: 26px !important; height: 3px !important; background: #2C3E50 !important; border-radius: 2px !important; transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;"></span>
+        <span class="hamburger-line" style="display: block !important; width: 26px !important; height: 3px !important; background: #2C3E50 !important; border-radius: 2px !important; transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;"></span>
+        <span class="hamburger-line" style="display: block !important; width: 26px !important; height: 3px !important; background: #2C3E50 !important; border-radius: 2px !important; transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;"></span>
+    </button>
+
+    <!-- Navigation Menu -->
+    <div class="nav-menu" id="nav-menu" style="position: fixed !important; top: 0 !important; right: -100% !important; width: 300px !important; height: 100vh !important; background: #ffffff !important; display: flex !important; flex-direction: column !important; justify-content: flex-start !important; align-items: center !important; gap: 0.5rem !important; padding: 70px 2rem 2rem 2rem !important; box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1) !important; transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important; z-index: 99998 !important; overflow-y: auto !important;">
+        <a href="#home" class="nav-link" style="color: #2C3E50 !important; text-decoration: none !important; font-size: 1.1rem !important; font-weight: 500 !important; width: 100% !important; text-align: center !important; padding: 0.75rem 0 !important; border-bottom: 1px solid #f0f0f0 !important;">Home</a>
+        <a href="#about" class="nav-link" style="color: #2C3E50 !important; text-decoration: none !important; font-size: 1.1rem !important; font-weight: 500 !important; width: 100% !important; text-align: center !important; padding: 0.75rem 0 !important; border-bottom: 1px solid #f0f0f0 !important;">About</a>
+        <a href="#skills" class="nav-link" style="color: #2C3E50 !important; text-decoration: none !important; font-size: 1.1rem !important; font-weight: 500 !important; width: 100% !important; text-align: center !important; padding: 0.75rem 0 !important; border-bottom: 1px solid #f0f0f0 !important;">Skills</a>
+        <a href="#experience" class="nav-link" style="color: #2C3E50 !important; text-decoration: none !important; font-size: 1.1rem !important; font-weight: 500 !important; width: 100% !important; text-align: center !important; padding: 0.75rem 0 !important; border-bottom: 1px solid #f0f0f0 !important;">Experience</a>
+        <a href="#projects" class="nav-link" style="color: #2C3E50 !important; text-decoration: none !important; font-size: 1.1rem !important; font-weight: 500 !important; width: 100% !important; text-align: center !important; padding: 0.75rem 0 !important; border-bottom: 1px solid #f0f0f0 !important;">Projects</a>
+        <a href="#certificates" class="nav-link" style="color: #2C3E50 !important; text-decoration: none !important; font-size: 1.1rem !important; font-weight: 500 !important; width: 100% !important; text-align: center !important; padding: 0.75rem 0 !important; border-bottom: 1px solid #f0f0f0 !important;">Certificates</a>
+        <a href="#publications" class="nav-link" style="color: #2C3E50 !important; text-decoration: none !important; font-size: 1.1rem !important; font-weight: 500 !important; width: 100% !important; text-align: center !important; padding: 0.75rem 0 !important; border-bottom: 1px solid #f0f0f0 !important;">Publications</a>
+        <a href="assets/resume/Resume_CV_Mariraj.pdf" class="nav-link" download style="color: #2C3E50 !important; text-decoration: none !important; font-size: 1.1rem !important; font-weight: 500 !important; width: 100% !important; text-align: center !important; padding: 0.75rem 0 !important; border-bottom: 1px solid #f0f0f0 !important;">Resume</a>
+        <a href="#contact" class="nav-link" style="color: #2C3E50 !important; text-decoration: none !important; font-size: 1.1rem !important; font-weight: 500 !important; width: 100% !important; text-align: center !important; padding: 0.75rem 0 !important;">Contact</a>
+    </div>
+
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
