@@ -110,7 +110,7 @@
                 <div class="about-photo">
                     <div class="photo-frame">
                         <picture>
-                            <img src="assets/img/passport-new.png" alt="Portrait of Thiyanayugi Mariraj" loading="lazy" decoding="async" width="400" height="500" />
+                            <img src="assets/img/passport-new.png" alt="Portrait of Thiyanayugi Mariraj" loading="lazy" decoding="async" width="400" height="600" />
                         </picture>
                     </div>
                 </div>
@@ -119,76 +119,50 @@
                     <div class="about-text">
             <p class="about-intro">I'm <strong>Thiyanayugi Mariraj</strong>, a Graduate Engineer in Automation and Robotics completing my Master's at <strong>Technical University Dortmund</strong>. I specialize in AI-driven systems, generative AI, and autonomous robotics, combining cutting-edge AI technologies with real-world robotic applications.</p>
             <p class="about-description">I have extensive experience in developing intelligent solutions using LLM fine-tuning, RAG architectures, knowledge graphs, and multi-agent systems. My expertise spans computer vision, sensor fusion, and ROS-based development, with proven ability to deploy scalable ML solutions on cloud platforms.</p>
-                        <div class="education-timeline">
-                            <div class="timeline-header">
+                        <div class="education-section">
+                            <div class="education-header">
                                 <div class="education-icon">🎓</div>
-                                <h3>Education Journey</h3>
+                                <h3>Education</h3>
                             </div>
                             
-                            <div class="timeline-container">
+                            <div class="education-cards">
                                 <!-- Master's Degree -->
-                                <div class="timeline-item timeline-item--left">
-                                    <div class="timeline-marker">
-                                        <div class="timeline-dot"></div>
-                                    </div>
-                                    <div class="timeline-content">
-                                        <div class="timeline-badge">Current</div>
-                                        <h4>Master of Science</h4>
-                                        <h5>Automation and Robotics</h5>
-                                        <div class="timeline-meta">
-                                            <span class="timeline-location">🏛️ Technical University Dortmund</span>
-                                            <span class="timeline-duration">📅 Oct 2022 - July 2026</span>
-                                        </div>
-                                        <div class="timeline-details">
-                                            <p><strong>Focus Areas:</strong></p>
-                                            <ul>
-                                                <li>AI-driven Systems & Generative AI</li>
-                                                <li>Computer Vision & Sensor Fusion</li>
-                                                <li>Autonomous Robotics</li>
-                                                <li>6G-enabled Collaborative Perception</li>
-                                            </ul>
-                                        </div>
+                                <div class="edu-card edu-card--current">
+                                    <div class="edu-badge">Current</div>
+                                    <h4>Master of Science</h4>
+                                    <h5>Automation and Robotics</h5>
+                                    <p class="edu-institution">🏛️ Technical University Dortmund</p>
+                                    <p class="edu-duration">📅 Oct 2022 - July 2026</p>
+                                    <div class="edu-focus">
+                                        <strong>Focus:</strong> AI-driven Systems, Computer Vision, Autonomous Robotics, 6G-enabled Collaborative Perception
                                     </div>
                                 </div>
                                 
                                 <!-- Bachelor's Degree -->
-                                <div class="timeline-item timeline-item--right">
-                                    <div class="timeline-marker">
-                                        <div class="timeline-dot"></div>
+                                <div class="edu-card edu-card--completed">
+                                    <div class="edu-badge edu-badge--completed">Completed</div>
+                                    <h4>Bachelor of Engineering</h4>
+                                    <h5>Robotics and Automation</h5>
+                                    <p class="edu-institution">🏛️ PSG College of Technology</p>
+                                    <p class="edu-duration">📅 July 2018 - May 2022</p>
+                                    <div class="edu-focus">
+                                        <strong>Focus:</strong> Industrial Automation, Mobile Robotics, Control Systems, Embedded Systems
                                     </div>
-                                    <div class="timeline-content">
-                                        <div class="timeline-badge timeline-badge--completed">Completed</div>
-                                        <h4>Bachelor of Engineering</h4>
-                                        <h5>Robotics and Automation</h5>
-                                        <div class="timeline-meta">
-                                            <span class="timeline-location">🏛️ PSG College of Technology</span>
-                                            <span class="timeline-duration">📅 July 2018 - May 2022</span>
-                                        </div>
-                                        <div class="timeline-details">
-                                            <p><strong>Focus Areas:</strong></p>
-                                            <ul>
-                                                <li>Industrial Automation</li>
-                                                <li>Mobile Robotics & Navigation</li>
-                                                <li>Control Systems</li>
-                                                <li>Embedded Systems</li>
-                                            </ul>
-                                        </div>
-                                        <div class="timeline-recommendations">
-                                            <h6>📜 Recommendation Letters</h6>
-                                            <div class="recommendation-links">
-                                                <a href="assets/recommendation letters/Letter of Recommendation - Dr.B.Vinod.pdf" target="_blank" class="rec-link">
-                                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
-                                                    </svg>
-                                                    Dr. B. Vinod
-                                                </a>
-                                                <a href="assets/recommendation letters/Letter of Recommendation - Dr.Suresh M.pdf" target="_blank" class="rec-link">
-                                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
-                                                    </svg>
-                                                    Dr. Suresh M
-                                                </a>
-                                            </div>
+                                    <div class="edu-recommendations">
+                                        <p class="rec-title">📜 Recommendations:</p>
+                                        <div class="rec-links">
+                                            <a href="assets/recommendation letters/Letter of Recommendation - Dr.B.Vinod.pdf" target="_blank" class="rec-btn">
+                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
+                                                </svg>
+                                                Dr. B. Vinod
+                                            </a>
+                                            <a href="assets/recommendation letters/Letter of Recommendation - Dr.Suresh M.pdf" target="_blank" class="rec-btn">
+                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
+                                                </svg>
+                                                Dr. Suresh M
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
