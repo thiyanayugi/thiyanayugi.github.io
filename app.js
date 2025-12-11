@@ -389,3 +389,20 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Hamburger or Nav Menu not found!');
     }
 });
+
+// ==========================================
+// HARDCODED HAMBURGER LOGIC
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const hardHamburger = document.getElementById('hardcoded-hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (hardHamburger && navMenu) {
+        hardHamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            // Also toggle the standard hamburger active state if it exists
+            const stdHamburger = document.querySelector('.hamburger');
+            if (stdHamburger) stdHamburger.classList.toggle('active');
+        });
+    }
+});
