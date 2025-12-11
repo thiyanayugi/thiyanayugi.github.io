@@ -6493,9 +6493,33 @@ img[width="400"] {
 }
 
 /* ========================================
-   DEBUG: FORCE MENU VISIBLE ALWAYS
+
+/* ========================================
+   FINAL MENU STYLES (Clean & Working)
    ======================================== */
 .nav-menu {
-  right: 0 !important; /* Show it immediately */
-  background: blue !important; /* Make it BLUE to be obvious */
+  background: #ffffff !important; /* White Background */
+  border-left: none !important; /* Remove debug border */
+  right: -350px !important; /* Start Hidden */
+  transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: -5px 0 20px rgba(0,0,0,0.1) !important;
+}
+
+.nav-menu.active {
+  right: 0 !important; /* Slide In */
+}
+
+.nav-link {
+  color: #0f172a !important; /* Dark Text */
+  font-size: 1.1rem !important;
+  font-weight: 500 !important;
+  padding: 1rem 2rem !important;
+  width: 100% !important;
+  text-align: center !important;
+  border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+}
+
+.nav-link:hover {
+  background: #f8fafc !important;
+  color: #0ea5e9 !important;
 }
