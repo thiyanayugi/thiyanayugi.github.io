@@ -5119,3 +5119,109 @@ h1.hero-title *,
     display: none !important; /* Use hamburger */
   }
 }
+
+/* ========================================
+   MINIMALIST HEADER & MOVING HERO
+   ======================================== */
+
+/* 1. HEADER - Minimalist (Hamburger Only) */
+.nav-menu {
+  display: none !important; /* Hide standard links everywhere */
+}
+
+.hamburger {
+  display: flex !important; /* Show hamburger everywhere */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 100%;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Ensure Logo is visible */
+.nav-logo a {
+  font-size: 1.2rem !important;
+  letter-spacing: 0.1em !important;
+}
+
+/* 2. HERO - Sophisticated Moving Background */
+.hero {
+  background: linear-gradient(-45deg, #0f172a, #1e293b, #0f172a, #1e1b4b) !important;
+  background-size: 400% 400% !important;
+  animation: gradientFlow 15s ease infinite !important;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Add a subtle grid overlay for tech feel */
+.hero::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px) !important;
+  background-size: 50px 50px !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Ensure content is above grid */
+.hero-container {
+  z-index: 2 !important;
+}
+
+/* Mobile Menu Styling (Full Screen Overlay) */
+.nav-menu.active {
+  display: flex !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100vh !important;
+  background: rgba(15, 23, 42, 0.98) !important;
+  backdrop-filter: blur(20px) !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 2rem !important;
+  z-index: 1000 !important;
+}
+
+.nav-menu.active .nav-link {
+  font-size: 1.5rem !important;
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Stagger animation for links */
+.nav-menu.active .nav-link:nth-child(1) { animation-delay: 0.1s; }
+.nav-menu.active .nav-link:nth-child(2) { animation-delay: 0.2s; }
+.nav-menu.active .nav-link:nth-child(3) { animation-delay: 0.3s; }
+.nav-menu.active .nav-link:nth-child(4) { animation-delay: 0.4s; }
+.nav-menu.active .nav-link:nth-child(5) { animation-delay: 0.5s; }
+.nav-menu.active .nav-link:nth-child(6) { animation-delay: 0.6s; }
+.nav-menu.active .nav-link:nth-child(7) { animation-delay: 0.7s; }
+.nav-menu.active .nav-link:nth-child(8) { animation-delay: 0.8s; }
+.nav-menu.active .nav-link:nth-child(9) { animation-delay: 0.9s; }
