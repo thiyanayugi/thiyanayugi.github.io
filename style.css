@@ -2046,7 +2046,7 @@ textarea.form-control {
 .certificate-icon {
   width: 64px;
   height: 64px;
-  background: linear-gradient(135deg, rgba(139, 115, 85, 0.1), rgba(44, 62, 80, 0.1));
+  background: transparent;
   border-radius: 12px;
   display: flex;
   align-items: center;
