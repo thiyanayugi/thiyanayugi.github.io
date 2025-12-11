@@ -4883,3 +4883,43 @@ h1.hero-title *,
     gap: 1rem !important;
   }
 }
+
+/* ========================================
+   FIX HERO CENTERING - Perfect + Optical Adjustment
+   ======================================== */
+
+.hero {
+  display: flex !important;
+  align-items: center !important; /* Vertical Center */
+  justify-content: center !important; /* Horizontal Center */
+  min-height: 100vh !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.hero-container {
+  width: 100% !important;
+  max-width: 1000px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 20px !important;
+  margin: 0 auto !important;
+  
+  /* OPTICAL LIFT - Move up slightly while staying centered */
+  transform: translateY(-40px) !important; 
+}
+
+.hero-content {
+  text-align: center !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Ensure no other padding interferes */
+.hero-text {
+  margin: 0 !important;
+  padding: 0 !important;
+}
