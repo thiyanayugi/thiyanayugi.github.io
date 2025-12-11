@@ -3567,3 +3567,28 @@ section {
     padding: 3rem 0;
   }
 }
+
+/* Fix Hero and Contact Text Visibility */
+.hero-title, .hero-subtitle, .hero p, .hero h1, .hero h2 {
+  color: #ffffff !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contact h2, .contact p, .contact a, .contact-info {
+  color: #ffffff !important;
+}
+
+.contact .section-title {
+  color: #ffffff !important;
+}
+
+.contact-link {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.contact-link:hover {
+  background: rgba(255, 255, 255, 0.3);
+  color: #ffffff !important;
+}
