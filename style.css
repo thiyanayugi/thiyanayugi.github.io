@@ -6248,3 +6248,68 @@ img[width="400"] {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* ========================================
+   FIX COLOR CONTRAST - Projects & Filters
+   ======================================== */
+
+/* 1. Project Cards - Ensure Visibility */
+.project-card {
+  background: #ffffff !important; /* Pure White Card */
+  border: 1px solid #e2e8f0 !important; /* Light border */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+}
+
+.project-header h3 {
+  color: #0f172a !important; /* Dark Slate (Almost Black) */
+  font-weight: 700 !important;
+  font-size: 1.25rem !important;
+}
+
+.project-description p {
+  color: #475569 !important; /* Slate Gray for text */
+  font-size: 0.95rem !important;
+  line-height: 1.6 !important;
+}
+
+/* 2. Tech Tags - Better Contrast */
+.tech-tag {
+  background: #e0f2fe !important; /* Light Blue Bg */
+  color: #0369a1 !important; /* Dark Blue Text */
+  font-weight: 600 !important;
+  border: none !important;
+}
+
+/* 3. Filter Buttons - Visible Text */
+.filter-btn {
+  color: #64748b !important; /* Visible Gray */
+  border-color: #cbd5e1 !important;
+  background: #ffffff !important;
+}
+
+.filter-btn:hover {
+  color: #0ea5e9 !important;
+  border-color: #0ea5e9 !important;
+  background: #f0f9ff !important;
+}
+
+.filter-btn.active {
+  background: #0ea5e9 !important; /* Blue Active */
+  color: #ffffff !important; /* White Text */
+  border-color: #0ea5e9 !important;
+}
+
+/* 4. Links */
+.project-link {
+  color: #0f172a !important; /* Dark Link */
+  font-weight: 600 !important;
+}
+
+.project-link:hover {
+  color: #0ea5e9 !important;
+}
+
+/* 5. Section Background */
+.projects {
+  background: #f8fafc !important; /* Very Light Gray Section Bg */
+}
