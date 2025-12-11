@@ -6381,3 +6381,49 @@ img[width="400"] {
 .hamburger.active span:nth-child(3) {
   transform: translateY(-11px) rotate(-45deg) !important;
 }
+
+/* ========================================
+   FORCE HAMBURGER VISIBILITY (ALL SCREENS)
+   ======================================== */
+
+/* 1. Show Hamburger ALWAYS */
+.hamburger {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: fixed !important; /* Fixed to viewport to guarantee visibility */
+  top: 25px !important;
+  right: 25px !important;
+  z-index: 2147483647 !important; /* Max Z-Index */
+  background: rgba(255, 255, 255, 0.9) !important; /* White background box */
+  padding: 8px !important;
+  border-radius: 5px !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+}
+
+/* 2. Hide Desktop Menu Links (since we are using hamburger) */
+.nav-menu {
+  display: flex !important;
+  position: fixed !important;
+  top: 0 !important;
+  right: -350px !important; /* Start hidden */
+  width: 300px !important;
+  height: 100vh !important;
+  background: #ffffff !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  transition: right 0.3s ease !important;
+}
+
+.nav-menu.active {
+  right: 0 !important;
+}
+
+/* 3. Ensure Links are visible inside the menu */
+.nav-link {
+  display: block !important;
+  color: #0f172a !important;
+  font-size: 1.2rem !important;
+  margin: 1rem 0 !important;
+}
