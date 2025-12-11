@@ -5925,3 +5925,27 @@ img[width="400"] {
 .about-photo {
   flex: 0 0 45% !important; /* Exactly 45% */
 }
+
+/* ========================================
+   HERO VISUAL - REAL NEURAL NETWORK (CANVAS)
+   ======================================== */
+
+/* 1. Hide old CSS rings */
+.hero-visual-content {
+  background: none !important;
+  box-shadow: none !important;
+  animation: none !important;
+  width: 100% !important;
+  height: 400px !important;
+}
+
+.ring, .core, .hero-visual-content::after, .hero-visual-content::before {
+  display: none !important;
+}
+
+/* 2. Canvas Styling */
+#neural-canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+}
