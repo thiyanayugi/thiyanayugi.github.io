@@ -446,3 +446,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// ==========================================
+// GLOBAL TOGGLE FUNCTION (Direct Access)
+// ==========================================
+window.toggleMenu = function() {
+    const navMenu = document.querySelector('.nav-menu');
+    const hamburger = document.getElementById('fixed-hamburger');
+    const span1 = document.getElementById('span1');
+    const span2 = document.getElementById('span2');
+    const span3 = document.getElementById('span3');
+
+    if (navMenu) {
+        navMenu.classList.toggle('active');
+        
+        // Manual Animation
+        if (navMenu.classList.contains('active')) {
+            if(span1) span1.style.transform = 'translateY(8px) rotate(45deg)';
+            if(span2) span2.style.opacity = '0';
+            if(span3) span3.style.transform = 'translateY(-8px) rotate(-45deg)';
+        } else {
+            if(span1) span1.style.transform = 'none';
+            if(span2) span2.style.opacity = '1';
+            if(span3) span3.style.transform = 'none';
+        }
+    } else {
+        console.error('Nav Menu not found!');
+        alert('Menu not found!'); // Debug alert
+    }
+}

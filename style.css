@@ -6427,3 +6427,75 @@ img[width="400"] {
   font-size: 1.2rem !important;
   margin: 1rem 0 !important;
 }
+
+/* ========================================
+   ENSURE MENU SLIDE-IN
+   ======================================== */
+.nav-menu {
+  position: fixed !important;
+  top: 0 !important;
+  right: -350px !important; /* Start Hidden */
+  width: 300px !important;
+  height: 100vh !important;
+  background: #ffffff !important;
+  z-index: 99998 !important; /* Below hamburger */
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  transition: right 0.3s ease-in-out !important;
+  box-shadow: -5px 0 15px rgba(0,0,0,0.1) !important;
+}
+
+.nav-menu.active {
+  right: 0 !important; /* Slide In */
+}
+
+/* ========================================
+   FORCE MENU VISIBILITY (DEBUG)
+   ======================================== */
+
+.nav-menu {
+  /* Force Display */
+  display: flex !important;
+  flex-direction: column !important;
+  
+  /* Force Position */
+  position: fixed !important;
+  top: 0 !important;
+  right: -350px !important; /* Start hidden */
+  width: 300px !important;
+  height: 100vh !important;
+  
+  /* Force Appearance */
+  background: #0f172a !important; /* Dark Blue */
+  border-left: 5px solid red !important; /* Debug Border */
+  z-index: 99990 !important; /* High Z-Index */
+  
+  /* Force Transition */
+  transition: right 0.3s ease-in-out !important;
+}
+
+.nav-menu.active {
+  right: 0 !important; /* Slide In */
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Force Links to be visible */
+.nav-link {
+  display: block !important;
+  color: white !important;
+  font-size: 1.5rem !important;
+  padding: 1rem !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* ========================================
+   DEBUG: FORCE MENU VISIBLE ALWAYS
+   ======================================== */
+.nav-menu {
+  right: 0 !important; /* Show it immediately */
+  background: blue !important; /* Make it BLUE to be obvious */
+}
