@@ -219,10 +219,21 @@ document.addEventListener('DOMContentLoaded', () => {
 document.getElementById('contact-form').addEventListener('submit', function(event) {
     event.preventDefault();
     
+    const submitButton = event.target.querySelector('button[type="submit"]');
+    const originalText = submitButton.textContent;
+    submitButton.textContent = 'Sending...';
+    submitButton.disabled = true;
+    
+    // Send confirmation email to the user
     emailjs.sendForm('service_uore6zr', 'template_qzn9hoa', this)
         .then(function() {
-            alert('Message sent successfully!');
+            alert('Thank you! Your message has been sent successfully. You will receive a confirmation email shortly.');
+            document.getElementById('contact-form').reset();
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
         }, function(error) {
             alert('Failed to send message: ' + JSON.stringify(error));
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
         });
 });
