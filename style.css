@@ -4923,3 +4923,199 @@ h1.hero-title *,
   margin: 0 !important;
   padding: 0 !important;
 }
+
+/* ========================================
+   🚨 EMERGENCY REDESIGN - PROFESSIONAL STANDARD
+   ======================================== */
+
+/* 1. RESET HEADER - Standard Professional Layout */
+.navbar {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 80px !important;
+  background: rgba(15, 23, 42, 0.9) !important; /* Dark Slate */
+  backdrop-filter: blur(10px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  display: flex !important;
+  align-items: center !important;
+  z-index: 1000 !important;
+  padding: 0 !important;
+}
+
+.nav-container {
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 20px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+/* Restore Name/Logo on Left */
+.nav-logo {
+  display: block !important;
+}
+
+.nav-logo a {
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  text-decoration: none !important;
+}
+
+/* Nav Menu on Right */
+.nav-menu {
+  display: flex !important;
+  gap: 2rem !important;
+  width: auto !important;
+}
+
+.nav-link {
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  transition: color 0.3s ease !important;
+}
+
+.nav-link:hover {
+  color: #ffffff !important;
+}
+
+/* 2. RESET HERO - Clean Tech Look */
+.hero {
+  position: relative !important;
+  min-height: 100vh !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 80px 20px 0 20px !important; /* Account for fixed header */
+  background: #0f172a !important; /* Dark Slate Base */
+  overflow: hidden !important;
+}
+
+/* Remove old particles */
+.hero-particles, .particle {
+  display: none !important;
+}
+
+/* New Professional Background Effect */
+.hero::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: 
+    radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.08) 0%, transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 25%) !important;
+  z-index: 0 !important;
+}
+
+.hero-container {
+  position: relative !important;
+  z-index: 1 !important;
+  max-width: 900px !important;
+  width: 100% !important;
+  text-align: center !important;
+  transform: none !important; /* Remove offsets */
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+.hero-content {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 1.5rem !important;
+}
+
+/* Typography Fixes */
+.hero-kicker {
+  color: #38bdf8 !important; /* Light Blue */
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  margin: 0 !important;
+}
+
+.hero-title {
+  font-size: 3.5rem !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  line-height: 1.1 !important;
+  margin: 0 !important;
+  letter-spacing: -0.02em !important;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem !important;
+  color: #94a3b8 !important; /* Slate Gray */
+  font-weight: 400 !important;
+  margin: 0 !important;
+  max-width: 800px !important;
+}
+
+.hero-location {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  color: #cbd5e1 !important;
+  font-size: 1rem !important;
+  margin: 0.5rem 0 !important;
+}
+
+.hero-description {
+  font-size: 1.1rem !important;
+  line-height: 1.6 !important;
+  color: #94a3b8 !important;
+  max-width: 600px !important;
+  margin: 0 auto !important;
+}
+
+/* Buttons */
+.hero-buttons {
+  display: flex !important;
+  gap: 1rem !important;
+  margin-top: 1rem !important;
+}
+
+.btn--primary {
+  background: #38bdf8 !important;
+  color: #0f172a !important;
+  border: none !important;
+  font-weight: 600 !important;
+}
+
+.btn--primary:hover {
+  background: #0ea5e9 !important;
+}
+
+.btn--outline {
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+}
+
+.btn--outline:hover {
+  border-color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem !important;
+  }
+  .nav-menu {
+    display: none !important; /* Use hamburger */
+  }
+}
