@@ -6523,3 +6523,32 @@ img[width="400"] {
   background: #f8fafc !important;
   color: #0ea5e9 !important;
 }
+
+/* ========================================
+   CRITICAL MENU FIX - SPECIFICITY & Z-INDEX
+   ======================================== */
+
+/* Target by ID for max specificity */
+#nav-menu {
+  position: fixed !important;
+  top: 0 !important;
+  right: -350px !important; /* Start Hidden */
+  width: 300px !important;
+  height: 100vh !important;
+  background: #ffffff !important;
+  z-index: 2147483646 !important; /* Just below hamburger (..47) */
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: -10px 0 30px rgba(0,0,0,0.15) !important;
+}
+
+/* When Active (Class added by JS) */
+#nav-menu.active {
+  right: 0 !important; /* FORCE VISIBLE */
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
