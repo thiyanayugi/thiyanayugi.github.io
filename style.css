@@ -3056,3 +3056,45 @@ textarea.form-control {
     font-size: 0.8rem;
   }
 }
+
+/* Education Cards with University Logos */
+.education-section--centered .edu-card {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.edu-logo {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.edu-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.edu-content-main {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .education-section--centered .edu-card {
+    flex-direction: column;
+  }
+  
+  .edu-logo {
+    width: 60px;
+    height: 60px;
+  }
+}
