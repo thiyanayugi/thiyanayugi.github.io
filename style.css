@@ -6714,19 +6714,26 @@ img[width="400"] {
   }
   
   /* About Section Mobile */
-  .about-container {
+  .about-content {
+    display: flex !important;
     flex-direction: column !important;
     gap: 2rem !important;
   }
   
-  .about-image {
+  .about-photo {
+    order: 1 !important;
     width: 100% !important;
     max-width: 300px !important;
     margin: 0 auto !important;
   }
   
-  .about-content {
+  .about-main {
+    order: 2 !important;
     width: 100% !important;
+  }
+  
+  .about-content--with-photo {
+    flex-direction: column !important;
   }
   
   /* Skills Section Mobile */
