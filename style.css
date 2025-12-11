@@ -4106,3 +4106,130 @@ h1.hero-title *,
   backdrop-filter: blur(10px) !important;
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
+
+/* ========================================
+   REVERT TO LIGHT THEME (Video-like Motion)
+   ======================================== */
+
+/* Hero Section - Light Background with Motion */
+.hero {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* Animated Gradient Overlay */
+.hero::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -50% !important;
+  left: -50% !important;
+  width: 200% !important;
+  height: 200% !important;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(139, 115, 85, 0.08) 0%, transparent 50%) !important;
+  animation: gradientMove 15s ease-in-out infinite !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+.hero::after {
+  display: none !important;
+}
+
+/* Hero Content - Dark Text */
+.hero-content {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.hero h1, .hero .hero-title,
+.hero h2, .hero .hero-subtitle,
+.hero p, .hero .hero-kicker,
+.hero .hero-location, .hero .hero-description {
+  color: var(--primary-dark) !important;
+  -webkit-text-fill-color: var(--primary-dark) !important;
+  text-shadow: none !important;
+}
+
+/* Force Hero Title Dark */
+.hero-title,
+.hero-title *,
+.hero-title span.typewriter {
+  color: var(--primary-dark) !important;
+  -webkit-text-fill-color: var(--primary-dark) !important;
+  text-shadow: none !important;
+}
+
+/* Contact Section - Light Background */
+.contact {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.contact::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -50% !important;
+  right: -50% !important;
+  width: 200% !important;
+  height: 200% !important;
+  background: 
+    radial-gradient(circle at 80% 50%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(118, 75, 162, 0.1) 0%, transparent 50%) !important;
+  animation: gradientMove 15s ease-in-out infinite reverse !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+.contact::after {
+  display: none !important;
+}
+
+/* Contact Text - Dark */
+.contact h2, .contact h3, .contact p,
+.contact .section-title,
+.contact-info h3,
+.contact-info p,
+.contact .form-label {
+  color: var(--primary-dark) !important;
+  text-shadow: none !important;
+}
+
+/* Contact Links - Dark with Light Purple Bg */
+.contact-link {
+  background: rgba(102, 126, 234, 0.1) !important;
+  border: 2px solid rgba(102, 126, 234, 0.3) !important;
+  color: var(--primary-dark) !important;
+}
+
+.contact-link:hover {
+  background: rgba(102, 126, 234, 0.2) !important;
+  border-color: rgba(102, 126, 234, 0.5) !important;
+  color: var(--primary-dark) !important;
+}
+
+/* Contact Form - White Bg */
+.contact .form-control {
+  background: #ffffff !important;
+  border: 2px solid rgba(102, 126, 234, 0.2) !important;
+  color: var(--primary-dark) !important;
+}
+
+.contact .form-control:focus {
+  border-color: rgba(102, 126, 234, 0.5) !important;
+}
+
+.contact .btn--primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: #ffffff !important;
+}
+
+.contact-form-container {
+  background: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(102, 126, 234, 0.2) !important;
+}
