@@ -4809,3 +4809,77 @@ h1.hero-title *,
     display: block !important;
   }
 }
+
+/* ========================================
+   FINAL ADJUSTMENTS - Hero Position, Header Name, Footer
+   ======================================== */
+
+/* 1. HERO - Move Content Up */
+.hero {
+  padding-top: 60px !important; /* Reduced from 100px */
+  align-items: flex-start !important; /* Align to top to allow manual spacing */
+}
+
+.hero-container {
+  padding-top: 2rem !important; /* Reduced from 4rem */
+  margin-top: 40px !important; /* Fine-tune position */
+}
+
+/* 2. HEADER - Remove Name */
+.nav-logo {
+  display: none !important; /* Hide the name/logo */
+}
+
+.nav-container {
+  justify-content: center !important; /* Center the menu since logo is gone */
+}
+
+.nav-menu {
+  width: 100% !important;
+  justify-content: center !important; /* Center links */
+  gap: 2.5rem !important;
+}
+
+/* 3. FOOTER - Compact & Clean */
+.footer {
+  padding: 1.5rem 0 !important; /* Reduced padding */
+  background: #0a151a !important; /* Darker, cleaner background */
+  border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+.footer-content {
+  flex-direction: row !important; /* Horizontal layout */
+  justify-content: space-between !important;
+  align-items: center !important;
+  max-width: 1000px !important;
+  margin: 0 auto !important;
+  gap: 0 !important;
+}
+
+.footer p {
+  font-size: 0.85rem !important;
+  opacity: 0.6 !important;
+  margin: 0 !important;
+}
+
+.footer-socials {
+  margin-top: 0 !important;
+  gap: 1.5rem !important;
+}
+
+.footer-social-link svg {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 80px !important;
+  }
+  
+  .footer-content {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+}
