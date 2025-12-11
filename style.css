@@ -3700,3 +3700,41 @@ section {
 .project-link {
   border: none !important;
 }
+
+/* FORCE HERO NAME VISIBILITY - Target typewriter span specifically */
+.hero-title .typewriter,
+.hero-title span,
+.hero h1 span,
+span.typewriter {
+  color: #ffffff !important;
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: #ffffff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: inline !important;
+}
+
+/* Fix Contact Links - Remove blocking styles */
+.contact-link {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+  background: rgba(255, 255, 255, 0.25) !important;
+  transform: translateY(-2px);
+}
+
+.contact-link svg {
+  fill: currentColor;
+}
