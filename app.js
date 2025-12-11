@@ -213,13 +213,13 @@ document.addEventListener('DOMContentLoaded', () => {
 // EMAILJS CONTACT FORM
 // ==========================================
 (function() {
-    emailjs.init("YOUR_PUBLIC_KEY");
+    emailjs.init("h81hTW_zBRE5hrLhv");
 })();
 
 document.getElementById('contact-form').addEventListener('submit', function(event) {
     event.preventDefault();
     
-    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+    emailjs.sendForm('service_uore6zr', 'template_qzn9hoa', this)
         .then(function() {
             alert('Message sent successfully!');
         }, function(error) {
