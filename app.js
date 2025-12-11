@@ -406,3 +406,43 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// ==========================================
+// FINAL HAMBURGER LOGIC
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const fixedHamburger = document.getElementById('fixed-hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (fixedHamburger && navMenu) {
+        fixedHamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            fixedHamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            
+            // Animate Spans (Simple Transform)
+            const spans = fixedHamburger.querySelectorAll('span');
+            if (fixedHamburger.classList.contains('active')) {
+                spans[0].style.transform = 'translateY(8px) rotate(45deg)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        });
+
+        // Close on Link Click
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                fixedHamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                const spans = fixedHamburger.querySelectorAll('span');
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            });
+        });
+    }
+});
