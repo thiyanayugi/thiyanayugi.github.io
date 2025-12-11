@@ -1,4 +1,48 @@
 // ==========================================
+// TYPEWRITER EFFECT FOR HERO SUBTITLE
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const typewriterElement = document.querySelector('.typewriter-subtitle');
+    
+    if (typewriterElement) {
+        const textsString = typewriterElement.getAttribute('data-texts');
+        const texts = textsString ? textsString.split(',') : ['AI Engineer & Robotics Specialist'];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 100;
+        
+        function type() {
+            const currentText = texts[textIndex];
+            
+            if (isDeleting) {
+                typewriterElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+                typingSpeed = 50;
+            } else {
+                typewriterElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+                typingSpeed = 100;
+            }
+            
+            if (!isDeleting && charIndex === currentText.length) {
+                // Pause at end of text
+                typingSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+                typingSpeed = 500;
+            }
+            
+            setTimeout(type, typingSpeed);
+        }
+        
+        type();
+    }
+});
+
+// ==========================================
 // HAMBURGER MENU FUNCTIONALITY
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
