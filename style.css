@@ -4274,3 +4274,82 @@ h1.hero-title *,
   background: rgba(255, 255, 255, 0.3) !important;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.2) !important;
 }
+
+/* ========================================
+   DARK BLUE THEME - Hero & Contact
+   ======================================== */
+
+/* Hero Section - Dark Blue Animated */
+.hero {
+  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1a2a6c) !important;
+  background-size: 400% 400% !important;
+  animation: gradientBG 15s ease infinite !important;
+  position: relative !important;
+}
+
+/* Contact Section - Dark Blue Animated */
+.contact {
+  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1a2a6c) !important;
+  background-size: 400% 400% !important;
+  animation: gradientBG 15s ease infinite !important;
+  position: relative !important;
+}
+
+/* Ensure Text is White */
+.hero h1, .hero .hero-title,
+.hero h2, .hero .hero-subtitle,
+.hero p, .hero .hero-kicker,
+.hero .hero-location, .hero .hero-description,
+.hero-title *,
+.hero-title span.typewriter,
+.contact h2, .contact h3, .contact p,
+.contact .section-title,
+.contact-info h3,
+.contact-info p,
+.contact .form-label {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3) !important;
+}
+
+/* Contact Links - White with Blue Tint */
+.contact-link {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+}
+
+.contact-link:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Contact Form - Glassmorphism */
+.contact-form-container {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.contact .form-control {
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: #0f2027 !important;
+  border: none !important;
+}
+
+.contact .form-control:focus {
+  background: #ffffff !important;
+  box-shadow: 0 0 0 3px rgba(44, 83, 100, 0.3) !important;
+}
+
+.contact .btn--primary {
+  background: linear-gradient(135deg, #2c5364 0%, #203a43 100%) !important;
+  border: 1px solid rgba(255,255,255,0.2) !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+}
+
+.contact .btn--primary:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3) !important;
+  background: linear-gradient(135deg, #203a43 0%, #2c5364 100%) !important;
+}
