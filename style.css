@@ -6313,3 +6313,71 @@ img[width="400"] {
 .projects {
   background: #f8fafc !important; /* Very Light Gray Section Bg */
 }
+
+/* ========================================
+   FINAL CLEANUP & RESTORATION
+   ======================================== */
+
+/* 1. Projects Background - MATCH OTHER SECTIONS (WHITE) */
+.projects {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+}
+
+/* 2. Hamburger - FORCE VISIBILITY & POSITION */
+.hamburger {
+  display: flex !important;
+  position: relative !important; /* Inside the flex header */
+  width: 30px !important;
+  height: 24px !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  cursor: pointer !important;
+  z-index: 2000 !important;
+  margin-left: auto !important; /* Push to right if needed */
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.hamburger span {
+  display: block !important;
+  width: 100% !important;
+  height: 3px !important;
+  background-color: #0f172a !important; /* Dark color for visibility on white/glass */
+  border-radius: 3px !important;
+  transition: all 0.3s ease !important;
+}
+
+/* 3. Nav Menu - SLIDE IN FROM RIGHT */
+.nav-menu {
+  position: fixed !important;
+  top: 0 !important;
+  right: -320px !important; /* Hidden */
+  width: 300px !important;
+  height: 100vh !important;
+  background: #ffffff !important; /* White menu */
+  box-shadow: -5px 0 15px rgba(0,0,0,0.1) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 2rem !important;
+  transition: right 0.3s ease-in-out !important;
+  z-index: 1999 !important;
+}
+
+.nav-menu.active {
+  right: 0 !important; /* Visible */
+}
+
+/* 4. Hamburger Animation */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg) !important;
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0 !important;
+}
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-11px) rotate(-45deg) !important;
+}

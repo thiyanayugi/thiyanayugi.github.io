@@ -350,3 +350,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// ==========================================
+// RESTORED HAMBURGER LOGIC
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (hamburger && navMenu) {
+        // Clone to remove old listeners
+        const newHamburger = hamburger.cloneNode(true);
+        hamburger.parentNode.replaceChild(newHamburger, hamburger);
+
+        newHamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            newHamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            console.log('Hamburger clicked');
+        });
+
+        // Close when clicking links
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                newHamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Close when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!newHamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                newHamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    } else {
+        console.error('Hamburger or Nav Menu not found!');
+    }
+});
