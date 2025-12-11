@@ -33,12 +33,6 @@
     <link rel="dns-prefetch" href="//linkedin.com">
 </head>
 <body>
-    <!-- Standalone Hamburger -->
-    <div id="standalone-hamburger" class="hamburger-fixed">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -478,7 +472,7 @@
                 </div>
 
                 <!-- Project 3: RoboVision-3D -->
-                <div class="project-card" data-category="ai cv">
+                <div class="project-card" data-category="robotics cv ai">
                     <div class="project-header">
                         <h3>RoboVision-3D</h3>
                         <div class="project-tech">
@@ -502,7 +496,7 @@
                 </div>
 
                 <!-- Project 4: AI Teaching Platform -->
-                <div class="project-card" data-category="ai cv">
+                <div class="project-card" data-category="ai automation">
                     <div class="project-header">
                         <h3>AI Teaching Platform</h3>
                         <div class="project-tech">
@@ -525,7 +519,7 @@
                 </div>
 
                 <!-- Project 5: AI Agent Framework -->
-                <div class="project-card" data-category="ai cv">
+                <div class="project-card" data-category="ai automation">
                     <div class="project-header">
                         <h3>AI Agent Framework</h3>
                         <div class="project-tech">
@@ -549,7 +543,7 @@
                 </div>
 
                 <!-- Project 6: Industrial Signal Processing -->
-                <div class="project-card" data-category="ai cv">
+                <div class="project-card" data-category="ai automation">
                     <div class="project-header">
                         <h3>Industrial Signal Processing</h3>
                         <div class="project-tech">
@@ -572,7 +566,7 @@
                 </div>
 
                 <!-- Project 7: Edge Detection ROS -->
-                <div class="project-card" data-category="ai cv">
+                <div class="project-card" data-category="robotics cv">
                     <div class="project-header">
                         <h3>Edge Detection ROS Challenge</h3>
                         <div class="project-tech">
@@ -593,7 +587,7 @@
                 </div>
 
                 <!-- Project 8: Robotic Automation Platform -->
-                <div class="project-card" data-category="ai cv">
+                <div class="project-card" data-category="robotics automation">
                     <div class="project-header">
                         <h3>Robotic Automation Platform</h3>
                         <div class="project-tech">
@@ -844,51 +838,5 @@
     <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="app.js" defer></script>
-<script>
-    // New Hamburger Logic
-    const newHamburger = document.getElementById("standalone-hamburger");
-    const navMenu = document.querySelector(".nav-menu");
-    if(newHamburger) {
-        newHamburger.addEventListener("click", () => {
-            newHamburger.classList.toggle("active");
-            navMenu.classList.toggle("active");
-            
-            // Animate Hamburger to X
-            const spans = newHamburger.querySelectorAll("span");
-            if(newHamburger.classList.contains("active")) {
-                spans[0].style.transform = "rotate(45deg) translate(6px, 6px)";
-                spans[1].style.opacity = "0";
-                spans[2].style.transform = "rotate(-45deg) translate(6px, -6px)";
-            } else {
-                spans[0].style.transform = "none";
-                spans[1].style.opacity = "1";
-                spans[2].style.transform = "none";
-            }
-        });
-    }
-document.addEventListener("DOMContentLoaded", function() {
-    const buttons = document.querySelectorAll(".filter-btn");
-    const cards = document.querySelectorAll(".project-card");
-    
-    buttons.forEach(btn => {
-        btn.addEventListener("click", function() {
-            // Active State
-            buttons.forEach(b => b.classList.remove("active"));
-            this.classList.add("active");
-            
-            const filter = this.getAttribute("data-filter");
-            
-            cards.forEach(card => {
-                const categories = card.getAttribute("data-category");
-                if (filter === "all" || categories.includes(filter)) {
-                    card.classList.remove("hidden");
-                } else {
-                    card.classList.add("hidden");
-                }
-            });
-        });
-    });
-});
-</script>
 </body>
 </html>

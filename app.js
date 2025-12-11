@@ -280,3 +280,73 @@ filterBtns.forEach(btn => {
         });
     });
 });
+
+// ==========================================
+// ROBUST PROJECT FILTERING
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    console.log('Found filter buttons:', filterBtns.length);
+    console.log('Found project cards:', projectCards.length);
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent any default behavior
+            
+            // Remove active class from all
+            filterBtns.forEach(b => b.classList.remove('active'));
+            // Add active to clicked
+            btn.classList.add('active');
+            
+            const filter = btn.getAttribute('data-filter');
+            console.log('Filtering by:', filter);
+            
+            projectCards.forEach(card => {
+                const categories = card.getAttribute('data-category') || '';
+                
+                if (filter === 'all' || categories.includes(filter)) {
+                    card.classList.remove('hidden');
+                    // Reset animation
+                    card.style.animation = 'none';
+                    card.offsetHeight; /* trigger reflow */
+                    card.style.animation = 'fadeIn 0.5s ease forwards';
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        });
+    });
+});
+
+// ==========================================
+// PROJECT FILTERING LOGIC
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterBtns.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked button
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter');
+
+            projectCards.forEach(card => {
+                const categories = card.getAttribute('data-category');
+                
+                if (filterValue === 'all' || (categories && categories.includes(filterValue))) {
+                    card.classList.remove('hide');
+                    card.classList.add('show');
+                } else {
+                    card.classList.add('hide');
+                    card.classList.remove('show');
+                }
+            });
+        });
+    });
+});

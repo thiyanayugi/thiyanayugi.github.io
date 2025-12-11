@@ -6195,3 +6195,56 @@ img[width="400"] {
   border-radius: 20px !important;
   font-size: 0.8rem !important;
 }
+
+/* ========================================
+   PROJECT FILTERING STYLES
+   ======================================== */
+
+.project-filters {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 1rem !important;
+  margin-bottom: 3rem !important;
+  flex-wrap: wrap !important;
+}
+
+.filter-btn {
+  background: transparent !important;
+  border: 1px solid rgba(56, 189, 248, 0.3) !important;
+  color: #94a3b8 !important;
+  padding: 0.5rem 1.5rem !important;
+  border-radius: 20px !important;
+  cursor: pointer !important;
+  font-size: 0.9rem !important;
+  transition: all 0.3s ease !important;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: rgba(56, 189, 248, 0.1) !important;
+  border-color: #38bdf8 !important;
+  color: #38bdf8 !important;
+}
+
+/* Animation for filtering */
+.project-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.project-card.hide {
+  opacity: 0 !important;
+  transform: scale(0.9) !important;
+  display: none !important; /* Hide completely */
+}
+
+.project-card.show {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  display: flex !important; /* Restore display */
+  animation: fadeInCard 0.5s ease forwards !important;
+}
+
+@keyframes fadeInCard {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
