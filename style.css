@@ -4233,3 +4233,44 @@ h1.hero-title *,
   backdrop-filter: blur(10px) !important;
   border: 1px solid rgba(102, 126, 234, 0.2) !important;
 }
+
+/* ========================================
+   ENHANCED HERO ANIMATION - Vibrant Mesh Gradient
+   ======================================== */
+
+.hero {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab) !important;
+  background-size: 400% 400% !important;
+  animation: gradientBG 15s ease infinite !important;
+  position: relative !important;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Ensure overlay doesn't hide it */
+.hero::before {
+  background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%) !important;
+  animation: none !important;
+}
+
+/* Make text white for contrast against vibrant bg */
+.hero h1, .hero .hero-title,
+.hero h2, .hero .hero-subtitle,
+.hero p, .hero .hero-kicker,
+.hero .hero-location, .hero .hero-description,
+.hero-title *,
+.hero-title span.typewriter {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+}
+
+/* Update particles to be white/transparent */
+.particle {
+  background: rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2) !important;
+}
