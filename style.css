@@ -3738,3 +3738,32 @@ span.typewriter {
 .contact-link svg {
   fill: currentColor;
 }
+
+/* NUCLEAR OPTION - FORCE NAME VISIBILITY */
+.hero-title,
+.hero-title *,
+h1.hero-title,
+h1.hero-title *,
+.hero-title span.typewriter,
+.typewriter {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  text-fill-color: #fff !important;
+  background: none !important;
+  background-image: none !important;
+  background-clip: border-box !important;
+  -webkit-background-clip: border-box !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: inline !important;
+  position: relative !important;
+  z-index: 999 !important;
+  font-size: 3.5rem !important;
+  font-weight: 700 !important;
+}
+
+/* Override ANY typewriter JS styles */
+[data-text]::before,
+[data-text]::after {
+  color: #fff !important;
+}
