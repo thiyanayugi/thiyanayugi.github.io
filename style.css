@@ -5949,3 +5949,29 @@ img[width="400"] {
   height: 100% !important;
   display: block !important;
 }
+
+/* ========================================
+   FINAL TWEAKS - Header Edge & Clean Icon
+   ======================================== */
+
+/* 1. Header - Absolute Right Edge */
+.nav-container {
+  padding-right: 10px !important; /* Minimal padding */
+  width: 100% !important;
+  max-width: none !important; /* Allow full width */
+}
+
+.hamburger {
+  margin-right: 10px !important; /* Push to very edge */
+}
+
+/* 2. Education Icon - Remove Box Background */
+.education-icon {
+  background: none !important; /* Remove bg color */
+  box-shadow: none !important; /* Remove shadow */
+  border: none !important; /* Remove border */
+  width: auto !important;
+  height: auto !important;
+  padding: 0 !important;
+  font-size: 3rem !important; /* Keep it big */
+}
