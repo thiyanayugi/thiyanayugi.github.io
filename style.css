@@ -1258,7 +1258,8 @@ h1, h2, h3, h4, h5, h6 {
   top: 0;
   bottom: 0;
   width: var(--spine-w);
-  background: linear-gradient(to bottom, rgba(44,62,80,0.25), rgba(139,115,85,0.25));
+  background: none;
+  border-left: 3px dotted rgba(139,115,85,0.4);
 }
 
 .experience-timeline .timeline-item {
