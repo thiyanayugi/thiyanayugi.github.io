@@ -5465,3 +5465,114 @@ h1.hero-title *,
   z-index: 10 !important;
   position: relative !important;
 }
+
+/* ========================================
+   HERO SPLIT LAYOUT (Left Text / Right Visual)
+   ======================================== */
+
+/* 1. Split Container */
+.hero-container {
+  display: grid !important;
+  grid-template-columns: 1.2fr 0.8fr !important; /* Text takes more space */
+  gap: 4rem !important;
+  align-items: center !important;
+  text-align: left !important; /* Left align text */
+  max-width: 1200px !important;
+  padding: 0 40px !important;
+  width: 100% !important;
+}
+
+/* 2. Left Side - Text Alignment */
+.hero-content {
+  align-items: flex-start !important; /* Left align flex items */
+  text-align: left !important;
+}
+
+.hero-text {
+  align-items: flex-start !important;
+  text-align: left !important;
+}
+
+.hero-description {
+  margin: 0 0 2rem 0 !important; /* Remove auto margins */
+  text-align: left !important;
+  max-width: 600px !important;
+}
+
+.hero-location {
+  justify-content: flex-start !important; /* Left align location */
+}
+
+/* 3. Right Side - Visual Container */
+.hero-visual {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  position: relative !important;
+  height: 400px !important;
+  width: 100% !important;
+}
+
+/* 4. The "GIF" / Animation Placeholder 
+   Using a CSS-only rotating tech sphere for now as it's reliable and light.
+   You can replace the background-image with a real GIF URL later.
+*/
+.hero-visual-content {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 50px rgba(56, 189, 248, 0.2);
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+/* Inner rotating rings to simulate AI/Robotics */
+.ring {
+  position: absolute;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.1);
+}
+
+.ring-1 { width: 100%; height: 100%; animation: spin 10s linear infinite; border-top-color: transparent; border-left-color: transparent; }
+.ring-2 { width: 80%; height: 80%; animation: spinReverse 15s linear infinite; border-bottom-color: transparent; border-right-color: transparent; border-color: rgba(139, 92, 246, 0.4); }
+.ring-3 { width: 60%; height: 60%; animation: spin 8s linear infinite; border-top-color: transparent; border-color: rgba(255, 255, 255, 0.2); }
+
+/* Central Core */
+.core {
+  width: 40px;
+  height: 40px;
+  background: #38bdf8;
+  border-radius: 50%;
+  box-shadow: 0 0 20px #38bdf8;
+  animation: breathe 3s ease-in-out infinite;
+}
+
+@keyframes spin { 100% { transform: rotate(360deg); } }
+@keyframes spinReverse { 100% { transform: rotate(-360deg); } }
+@keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 50px rgba(56, 189, 248, 0.2); } 50% { box-shadow: 0 0 80px rgba(56, 189, 248, 0.4); } }
+@keyframes breathe { 0%, 100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.2); opacity: 1; } }
+
+/* Mobile Responsive - Stack Vertical */
+@media (max-width: 968px) {
+  .hero-container {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+    gap: 3rem !important;
+  }
+  
+  .hero-content, .hero-text, .hero-description, .hero-location {
+    align-items: center !important;
+    text-align: center !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+  }
+  
+  .hero-visual {
+    height: 300px !important;
+  }
+}
