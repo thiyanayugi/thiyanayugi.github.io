@@ -5291,3 +5291,92 @@ h1.hero-title *,
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
+
+/* ========================================
+   CORNER HAMBURGER & SIDE DRAWER MENU
+   ======================================== */
+
+/* 1. HEADER - Position Hamburger in Top-Right Corner */
+.navbar {
+  justify-content: flex-end !important; /* Push to right */
+  padding: 20px 30px !important; /* Spacing from corner */
+  height: auto !important;
+  pointer-events: none; /* Let clicks pass through empty space */
+}
+
+.nav-container {
+  width: auto !important;
+  margin: 0 !important;
+  pointer-events: auto; /* Re-enable clicks on menu */
+}
+
+.hamburger {
+  margin: 0 !important;
+  opacity: 0.9 !important;
+  width: 30px !important;
+  height: 20px !important;
+}
+
+/* 2. SIDE DRAWER MENU (Not Full Screen) */
+.nav-menu.active {
+  display: flex !important;
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important; /* Align to right */
+  left: auto !important; /* Unset left */
+  width: 300px !important; /* Fixed width drawer */
+  height: 100vh !important;
+  background: rgba(15, 23, 42, 0.95) !important; /* Dark Slate */
+  backdrop-filter: blur(20px) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5) !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: flex-start !important; /* Left align text in drawer */
+  padding-left: 40px !important;
+  gap: 1.5rem !important;
+  z-index: 1000 !important;
+  animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+/* Menu Links in Drawer */
+.nav-menu.active .nav-link {
+  font-size: 1.1rem !important;
+  font-weight: 500 !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  transform: none !important; /* Reset animation transform */
+  opacity: 1 !important;
+  animation: none !important; /* Remove stagger for snappier feel */
+}
+
+.nav-menu.active .nav-link:hover {
+  color: #38bdf8 !important; /* Cyan hover */
+  padding-left: 10px !important; /* Slide effect */
+  transition: all 0.2s ease !important;
+}
+
+/* Close Button (X) - Optional but good UX */
+/* We can use the hamburger itself as a toggle if we ensure z-index */
+.hamburger.active {
+  position: fixed !important;
+  top: 25px !important;
+  right: 30px !important;
+  z-index: 1002 !important;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
