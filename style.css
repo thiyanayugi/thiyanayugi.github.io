@@ -2268,3 +2268,56 @@ textarea.form-control {
     justify-content: center;
   }
 }
+
+/* Education Horizontal Scroll */
+.education--hscroll {
+  position: relative;
+  --edu-h: auto;
+}
+
+.education--hscroll[data-hscroll-ready] {
+  height: var(--edu-h);
+  position: relative;
+}
+
+.education--hscroll .container {
+  position: sticky;
+  top: 70px;
+  height: calc(100vh - 70px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.education-grid {
+  display: flex;
+  gap: 2rem;
+  transition: transform 0.1s linear;
+  will-change: transform;
+}
+
+.education-card {
+  flex: 0 0 auto;
+  width: min(600px, 90vw);
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(44, 62, 80, 0.08);
+  border: 1px solid rgba(44, 62, 80, 0.08);
+}
+
+@media (max-width: 900px) {
+  .education--hscroll .container {
+    position: static;
+    height: auto;
+  }
+  
+  .education-grid {
+    flex-direction: column;
+  }
+  
+  .education-card {
+    width: 100%;
+  }
+}

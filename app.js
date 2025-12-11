@@ -135,64 +135,14 @@ function contact(){
   }); 
 }
 
-// --- Education Carousel ----------------------------------------------------
-function educationCarousel() {
-  const track = q('.carousel-track');
-  if (!track) return;
-  
-  const slides = qa('.carousel-slide');
-  const dots = qa('.carousel-dot');
-  const prevBtn = q('.carousel-btn-prev');
-  const nextBtn = q('.carousel-btn-next');
-  
-  if (!slides.length) return;
-  
-  let currentIndex = 0;
-  
-  function goToSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.remove('active', 'prev');
-      if (i === index) {
-        slide.classList.add('active');
-      } else if (i < index) {
-        slide.classList.add('prev');
-      }
-    });
-    
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === index);
-    });
-    
-    currentIndex = index;
-  }
-  
-  function nextSlide() {
-    const next = (currentIndex + 1) % slides.length;
-    goToSlide(next);
-  }
-  
-  function prevSlide() {
-    const prev = (currentIndex - 1 + slides.length) % slides.length;
-    goToSlide(prev);
-  }
-  
-  if (prevBtn) prevBtn.addEventListener('click', prevSlide);
-  if (nextBtn) nextBtn.addEventListener('click', nextSlide);
-  
-  dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => goToSlide(index));
-  });
-  
-  // Auto-advance every 5 seconds
-  setInterval(nextSlide, 5000);
-}
+// --- Horizontal Scroll Sections -------------------------------------------
+function horizontalScroll(){ const defs=[['.skills.skills--hscroll','.skills.skills--hscroll .skills-grid-min','--hscroll-height'],['#achievements.achievements--hscroll','#achievements.achievements--hscroll .achievements-grid','--ach-h'],['.education--hscroll','.education--hscroll .education-grid','--edu-h']]; const navH=()=>q('.navbar')?.offsetHeight||70; const setup=(wrapSel,rowSel,cssVar)=>{ const wrap=q(wrapSel); const row=q(rowSel); if(!wrap||!row) return; let enabled=false,maxX=0,start=0,end=0; function layout(){ enabled=window.innerWidth>900; if(!enabled){ wrap.style.removeProperty(cssVar); wrap.removeAttribute('data-hscroll-ready'); row.style.transform=''; return; } const container=wrap.querySelector('.container'); maxX=Math.max(0,row.scrollWidth-container.clientWidth); const travel=maxX*1.8+300; wrap.style.setProperty(cssVar,`${Math.max(travel,window.innerHeight-navH()+200)}px`); wrap.setAttribute('data-hscroll-ready','true'); start=navH(); end=window.innerHeight; } let tick=false; function onScroll(){ if(!enabled||tick) return; tick=true; raf(()=>{ const r=wrap.getBoundingClientRect(); const total=r.height-end+start; if(r.top<=start && r.bottom>end){ const prog=Math.min(1,Math.max(0,(start-r.top)/Math.max(1,total))); row.style.transform=`translate3d(${-prog*maxX}px,0,0)`; } else if(r.top>start){ row.style.transform='translate3d(0,0,0)'; } else if(r.bottom<=end){ row.style.transform=`translate3d(${-maxX}px,0,0)`; } tick=false; }); } layout(); onScroll(); window.addEventListener('resize',()=>{ layout(); onScroll(); },{passive:true}); window.addEventListener('scroll',onScroll,{passive:true}); }; defs.forEach(d=>setup(...d)); }
 
 // --- Init (critical first, extras deferred) --------------------------------
 document.addEventListener('DOMContentLoaded',()=>{
   typewriter();
   navigation();
   contact();
-  educationCarousel();
   (window.requestIdleCallback?requestIdleCallback:fn=>setTimeout(fn,50))(()=>{ parallax(); horizontalScroll(); rippleDelegated(); });
   document.body.classList.add('loaded');
 });
