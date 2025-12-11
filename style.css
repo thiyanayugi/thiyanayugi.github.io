@@ -3418,3 +3418,152 @@ textarea.form-control {
     width: 40px;
   }
 }
+
+/* ========================================
+   POLISHING FIXES - Specific Improvements
+   ======================================== */
+
+/* Better Hero Typography */
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  opacity: 0.95;
+  line-height: 1.6;
+}
+
+/* Improved Section Spacing */
+section {
+  padding: 5rem 0;
+}
+
+.skills-professional {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+/* Better Card Spacing in Grids */
+.skills-grid-logos {
+  gap: 2rem;
+}
+
+.experience-grid {
+  gap: 2.5rem;
+}
+
+.projects-grid {
+  gap: 2rem;
+}
+
+/* Refined Shadows */
+.project-card, .certificate-card, .experience-card, .edu-card {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.project-card:hover, .certificate-card:hover, 
+.experience-card:hover, .edu-card:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Better Button Styling */
+.cta-button {
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.cta-button:hover {
+  box-shadow: 0 6px 25px rgba(102, 126, 234, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Improved Section Titles */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: var(--primary-dark);
+}
+
+/* Better Skill Item Sizing */
+.skill-item {
+  min-height: 120px;
+}
+
+.skill-logo {
+  margin-bottom: 0.5rem;
+}
+
+/* Refined Experience Cards */
+.experience-card {
+  padding: 2.5rem;
+}
+
+.exp-header h3 {
+  font-size: 1.4rem;
+  line-height: 1.3;
+}
+
+/* Better Project Card Layout */
+.project-card {
+  padding: 2rem;
+}
+
+.project-header h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+/* Improved Certificate Cards */
+.certificate-card {
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.certificate-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Better Footer Spacing */
+.footer {
+  padding: 3rem 0;
+}
+
+/* Refined Contact Section */
+.contact-info {
+  gap: 2rem;
+}
+
+.contact-link {
+  padding: 1rem 2rem;
+  font-size: 1.05rem;
+}
+
+/* Smoother Transitions */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Better Mobile Responsiveness */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  section {
+    padding: 3rem 0;
+  }
+}
