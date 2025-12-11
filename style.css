@@ -4353,3 +4353,50 @@ h1.hero-title *,
   box-shadow: 0 6px 20px rgba(0,0,0,0.3) !important;
   background: linear-gradient(135deg, #203a43 0%, #2c5364 100%) !important;
 }
+
+/* ========================================
+   HERO CENTERING & STATIC NAME
+   ======================================== */
+
+/* Ensure Hero Content is Centered */
+.hero-content {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  width: 100% !important;
+  max-width: 1000px !important;
+  margin: 0 auto !important;
+}
+
+.hero-text {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+/* Ensure Buttons are Centered */
+.hero-buttons {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 1.5rem !important;
+  margin-top: 2rem !important;
+}
+
+/* Static Name Styling */
+.hero-title {
+  font-size: 4rem !important;
+  font-weight: 800 !important;
+  margin-bottom: 1rem !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.1 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.8rem !important;
+  }
+}
