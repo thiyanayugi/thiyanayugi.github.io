@@ -5668,3 +5668,51 @@ h1.hero-title *,
     text-align: center !important;
   }
 }
+
+/* ========================================
+   ABOUT SECTION - Bigger Image & Balanced Text
+   ======================================== */
+
+.about-content--with-photo {
+  grid-template-columns: 0.8fr 1.2fr !important; /* Give more space to photo (was smaller) */
+  gap: 4rem !important;
+  align-items: center !important;
+}
+
+.about-photo {
+  max-width: 450px !important; /* Increase max width */
+  width: 100% !important;
+  margin: 0 auto !important;
+}
+
+.photo-frame {
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+  transform: rotate(-2deg) !important; /* Slight tilt for style */
+  transition: transform 0.3s ease !important;
+}
+
+.photo-frame:hover {
+  transform: rotate(0deg) scale(1.02) !important;
+}
+
+.about-text p {
+  margin-bottom: 1.5rem !important;
+  font-size: 1.05rem !important;
+  line-height: 1.7 !important;
+  color: #cbd5e1 !important;
+}
+
+/* Mobile Stack */
+@media (max-width: 968px) {
+  .about-content--with-photo {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+  }
+  
+  .about-photo {
+    max-width: 300px !important;
+    margin-bottom: 2rem !important;
+  }
+}
