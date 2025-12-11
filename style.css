@@ -4516,3 +4516,70 @@ h1.hero-title *,
   color: #ffffff !important;
   transform: translateY(-2px) !important;
 }
+
+/* ========================================
+   REFINED LAYOUT - Space & Transparency
+   ======================================== */
+
+/* 1. HERO - Better Spacing & Layout */
+.hero {
+  align-items: flex-start !important; /* Allow content to sit naturally */
+  padding-top: 120px !important; /* Space for navbar + extra breathing room */
+}
+
+.hero-container {
+  align-items: flex-start !important;
+  padding-top: 4rem !important; /* Specific space above "Hello I'm" */
+}
+
+.hero-content {
+  transform: none !important; /* Remove the optical offset */
+  margin-top: 2rem !important;
+}
+
+.hero-kicker {
+  margin-bottom: 1.5rem !important; /* More space below "Hello I'm" */
+  font-size: 1.2rem !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  opacity: 0.9 !important;
+}
+
+/* 2. HEADER - Transparent to Glass on Scroll */
+.navbar {
+  background: transparent !important; /* Start transparent */
+  backdrop-filter: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  height: 90px !important;
+}
+
+/* We need JS to add a class on scroll for the glass effect, 
+   but for now let's make it semi-transparent dark to match hero */
+.navbar {
+  background: linear-gradient(to bottom, rgba(15, 32, 39, 0.8), transparent) !important;
+}
+
+.nav-logo a {
+  background: none !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.nav-link:hover {
+  color: #ffffff !important;
+}
+
+.nav-link::after {
+  background: #ffffff !important;
+}
+
+/* 3. FOOTER - Refined */
+.footer {
+  background: linear-gradient(to top, #0f2027, #203a43) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
