@@ -2749,3 +2749,57 @@ textarea.form-control {
     padding: 1.5rem;
   }
 }
+
+/* Education Section - Centered Below Photo */
+.education-section--centered {
+  margin-top: 3rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.education-section--centered .education-cards {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+}
+
+.education-section--centered .edu-card {
+  padding: 1.5rem;
+  min-height: auto;
+}
+
+.education-section--centered .edu-card h4 {
+  font-size: 1.3rem;
+}
+
+.education-section--centered .edu-card h5 {
+  font-size: 0.95rem;
+}
+
+.education-section--centered .edu-institution,
+.education-section--centered .edu-duration {
+  font-size: 0.85rem;
+  margin: 0.4rem 0;
+}
+
+.education-section--centered .edu-focus {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.education-section--centered .edu-recommendations {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+}
+
+.education-section--centered .rec-title {
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .education-section--centered .education-cards {
+    grid-template-columns: 1fr;
+  }
+}
