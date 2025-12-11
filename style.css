@@ -5576,3 +5576,22 @@ h1.hero-title *,
     height: 300px !important;
   }
 }
+
+/* ========================================
+   FIX ABOUT ME PARAGRAPH SPACING
+   ======================================== */
+
+.about-text p {
+  display: block !important;
+  margin-bottom: 1.5rem !important; /* Force space between paragraphs */
+  line-height: 1.8 !important;
+}
+
+.about-text p:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Ensure the container allows block display */
+.about-text {
+  display: block !important;
+}
