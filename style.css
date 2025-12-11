@@ -3592,3 +3592,28 @@ section {
   background: rgba(255, 255, 255, 0.3);
   color: #ffffff !important;
 }
+
+/* Fix Hero Name Visibility - Override Gradient Text */
+.hero h1, .hero .hero-title {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background: none !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Make Project Links Transparent Background */
+.project-link {
+  background: transparent !important;
+  border: 2px solid rgba(102, 126, 234, 0.6);
+  color: var(--primary-dark) !important;
+}
+
+.project-link:hover {
+  background: rgba(102, 126, 234, 0.1) !important;
+  border-color: rgba(102, 126, 234, 1);
+  color: var(--primary-dark) !important;
+}
+
+.project-link::before {
+  display: none;
+}
