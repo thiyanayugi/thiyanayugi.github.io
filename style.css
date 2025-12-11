@@ -5818,3 +5818,41 @@ h1.hero-title *,
 .about-text p {
   font-size: 1rem !important; /* Slightly smaller text to fit */
 }
+
+/* ========================================
+   ABOUT IMAGE - FORCE HUGE
+   ======================================== */
+
+.about-content--with-photo {
+  display: flex !important; /* Switch to Flex to force sizes */
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 2rem !important;
+}
+
+.about-photo {
+  flex: 0 0 65% !important; /* Force 65% width */
+  max-width: none !important;
+}
+
+.photo-frame {
+  width: 100% !important;
+}
+
+.photo-frame picture, 
+.photo-frame img {
+  width: 100% !important;
+  height: auto !important;
+  max-width: none !important; /* Remove ANY max-width */
+  display: block !important;
+}
+
+.about-main {
+  flex: 1 !important; /* Text takes remaining space */
+}
+
+/* Override HTML attributes */
+img[width="400"] {
+  width: 100% !important;
+  height: auto !important;
+}
