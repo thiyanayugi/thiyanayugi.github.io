@@ -3099,15 +3099,9 @@ textarea.form-control {
   }
 }
 
-/* Zoom in specific logos */
-.skill-logo[alt="Vector DB"],
-.skill-logo[alt="OpenAI"],
-.skill-logo[alt="LangChain"] {
   transform: scale(1.3);
 }
 
-/* Text-only skills (no logo) */
-.skill-item--text-only {
   background: linear-gradient(135deg, var(--accent-warm), var(--primary-dark));
   color: white;
   font-weight: 600;
@@ -3116,7 +3110,31 @@ textarea.form-control {
   padding: 1.5rem 1rem;
 }
 
-.skill-item--text-only:hover {
   background: linear-gradient(135deg, var(--primary-dark), var(--accent-warm));
   transform: translateY(-4px) scale(1.05);
+}
+
+/* Zoom in specific logos */
+.skill-logo[alt="Vector DB"] {
+  transform: scale(1.6);
+}
+
+.skill-logo[alt="OpenAI"],
+.skill-logo[alt="LangChain"] {
+  transform: scale(1.3);
+}
+
+/* Text-only skills (no logo) - blend with others */
+.skill-item--text-only {
+  background: #f8f9fa;
+  color: var(--text-dark);
+  font-weight: 600;
+  font-size: 1.05rem;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+}
+
+.skill-item--text-only:hover {
+  background: white;
+  transform: translateY(-4px);
 }
