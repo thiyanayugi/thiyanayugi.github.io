@@ -5595,3 +5595,76 @@ h1.hero-title *,
 .about-text {
   display: block !important;
 }
+
+/* ========================================
+   FIX ABOUT ME LAYOUT - Photo Left, Text Right
+   ======================================== */
+
+.about-content {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start !important; /* Align to top */
+  gap: 4rem !important;
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+}
+
+/* 1. Photo Container (Left) */
+.about-photo {
+  flex: 0 0 350px !important; /* Fixed width for photo */
+  width: 350px !important;
+}
+
+/* 2. Main Content Container (Right) */
+.about-main {
+  flex: 1 !important; /* Take remaining space */
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  text-align: left !important;
+  padding-top: 10px !important; /* Slight optical alignment with photo top */
+}
+
+/* 3. Title Styling */
+.about-role {
+  font-size: 2rem !important;
+  color: #38bdf8 !important; /* Cyan accent */
+  margin-bottom: 1.5rem !important;
+  font-weight: 700 !important;
+  text-align: left !important;
+  width: 100% !important;
+}
+
+/* 4. Text Styling */
+.about-text {
+  width: 100% !important;
+  text-align: left !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+  .about-content {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 2rem !important;
+  }
+  
+  .about-photo {
+    width: 280px !important;
+    flex: 0 0 auto !important;
+  }
+  
+  .about-main {
+    align-items: center !important;
+    text-align: center !important;
+  }
+  
+  .about-role {
+    text-align: center !important;
+    font-size: 1.5rem !important;
+  }
+  
+  .about-text {
+    text-align: center !important;
+  }
+}
