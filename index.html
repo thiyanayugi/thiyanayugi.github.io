@@ -838,5 +838,30 @@
     <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="app.js" defer></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const buttons = document.querySelectorAll(".filter-btn");
+    const cards = document.querySelectorAll(".project-card");
+    
+    buttons.forEach(btn => {
+        btn.addEventListener("click", function() {
+            // Active State
+            buttons.forEach(b => b.classList.remove("active"));
+            this.classList.add("active");
+            
+            const filter = this.getAttribute("data-filter");
+            
+            cards.forEach(card => {
+                const categories = card.getAttribute("data-category");
+                if (filter === "all" || categories.includes(filter)) {
+                    card.classList.remove("hidden");
+                } else {
+                    card.classList.add("hidden");
+                }
+            });
+        });
+    });
+});
+</script>
 </body>
 </html>
