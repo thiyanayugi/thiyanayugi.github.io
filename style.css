@@ -5975,3 +5975,45 @@ img[width="400"] {
   padding: 0 !important;
   font-size: 3rem !important; /* Keep it big */
 }
+
+/* ========================================
+   PROJECT FILTERS
+   ======================================== */
+
+.project-filters {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 1rem !important;
+  margin-bottom: 3rem !important;
+  flex-wrap: wrap !important;
+}
+
+.filter-btn {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  padding: 0.5rem 1.5rem !important;
+  border-radius: 50px !important;
+  cursor: pointer !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: #38bdf8 !important;
+  color: #0f172a !important;
+  border-color: #38bdf8 !important;
+  font-weight: 600 !important;
+}
+
+/* Hide filtered items */
+.project-card.hidden {
+  display: none !important;
+}
+
+/* Animation for filtering */
+.project-card {
+  animation: fadeIn 0.5s ease forwards;
+}
