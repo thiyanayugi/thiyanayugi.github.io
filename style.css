@@ -3767,3 +3767,52 @@ h1.hero-title *,
 [data-text]::after {
   color: #fff !important;
 }
+
+/* FIX CONTACT LINKS - Make them actually clickable */
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.contact-link {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border: 2px solid rgba(255, 255, 255, 0.4) !important;
+  color: #ffffff !important;
+  padding: 1rem 1.5rem !important;
+  border-radius: 12px !important;
+  text-decoration: none !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+  pointer-events: all !important;
+  z-index: 100 !important;
+  position: relative !important;
+}
+
+.contact-link:hover {
+  background: rgba(255, 255, 255, 0.3) !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  transform: translateX(5px) !important;
+  color: #ffffff !important;
+}
+
+.contact-link svg {
+  flex-shrink: 0;
+  fill: currentColor !important;
+}
+
+/* Change Let's Connect text color */
+.contact-info h3 {
+  color: #ffffff !important;
+  font-size: 2rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.contact-info p {
+  color: rgba(255, 255, 255, 0.9) !important;
+  line-height: 1.6 !important;
+}
