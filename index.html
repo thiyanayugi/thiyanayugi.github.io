@@ -33,6 +33,12 @@
     <link rel="dns-prefetch" href="//linkedin.com">
 </head>
 <body>
+    <!-- Standalone Hamburger -->
+    <div id="standalone-hamburger" class="hamburger-fixed">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -839,6 +845,27 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="app.js" defer></script>
 <script>
+    // New Hamburger Logic
+    const newHamburger = document.getElementById("standalone-hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+    if(newHamburger) {
+        newHamburger.addEventListener("click", () => {
+            newHamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+            
+            // Animate Hamburger to X
+            const spans = newHamburger.querySelectorAll("span");
+            if(newHamburger.classList.contains("active")) {
+                spans[0].style.transform = "rotate(45deg) translate(6px, 6px)";
+                spans[1].style.opacity = "0";
+                spans[2].style.transform = "rotate(-45deg) translate(6px, -6px)";
+            } else {
+                spans[0].style.transform = "none";
+                spans[1].style.opacity = "1";
+                spans[2].style.transform = "none";
+            }
+        });
+    }
 document.addEventListener("DOMContentLoaded", function() {
     const buttons = document.querySelectorAll(".filter-btn");
     const cards = document.querySelectorAll(".project-card");

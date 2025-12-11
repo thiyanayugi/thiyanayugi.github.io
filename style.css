@@ -6109,3 +6109,89 @@ img[width="400"] {
 .project-card.hidden {
   display: none !important;
 }
+
+/* ========================================
+   CLEAN SLATE FIX - Hamburger & Projects
+   ======================================== */
+
+/* 1. NEW HAMBURGER (Fixed) */
+.hamburger-fixed {
+  position: fixed !important;
+  top: 30px !important;
+  right: 30px !important;
+  width: 40px !important;
+  height: 30px !important;
+  z-index: 10000 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  cursor: pointer !important;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.hamburger-fixed span {
+  display: block !important;
+  width: 100% !important;
+  height: 4px !important;
+  background-color: #ffffff !important;
+  border-radius: 4px !important;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5) !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Hide the old one to avoid confusion */
+.navbar .hamburger {
+  display: none !important;
+}
+
+/* 2. PROJECT GRID RESET */
+.projects-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+  gap: 2rem !important;
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+}
+
+/* Project Card Styling */
+.project-card {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 15px !important;
+  padding: 1.5rem !important;
+  display: flex !important; /* Internal flex layout */
+  flex-direction: column !important;
+  height: auto !important;
+  min-height: 300px !important;
+  transition: transform 0.3s ease, opacity 0.3s ease !important;
+}
+
+/* Hidden State */
+.project-card.hidden {
+  display: none !important; /* Remove from flow */
+}
+
+/* Ensure content inside card looks good */
+.project-header h3 {
+  font-size: 1.4rem !important;
+  margin-bottom: 1rem !important;
+  color: #ffffff !important;
+}
+
+.project-tech {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.5rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.tech-tag {
+  background: rgba(56, 189, 248, 0.1) !important;
+  color: #38bdf8 !important;
+  padding: 4px 10px !important;
+  border-radius: 20px !important;
+  font-size: 0.8rem !important;
+}
