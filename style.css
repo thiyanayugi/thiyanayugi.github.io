@@ -5781,3 +5781,40 @@ h1.hero-title *,
     grid-template-columns: 1fr !important;
   }
 }
+
+/* ========================================
+   ABOUT IMAGE - MAXIMUM SIZE
+   ======================================== */
+
+.container {
+  max-width: 1400px !important; /* Widen the main container */
+}
+
+.about-content--with-photo {
+  grid-template-columns: 1.5fr 1fr !important; /* Image takes 60% of space */
+  gap: 2rem !important;
+  align-items: center !important;
+}
+
+.about-photo {
+  max-width: none !important; /* Remove ANY restriction */
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.photo-frame {
+  width: 100% !important; /* Fill the column */
+  max-width: 100% !important;
+}
+
+.photo-frame img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: cover !important; /* Ensure it covers the area */
+}
+
+/* Adjust text to fit the smaller column */
+.about-text p {
+  font-size: 1rem !important; /* Slightly smaller text to fit */
+}
