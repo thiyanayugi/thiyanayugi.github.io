@@ -4713,3 +4713,99 @@ h1.hero-title *,
     background: rgba(15, 32, 39, 0.95) !important;
   }
 }
+
+/* ========================================
+   FIX HEADER & HERO - Clean & Simple
+   ======================================== */
+
+/* 1. HEADER - Standard Top Bar (Not Sticky) */
+.navbar {
+  position: absolute !important; /* Stays at top, scrolls away */
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 80px !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  transform: none !important;
+  padding: 20px 0 !important;
+  z-index: 100 !important;
+}
+
+.nav-container {
+  max-width: 1400px !important;
+  padding: 0 40px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  flex-wrap: wrap !important; /* Allow wrapping on small screens */
+}
+
+/* Fix Name in Header */
+.nav-logo a {
+  font-size: 1.4rem !important;
+  font-weight: 700 !important;
+  white-space: nowrap !important; /* Prevent wrapping */
+  color: #ffffff !important;
+  text-transform: none !important; /* Normal case looks better */
+  letter-spacing: 0.02em !important;
+}
+
+/* Nav Menu */
+.nav-menu {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 1.5rem !important;
+  justify-content: flex-end !important;
+}
+
+.nav-link {
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  padding: 5px 0 !important;
+}
+
+.nav-link:hover {
+  color: #ffffff !important;
+}
+
+/* 2. HERO - Ensure Content Visibility */
+.hero {
+  padding-top: 100px !important; /* Push content down below header */
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.hero-container {
+  padding-top: 4rem !important; /* Extra breathing room */
+}
+
+.hero-kicker {
+  margin-top: 2rem !important; /* Ensure space from top */
+  opacity: 1 !important;
+  visibility: visible !important;
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 15px 0 !important;
+  }
+  
+  .nav-menu {
+    display: none !important; /* Hide menu on mobile, use hamburger */
+  }
+  
+  .hamburger {
+    display: block !important;
+  }
+}
