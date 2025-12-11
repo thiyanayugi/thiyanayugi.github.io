@@ -5716,3 +5716,68 @@ h1.hero-title *,
     margin-bottom: 2rem !important;
   }
 }
+
+/* ========================================
+   ABOUT SECTION - Clean, Big Image, Black Text
+   ======================================== */
+
+/* 1. Layout - More space for image */
+.about-content--with-photo {
+  grid-template-columns: 1fr 1fr !important; /* Equal split or even larger image */
+  gap: 3rem !important;
+  align-items: start !important; /* Align to top */
+}
+
+/* 2. Image - Big, Clean, No Effects */
+.about-photo {
+  max-width: 100% !important; /* Let it fill the column */
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.photo-frame {
+  box-shadow: none !important; /* No shadow */
+  transform: none !important; /* No tilt */
+  border: none !important; /* No border */
+  border-radius: 10px !important; /* Minimal radius */
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+.photo-frame:hover {
+  transform: none !important; /* No hover effect */
+}
+
+.photo-frame img {
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+}
+
+/* 3. Text - Black & Readable */
+.about-text p {
+  color: #1a1a1a !important; /* Almost Black */
+  font-weight: 400 !important;
+  font-size: 1.1rem !important;
+  line-height: 1.8 !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.about-role {
+  color: #000000 !important; /* Black Title */
+  font-weight: 700 !important;
+  margin-bottom: 1.5rem !important;
+}
+
+/* Ensure background is light enough for black text */
+.about {
+  background: #ffffff !important; /* White background for contrast */
+}
+
+/* Mobile */
+@media (max-width: 968px) {
+  .about-content--with-photo {
+    grid-template-columns: 1fr !important;
+  }
+}
