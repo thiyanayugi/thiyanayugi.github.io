@@ -6017,3 +6017,33 @@ img[width="400"] {
 .project-card {
   animation: fadeIn 0.5s ease forwards;
 }
+
+/* ========================================
+   HAMBURGER - ABSOLUTE POSITIONING (NUCLEAR OPTION)
+   ======================================== */
+
+.hamburger {
+  position: fixed !important; /* Ignore everything else */
+  top: 30px !important;
+  right: 20px !important; /* 20px from the physical edge of screen */
+  margin: 0 !important;
+  z-index: 2000 !important; /* Ensure it's on top of EVERYTHING */
+  transform: none !important;
+}
+
+/* Ensure navbar doesn't block it */
+.navbar {
+  pointer-events: none !important;
+  width: 100% !important;
+  height: 0 !important; /* Collapse height so it doesn't block clicks */
+  padding: 0 !important;
+}
+
+.nav-container {
+  display: none !important; /* Hide container, we only need the hamburger */
+}
+
+/* But we need the hamburger visible */
+.hamburger {
+  display: flex !important;
+}
