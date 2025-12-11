@@ -2954,3 +2954,8 @@ textarea.form-control {
     height: 60px;
   }
 }
+
+/* Make Pricol logo larger */
+.exp-logo img[alt="Pricol Limited"] {
+  transform: scale(1.4);
+}
