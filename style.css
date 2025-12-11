@@ -3124,3 +3124,10 @@ textarea.form-control {
   background: white;
   transform: translateY(-4px);
 }
+
+/* Certificate Logos */
+.cert-logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
