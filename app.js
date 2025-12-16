@@ -181,11 +181,85 @@ if (canvas) {
 }
 
 // ==========================================
-// PROJECT FILTERING LOGIC
+// PROJECT CAROUSEL NAVIGATION
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const carousel = document.querySelector('.projects-carousel');
+    const prevBtn = document.querySelector('.carousel-nav-prev');
+    const nextBtn = document.querySelector('.carousel-nav-next');
+    
+    if (carousel && prevBtn && nextBtn) {
+        const scrollAmount = 520; // Approximate card width + gap
+        
+        // Previous button
+        prevBtn.addEventListener('click', () => {
+            carousel.scrollBy({
+                left: -scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Next button
+        nextBtn.addEventListener('click', () => {
+            carousel.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                carousel.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            } else if (e.key === 'ArrowRight') {
+                carousel.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            }
+        });
+        
+        // Touch/swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        carousel.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            if (touchStartX - touchEndX > swipeThreshold) {
+                // Swipe left
+                carousel.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            } else if (touchEndX - touchStartX > swipeThreshold) {
+                // Swipe right
+                carousel.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    }
+});
+
+// ==========================================
+// PROJECT FILTERING LOGIC (Updated for Carousel)
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
     const filterBtns = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
+    const projectCards = document.querySelectorAll('.project-card-carousel');
 
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -198,11 +272,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const categories = card.getAttribute('data-category');
                 
                 if (filterValue === 'all' || (categories && categories.includes(filterValue))) {
-                    card.classList.remove('hide');
-                    card.classList.add('show');
+                    card.style.display = 'block';
                 } else {
-                    card.classList.add('hide');
-                    card.classList.remove('show');
+                    card.style.display = 'none';
                 }
             });
         });
