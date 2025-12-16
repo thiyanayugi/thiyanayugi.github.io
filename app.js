@@ -300,6 +300,74 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ==========================================
+// CERTIFICATES CAROUSEL NAVIGATION
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const carousel = document.querySelector('.certificates-carousel');
+    const prevBtn = document.querySelector('.certificates-carousel-wrapper .carousel-nav-prev');
+    const nextBtn = document.querySelector('.certificates-carousel-wrapper .carousel-nav-next');
+    
+    if (carousel && prevBtn && nextBtn) {
+        const scrollAmount = 350;
+        
+        // Previous button
+        prevBtn.addEventListener('click', () => {
+            carousel.scrollBy({
+                left: -scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Next button
+        nextBtn.addEventListener('click', () => {
+            carousel.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Mouse wheel horizontal scroll
+        carousel.addEventListener('wheel', (e) => {
+            if (e.deltaY !== 0) {
+                e.preventDefault();
+                carousel.scrollBy({
+                    left: e.deltaY,
+                    behavior: 'auto'
+                });
+            }
+        }, { passive: false });
+        
+        // Touch/swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        carousel.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            if (touchStartX - touchEndX > swipeThreshold) {
+                carousel.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            } else if (touchEndX - touchStartX > swipeThreshold) {
+                carousel.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    }
+});
+
+// ==========================================
 // EMAILJS CONTACT FORM
 // ==========================================
 (function() {

@@ -2343,26 +2343,43 @@ textarea.form-control {
   background: var(--wood-white);
 }
 
-.certificates-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
+/* Carousel Wrapper */
+.certificates-carousel-wrapper {
+  position: relative;
   margin-top: 3rem;
+  padding: 0 60px;
 }
 
-.certificate-card {
+.certificates-carousel {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 1rem 0;
+}
+
+.certificates-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* Certificate Cards */
+.certificate-card-carousel {
+  flex: 0 0 clamp(300px, 40vw, 450px);
   background: white;
   border-radius: 16px;
   padding: 2rem;
   box-shadow: 0 4px 6px rgba(44, 62, 80, 0.08);
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid rgba(44, 62, 80, 0.08);
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 
-.certificate-card:hover {
-  transform: translateY(-8px);
+.certificate-card-carousel:hover {
+  transform: translateY(-8px) scale(1.05);
   box-shadow: 0 12px 24px rgba(44, 62, 80, 0.15);
   border-color: var(--accent-warm);
 }
@@ -2379,7 +2396,13 @@ textarea.form-control {
   color: var(--accent-warm);
 }
 
-.certificate-card h3 {
+.cert-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.certificate-card-carousel h3 {
   font-size: 1.25rem;
   color: var(--primary-dark);
   margin-bottom: 0.5rem;
@@ -2426,15 +2449,75 @@ textarea.form-control {
   flex-shrink: 0;
 }
 
+/* Navigation Arrows - Reuse from projects carousel */
+.certificates-carousel-wrapper .carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  z-index: 10;
+  color: var(--primary-dark);
+}
+
+.certificates-carousel-wrapper .carousel-nav:hover {
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  background: var(--accent-warm);
+  color: white;
+}
+
+.certificates-carousel-wrapper .carousel-nav-prev {
+  left: 0;
+}
+
+.certificates-carousel-wrapper .carousel-nav-next {
+  right: 0;
+}
+
 /* Mobile responsive */
 @media (max-width: 768px) {
-  .certificates-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  .certificates-carousel-wrapper {
+    padding: 0 50px;
   }
-  
-  .certificate-card {
+
+  .certificate-card-carousel {
+    flex: 0 0 clamp(280px, 80vw, 350px);
     padding: 1.5rem;
+  }
+
+  .certificates-carousel-wrapper .carousel-nav {
+    width: 40px;
+    height: 40px;
+  }
+
+  .certificates-carousel-wrapper .carousel-nav svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .certificates-carousel-wrapper {
+    padding: 0 40px;
+  }
+
+  .certificate-card-carousel {
+    flex: 0 0 clamp(260px, 85vw, 320px);
+  }
+
+  .certificates-carousel-wrapper .carousel-nav {
+    width: 36px;
+    height: 36px;
   }
 }
 
