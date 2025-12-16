@@ -3358,15 +3358,15 @@ textarea.form-control {
 
 .skills-grid-logos {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 0.75rem;
 }
 
 .skill-item {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
   background: rgba(255, 255, 255, 0.08);
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -3381,17 +3381,16 @@ textarea.form-control {
 }
 
 .skill-logo {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   object-fit: contain;
   flex-shrink: 0;
 }
 
 .skill-item span {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.9);
-  white-space: nowrap;
 }
 
 /* Text-only skills */
@@ -3425,11 +3424,26 @@ textarea.form-control {
   }
 
   .skills-grid-logos {
-    gap: 0.5rem;
+    gap: 0.6rem;
   }
 
   .skill-item {
-    padding: 0.4rem 0.8rem;
+    padding: 0.6rem 0.9rem;
+  }
+
+  .skill-logo {
+    width: 20px;
+    height: 20px;
+  }
+
+  .skill-item span {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skill-item {
+    padding: 0.5rem 0.8rem;
   }
 
   .skill-logo {
@@ -3439,21 +3453,6 @@ textarea.form-control {
 
   .skill-item span {
     font-size: 0.85rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .skill-item {
-    padding: 0.35rem 0.7rem;
-  }
-
-  .skill-logo {
-    width: 16px;
-    height: 16px;
-  }
-
-  .skill-item span {
-    font-size: 0.8rem;
   }
 }
 
