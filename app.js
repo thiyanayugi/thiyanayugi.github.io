@@ -1,4 +1,40 @@
 // ==========================================
+// DARK MODE THEME TOGGLE
+// ==========================================
+(function() {
+    // Get saved theme from localStorage or default to 'dark'
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    
+    // Apply theme immediately to prevent flash
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    
+    // Wait for DOM to be ready
+    document.addEventListener('DOMContentLoaded', () => {
+        const themeToggle = document.getElementById('theme-toggle');
+        
+        if (themeToggle) {
+            // Toggle theme on button click
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                // Update theme
+                document.documentElement.setAttribute('data-theme', newTheme);
+                
+                // Save to localStorage
+                localStorage.setItem('theme', newTheme);
+                
+                // Add animation class
+                themeToggle.style.transform = 'rotate(360deg)';
+                setTimeout(() => {
+                    themeToggle.style.transform = '';
+                }, 300);
+            });
+        }
+    });
+})();
+
+// ==========================================
 // TYPEWRITER EFFECT FOR HERO SUBTITLE
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {

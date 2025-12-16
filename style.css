@@ -172,6 +172,70 @@
   --color-error-rgb: var(--color-red-500-rgb);
   --color-warning-rgb: var(--color-orange-500-rgb);
   --color-info-rgb: var(--color-slate-500-rgb);
+  
+  /* Additional variables */
+  --primary-dark: #2c3e50;
+  --text-dark: #34495e;
+  --accent-warm: #8b7355;
+  --white: #ffffff;
+}
+
+/* ==========================================
+   DARK MODE THEME
+   ========================================== */
+[data-theme="dark"] {
+  /* Dark Mode Backgrounds */
+  --wood-white: #0f172a;
+  --color-background: #0f172a;
+  --color-surface: #1e293b;
+  --color-cream-50: #0f172a;
+  --color-cream-100: #1e293b;
+  --color-gray-200: #334155;
+  
+  /* Dark Mode Text */
+  --color-text: #f1f5f9;
+  --color-text-secondary: #cbd5e1;
+  --primary-dark: #f1f5f9;
+  --text-dark: #e2e8f0;
+  --color-slate-900: #f1f5f9;
+  --color-slate-500: #94a3b8;
+  --color-charcoal-700: #e2e8f0;
+  --color-charcoal-800: #cbd5e1;
+  
+  /* Dark Mode Accents */
+  --accent-warm: #a78bfa;
+  --color-primary: #60a5fa;
+  --color-primary-hover: #3b82f6;
+  --color-primary-active: #2563eb;
+  --color-teal-500: #60a5fa;
+  --color-teal-600: #3b82f6;
+  --color-teal-700: #2563eb;
+  
+  /* Dark Mode Borders & Surfaces */
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-card-border: rgba(255, 255, 255, 0.1);
+  --color-card-border-inner: rgba(255, 255, 255, 0.05);
+  --color-secondary: rgba(167, 139, 250, 0.1);
+  --color-secondary-hover: rgba(167, 139, 250, 0.2);
+  --color-secondary-active: rgba(167, 139, 250, 0.3);
+  
+  /* Dark Mode Status Colors */
+  --color-success: #34d399;
+  --color-error: #f87171;
+  --color-warning: #fbbf24;
+  --color-info: #60a5fa;
+  
+  /* Dark Mode Specific */
+  --white: #0f172a;
+  --color-white: rgba(15, 23, 42, 1);
+  --color-black: rgba(241, 245, 249, 1);
+}
+
+/* Smooth transitions for theme switching */
+*,
+*::before,
+*::after {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Base styles */
@@ -538,15 +602,25 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(44, 62, 80, 0.1);
+  border-bottom: 1px solid var(--color-border);
   z-index: 1000;
   transition: all 0.3s ease;
+}
+
+/* Dark mode navbar */
+[data-theme="dark"] .navbar {
+  background: rgba(15, 23, 42, 0.95);
 }
 
 /* Scrolled state applied via JS (reduces layout thrash from repeated inline style mutations) */
 .navbar.navbar--scrolled {
   background: rgba(255, 255, 255, 0.98);
   box-shadow: 0 2px 20px rgba(44, 62, 80, 0.1);
+}
+
+[data-theme="dark"] .navbar.navbar--scrolled {
+  background: rgba(15, 23, 42, 0.98);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
 }
 
 .nav-container {
@@ -568,6 +642,55 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-logo a:hover {
   color: var(--accent-warm);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  background: transparent;
+  border: 2px solid var(--color-border);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0;
+}
+
+.theme-toggle:hover {
+  background: var(--color-secondary);
+  border-color: var(--accent-warm);
+  transform: scale(1.1) rotate(15deg);
+}
+
+.theme-toggle-icon {
+  position: absolute;
+  transition: all 0.3s ease;
+  color: var(--color-text);
+}
+
+.theme-toggle-icon.sun-icon {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0);
+}
+
+.theme-toggle-icon.moon-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+/* Light mode - show sun, hide moon */
+[data-theme="light"] .theme-toggle-icon.sun-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+[data-theme="light"] .theme-toggle-icon.moon-icon {
+  opacity: 0;
+  transform: rotate(90deg) scale(0);
 }
 
 .nav-menu {
