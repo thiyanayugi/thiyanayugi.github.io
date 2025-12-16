@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = document.querySelector('.carousel-nav-next');
     
     if (carousel && prevBtn && nextBtn) {
-        const scrollAmount = 520; // Approximate card width + gap
+        const scrollAmount = 350; // Reduced for easier navigation
         
         // Previous button
         prevBtn.addEventListener('click', () => {
@@ -221,6 +221,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
         });
+        
+        // Mouse wheel horizontal scroll
+        carousel.addEventListener('wheel', (e) => {
+            if (e.deltaY !== 0) {
+                e.preventDefault();
+                carousel.scrollBy({
+                    left: e.deltaY,
+                    behavior: 'auto'
+                });
+            }
+        }, { passive: false });
         
         // Touch/swipe support
         let touchStartX = 0;
