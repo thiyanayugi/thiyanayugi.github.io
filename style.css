@@ -3369,27 +3369,8 @@ textarea.form-control {
 
 /* Professional Skills Section with Logos */
 .skills-professional {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  background: var(--wood-white);
   padding: 5rem 0;
-  position: relative;
-  overflow: hidden;
-}
-
-.skills-professional::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3), transparent 50%),
-              radial-gradient(circle at 80% 80%, rgba(255, 135, 255, 0.3), transparent 50%);
-  pointer-events: none;
-}
-
-.skills-professional .container {
-  position: relative;
-  z-index: 1;
 }
 
 .skills-categories {
