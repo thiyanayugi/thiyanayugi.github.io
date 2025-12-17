@@ -13,7 +13,7 @@
 I'm a **Graduate Engineer in Automation and Robotics** completing my Master's at **Technical University Dortmund**. I specialize in:
 
 - 🤖 AI-driven systems and autonomous robotics
-- 👁️ Computer vision and perception systems
+- 👁️ Computer Vision and perception systems
 - 🧠 Generative AI and LLM applications
 - 🏭 Industrial automation and smart manufacturing
 
