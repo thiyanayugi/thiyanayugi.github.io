@@ -5400,47 +5400,222 @@ h1.hero-title *,
   gap: 2.5rem !important;
 }
 
-/* 3. FOOTER - Compact & Clean */
+/* 3. FOOTER - Colorful & Modern */
 .footer {
-  padding: 1.5rem 0 !important; /* Reduced padding */
-  background: #0a151a !important; /* Darker, cleaner background */
-  border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+  padding: 4rem 0 2rem 0 !important;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* Animated gradient overlay */
+.footer::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: linear-gradient(45deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3), rgba(240, 147, 251, 0.3)) !important;
+  background-size: 400% 400% !important;
+  animation: gradientShift 15s ease infinite !important;
+  z-index: 0 !important;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.footer .container {
+  position: relative !important;
+  z-index: 1 !important;
 }
 
 .footer-content {
-  flex-direction: row !important; /* Horizontal layout */
-  justify-content: space-between !important;
-  align-items: center !important;
-  max-width: 1000px !important;
-  margin: 0 auto !important;
-  gap: 0 !important;
+  display: grid !important;
+  grid-template-columns: 2fr 1fr 1fr 1fr !important;
+  gap: 3rem !important;
+  margin-bottom: 3rem !important;
+  padding-bottom: 2rem !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
 
-.footer p {
-  font-size: 0.85rem !important;
-  opacity: 0.6 !important;
+.footer-section {
+  color: #ffffff !important;
+}
+
+.footer-title {
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 0.5rem !important;
+  background: linear-gradient(to right, #ffffff, #f0f0f0) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+.footer-tagline {
+  font-size: 0.95rem !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  margin-bottom: 1rem !important;
+  font-weight: 500 !important;
+}
+
+.footer-description {
+  font-size: 0.9rem !important;
+  line-height: 1.6 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  max-width: 300px !important;
+}
+
+.footer-heading {
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 1.2rem !important;
+  color: #ffffff !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+
+.footer-menu {
+  list-style: none !important;
+  padding: 0 !important;
   margin: 0 !important;
 }
 
-.footer-socials {
-  margin-top: 0 !important;
-  gap: 1.5rem !important;
+.footer-menu li {
+  margin-bottom: 0.8rem !important;
 }
 
-.footer-social-link svg {
-  width: 18px !important;
-  height: 18px !important;
+.footer-menu a {
+  color: rgba(255, 255, 255, 0.8) !important;
+  text-decoration: none !important;
+  font-size: 0.9rem !important;
+  transition: all 0.3s ease !important;
+  display: inline-block !important;
+}
+
+.footer-menu a:hover {
+  color: #ffffff !important;
+  transform: translateX(5px) !important;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5) !important;
+}
+
+.footer-contact-info {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.8rem !important;
+}
+
+.footer-contact-info p {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 0.9rem !important;
+  margin: 0 !important;
+}
+
+.footer-contact-info svg {
+  flex-shrink: 0 !important;
+  opacity: 0.9 !important;
+}
+
+.footer-socials {
+  display: flex !important;
+  gap: 1rem !important;
+  margin-top: 0 !important;
+}
+
+.footer-social-link {
+  width: 45px !important;
+  height: 45px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 50% !important;
+  color: #ffffff !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.footer-social-link:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  transform: translateY(-5px) scale(1.1) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important;
+}
+
+.footer-social-link:nth-child(1):hover {
+  background: linear-gradient(135deg, #333, #000) !important;
+  border-color: #ffffff !important;
+}
+
+.footer-social-link:nth-child(2):hover {
+  background: linear-gradient(135deg, #0077b5, #00a0dc) !important;
+  border-color: #0077b5 !important;
+}
+
+.footer-social-link:nth-child(3):hover {
+  background: linear-gradient(135deg, #ea4335, #fbbc05) !important;
+  border-color: #ea4335 !important;
+}
+
+.footer-bottom {
+  text-align: center !important;
+  padding-top: 2rem !important;
+}
+
+.footer-bottom p {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 0.9rem !important;
+  margin: 0.5rem 0 !important;
+}
+
+.footer-made-with {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.3rem !important;
+}
+
+.footer-made-with .heart {
+  color: #ff6b6b !important;
+  animation: heartbeat 1.5s ease-in-out infinite !important;
+  display: inline-block !important;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.2); }
+  50% { transform: scale(1); }
 }
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
-  .hero {
-    padding-top: 80px !important;
+  .footer-content {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+    text-align: center !important;
   }
   
-  .footer-content {
-    flex-direction: column !important;
-    gap: 1rem !important;
+  .footer-description {
+    max-width: 100% !important;
+  }
+  
+  .footer-socials {
+    justify-content: center !important;
+  }
+  
+  .footer-contact-info p {
+    justify-content: center !important;
+  }
+  
+  .footer-menu a:hover {
+    transform: none !important;
   }
 }
 
