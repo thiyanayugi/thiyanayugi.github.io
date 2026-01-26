@@ -1538,3 +1538,116 @@ section {
         color: var(--neon-cyan);
     }
 }
+
+/* EXPERIENCE V2.0 PRO MAX */
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+/* Central Data Stream Line */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 2rem;
+    height: 100%;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--neon-cyan), transparent, var(--neon-purple));
+    box-shadow: 0 0 10px var(--neon-cyan);
+    z-index: 1;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 5rem;
+    margin-bottom: 4rem;
+    opacity: 0.9;
+    transition: 0.3s;
+}
+
+.timeline-item:hover {
+    opacity: 1;
+    transform: translateX(10px);
+}
+
+/* Holographic Node */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 1.6rem;
+    top: 0;
+    width: 1rem;
+    height: 1rem;
+    background: var(--bg-deep);
+    border: 2px solid var(--neon-cyan);
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 0 10px var(--neon-cyan);
+    transition: 0.3s;
+}
+
+.timeline-item:hover::before {
+    background: var(--neon-cyan);
+    box-shadow: 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-cyan);
+}
+
+/* Timestamp Log Style */
+.time-meta {
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--neon-cyan);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--neon-cyan);
+    background: rgba(0, 240, 255, 0.1);
+    border-radius: 4px;
+    text-shadow: 0 0 5px rgba(0, 240, 255, 0.5);
+}
+
+.time-role {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.time-org {
+    display: block;
+    color: var(--neon-cyan);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.time-desc li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.time-desc li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: var(--neon-cyan);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 1rem;
+    }
+
+    .timeline-item {
+        padding-left: 3rem;
+    }
+
+    .timeline-item::before {
+        left: 0.6rem;
+    }
+}
