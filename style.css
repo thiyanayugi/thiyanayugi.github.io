@@ -1113,14 +1113,19 @@ section {
 .terminal-line {
     font-family: monospace;
     color: var(--neon-cyan);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    align-items: flex-start;
+    /* Align top for textareas */
+    gap: 0.8rem;
 }
 
 .terminal-prompt {
     color: var(--neon-purple);
+    font-weight: bold;
+    padding-top: 0.5rem;
+    /* Match input padding */
+    user-select: none;
 }
 
 .cmd-input {
@@ -1129,15 +1134,19 @@ section {
     border-bottom: 1px solid rgba(0, 240, 255, 0.3);
     color: white;
     font-family: monospace;
+    font-size: 1rem;
     width: 100%;
-    padding: 0.5rem;
+    padding: 0.5rem 0;
+    /* Remove side padding to sit flush */
     outline: none;
     transition: 0.3s;
+    line-height: 1.5;
 }
 
 .cmd-input:focus {
     border-bottom-color: var(--neon-cyan);
     box-shadow: 0 1px 0 var(--neon-cyan);
+    background: rgba(0, 240, 255, 0.05);
 }
 
 .btn-terminal {

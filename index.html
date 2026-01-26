@@ -215,7 +215,7 @@
                     <h3 class="skill-group-title"><i class="fas fa-robot"></i> Robotics & Automation</h3>
                     <div class="skill-grid-mini">
                         <div class="skill-pill"><img src="assets/img/ros2.png" alt="ROS"> ROS/ROS2</div>
-                        <div class="skill-pill"><img src="assets/img/nvidia-isaac-logo.png" alt="Isaac"> Isaac Sim</div>
+                        <div class="skill-pill"><img src="assets/img/nvidia-logo.png" alt="Isaac"> Isaac Sim</div>
                         <div class="skill-pill"><img src="assets/img/gazebo.png" alt="Gaz"> Gazebo</div>
                         <div class="skill-pill"><i class="fas fa-map-marked-alt" style="color: #FF5733;"></i> SLAM</div>
                         <div class="skill-pill"><i class="fas fa-bullseye" style="color: #FFC300;"></i> LiDAR</div>
@@ -625,12 +625,18 @@
                     <form action="mailto:thiyanayugimariraj@gmail.com" method="post" enctype="text/plain">
                         <div class="terminal-line">
                             <span class="terminal-prompt">></span>
-                            <input type="text" name="Subject" placeholder="Enter Subject..." class="cmd-input" required>
+                            <input type="email" name="From" placeholder="Signal Source (Your Email)..."
+                                class="cmd-input" required>
                         </div>
                         <div class="terminal-line">
                             <span class="terminal-prompt">></span>
-                            <textarea name="Body" placeholder="Enter Message..." class="cmd-input" rows="3"
-                                style="resize: vertical;"></textarea>
+                            <input type="text" name="Subject" placeholder="Protocol ID (Subject)..." class="cmd-input"
+                                required>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">></span>
+                            <textarea name="Body" placeholder="Transmission Data (Message)..." class="cmd-input"
+                                rows="3" style="resize: vertical;"></textarea>
                         </div>
                         <button type="submit" class="btn-terminal">
                             [ SEND_DATA_PACKET ]
