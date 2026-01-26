@@ -1100,19 +1100,9 @@ section {
     letter-spacing: 1px;
 }
 
-/* Terminal Buttons (Three Dots) */
+/* Terminal Buttons Removed */
 .terminal-card::after {
-    content: '';
-    position: absolute;
-    top: -20px;
-    right: 15px;
-    /* Vertically centered buttons */
-    width: 10px;
-    height: 10px;
-    background: #FF5f56;
-    border-radius: 50%;
-    box-shadow: 18px 0 0 #FFBD2E, 36px 0 0 #27C93F;
-    /* Increased spacing */
+    display: none;
 }
 
 .terminal-line {
