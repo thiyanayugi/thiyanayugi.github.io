@@ -225,4 +225,27 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+}
+
+    // ---------------------------------------------------------
+    // 5. SCROLL PROGRESS BAR
+    // ---------------------------------------------------------
+    const progressBar = document.getElementById('scroll-progress');
+window.addEventListener('scroll', () => {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (scrollTop / scrollHeight) * 100;
+    if (progressBar) progressBar.style.width = scrolled + '%';
+});
+
+// ---------------------------------------------------------
+// 6. SYSTEM CLOCK
+// ---------------------------------------------------------
+const timeDisplay = document.getElementById('status-time');
+if (timeDisplay) {
+    setInterval(() => {
+        const now = new Date();
+        timeDisplay.textContent = now.toLocaleTimeString('en-US', { hour12: false });
+    }, 1000);
+}
 });
