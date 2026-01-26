@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ---------------------------------------------------------
     if (document.getElementById('typed-output')) {
         new Typed('#typed-output', {
-            strings: ['AI Engineer', 'Robotics Specialist', 'Computer Vision Expert', 'System Architect'],
+            strings: ['Autonomous Systems Engineer', 'AI Engineer', 'Robotics Specialist', 'Computer Vision Expert', 'System Architect'],
             typeSpeed: 50,
             backSpeed: 30,
             loop: true
