@@ -1066,6 +1066,100 @@ section {
     box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
 }
 
+/* CONTACT - TRANSMISSION TERMINAL */
+.contact-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.terminal-card {
+    background: rgba(10, 10, 15, 0.9);
+    border: 1px solid var(--glass-border);
+    border-top: 25px solid #2a2a35;
+    /* Terminal Header */
+    border-radius: 8px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.terminal-card::before {
+    content: 'msg_protocol.exe';
+    position: absolute;
+    top: -22px;
+    left: 15px;
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+/* Terminal Buttons */
+.terminal-card::after {
+    content: '';
+    position: absolute;
+    top: -18px;
+    right: 15px;
+    width: 10px;
+    height: 10px;
+    background: #FF5f56;
+    border-radius: 50%;
+    box-shadow: 15px 0 0 #FFBD2E, 30px 0 0 #27C93F;
+}
+
+.terminal-line {
+    font-family: monospace;
+    color: var(--neon-cyan);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.terminal-prompt {
+    color: var(--neon-purple);
+}
+
+.cmd-input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(0, 240, 255, 0.3);
+    color: white;
+    font-family: monospace;
+    width: 100%;
+    padding: 0.5rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+.cmd-input:focus {
+    border-bottom-color: var(--neon-cyan);
+    box-shadow: 0 1px 0 var(--neon-cyan);
+}
+
+.btn-terminal {
+    background: rgba(0, 240, 255, 0.1);
+    border: 1px solid var(--neon-cyan);
+    color: var(--neon-cyan);
+    padding: 0.8rem 2rem;
+    font-family: monospace;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 1rem;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-terminal:hover {
+    background: var(--neon-cyan);
+    color: black;
+    box-shadow: 0 0 15px var(--neon-cyan);
+}
+
 .channel-label {
     display: block;
     font-size: 0.75rem;
