@@ -257,8 +257,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Send Email
             // Service ID: service_uore6zr
-            // Template ID: template_td74g8g
-            emailjs.sendForm('service_uore6zr', 'template_td74g8g', this)
+            // Template ID: template_qzn9hoa
+            emailjs.sendForm('service_uore6zr', 'template_qzn9hoa', this)
                 .then(function () {
                     console.log('SUCCESS!');
                     submitBtn.innerHTML = '[ TRANSMISSION COMPLETE ]';
