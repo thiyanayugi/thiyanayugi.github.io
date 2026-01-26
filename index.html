@@ -652,24 +652,26 @@
                     <form id="contact-form">
                         <div class="terminal-line">
                             <span class="terminal-prompt">></span>
-                            <input type="email" name="From" placeholder="Signal Source (Your Email)..."
+                            <input type="email" name="user_email" placeholder="Signal Source (Your Email)..."
                                 class="cmd-input" required>
                         </div>
                         <div class="terminal-line">
                             <span class="terminal-prompt">></span>
-                            <input type="text" name="Subject" placeholder="Protocol ID (Subject)..." class="cmd-input"
-                                required>
+                            <input type="text" name="subject" placeholder="Protocol ID (Subject/Name)..."
+                                class="cmd-input" required>
                         </div>
                         <div class="terminal-line">
                             <span class="terminal-prompt">></span>
-                            <textarea name="Body" placeholder="Transmission Data (Message)..." class="cmd-input"
-                                rows="3" style="resize: vertical;"></textarea>
+                            <textarea name="message" placeholder="Transmission Data (Message)..." class="cmd-input"
+                                rows="3" style="resize: vertical;" required></textarea>
                         </div>
-                        <button type="submit" class="btn-terminal">
+                        <button type="submit" class="btn-terminal" id="contact-submit">
                             [ SEND_DATA_PACKET ]
                         </button>
+                        <div id="contact-status" class="terminal-line"
+                            style="margin-top:1rem; display:none; color: var(--neon-cyan);">
+                        </div>
                     </form>
-
                     <div class="social-links"
                         style="margin-top: 2rem; border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 1rem;">
                         <a href="https://github.com/thiyanayugi" class="social-icon" target="_blank"><i
