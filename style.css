@@ -1502,6 +1502,11 @@ section {
     background: rgba(0, 240, 255, 0.05);
 }
 
+.cmd-text {
+    padding: 0.5rem 0;
+    color: white;
+}
+
 .btn-terminal {
     background: rgba(0, 240, 255, 0.1);
     border: 1px solid var(--neon-cyan);
