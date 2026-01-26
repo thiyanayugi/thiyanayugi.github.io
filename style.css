@@ -1614,8 +1614,10 @@ section {
     margin-top: 1rem;
 }
 
-color: white;
-box-shadow: 0 0 20px rgba(112, 0, 255, 0.5);
+.btn-cyber-wide:hover {
+    background: var(--neon-purple);
+    color: white;
+    box-shadow: 0 0 20px rgba(112, 0, 255, 0.5);
 }
 
 /* NEURAL UPLINK (SOCIALS) */
