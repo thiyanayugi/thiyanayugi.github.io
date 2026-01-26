@@ -233,11 +233,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (mobileBtn && navLinks) {
         mobileBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+            navLinks.classList.toggle('nav-active');
 
             // Icon Toggle
             const icon = mobileBtn.querySelector('i');
-            if (navLinks.classList.contains('active')) {
+            if (navLinks.classList.contains('nav-active')) {
                 icon.classList.remove('fa-bars');
                 icon.classList.add('fa-times');
             } else {
@@ -249,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Close on Link Click
         navItems.forEach(item => {
             item.addEventListener('click', () => {
-                navLinks.classList.remove('active');
+                navLinks.classList.remove('nav-active');
                 const icon = mobileBtn.querySelector('i');
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
