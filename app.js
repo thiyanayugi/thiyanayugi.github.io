@@ -43,6 +43,27 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ==========================================
+// SCROLL ANIMATIONS
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('.section');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+    
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+});
+
+// ==========================================
 // HAMBURGER MENU FUNCTIONALITY
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -53,43 +74,33 @@ document.addEventListener('DOMContentLoaded', () => {
     // Toggle menu on hamburger click
     if (hamburgerMenu && navMenu) {
         hamburgerMenu.addEventListener('click', () => {
-            hamburgerMenu.classList.toggle('active');
             navMenu.classList.toggle('active');
             
-            // Direct style manipulation for reliable visibility
+            // Toggle hamburger icon if needed or animate logic
+            const icon = hamburgerMenu.querySelector('svg');
             if (navMenu.classList.contains('active')) {
-                navMenu.style.right = '0px';
-                document.body.style.overflow = 'hidden';
-            } else {
-                navMenu.style.right = '-100%';
-                document.body.style.overflow = '';
+                // Change to close icon if sophisticated
             }
         });
 
         // Close menu when clicking on a link
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                hamburgerMenu.classList.remove('active');
                 navMenu.classList.remove('active');
-                document.body.style.overflow = '';
             });
         });
 
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!hamburgerMenu.contains(e.target) && !navMenu.contains(e.target)) {
-                hamburgerMenu.classList.remove('active');
                 navMenu.classList.remove('active');
-                document.body.style.overflow = '';
             }
         });
 
         // Close menu on window resize if open
         window.addEventListener('resize', () => {
-            if (window.innerWidth > 968) {
-                hamburgerMenu.classList.remove('active');
+            if (window.innerWidth > 768) {
                 navMenu.classList.remove('active');
-                document.body.style.overflow = '';
             }
         });
     }
@@ -139,7 +150,7 @@ if (canvas) {
         draw() {
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fillStyle = '#38bdf8';
+            ctx.fillStyle = '#64ffda'; // Updated to accent color
             ctx.fill();
         }
     }
@@ -166,7 +177,7 @@ if (canvas) {
 
                 if (distance < connectionDistance) {
                     ctx.beginPath();
-                    ctx.strokeStyle = `rgba(56, 189, 248, ${1 - distance / connectionDistance})`;
+                    ctx.strokeStyle = `rgba(100, 255, 218, ${1 - distance / connectionDistance})`; // Updated color
                     ctx.lineWidth = 1;
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
@@ -266,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ==========================================
-// PROJECT FILTERING LOGIC (Updated for Carousel)
+// PROJECT FILTERING LOGIC
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
     const filterBtns = document.querySelectorAll('.filter-btn');
@@ -297,74 +308,6 @@ document.addEventListener('DOMContentLoaded', () => {
             applyFilter(filterValue);
         });
     });
-});
-
-// ==========================================
-// CERTIFICATES CAROUSEL NAVIGATION
-// ==========================================
-document.addEventListener('DOMContentLoaded', () => {
-    const carousel = document.querySelector('.certificates-carousel');
-    const prevBtn = document.querySelector('.certificates-carousel-wrapper .carousel-nav-prev');
-    const nextBtn = document.querySelector('.certificates-carousel-wrapper .carousel-nav-next');
-    
-    if (carousel && prevBtn && nextBtn) {
-        const scrollAmount = 350;
-        
-        // Previous button
-        prevBtn.addEventListener('click', () => {
-            carousel.scrollBy({
-                left: -scrollAmount,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Next button
-        nextBtn.addEventListener('click', () => {
-            carousel.scrollBy({
-                left: scrollAmount,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Mouse wheel horizontal scroll
-        carousel.addEventListener('wheel', (e) => {
-            if (e.deltaY !== 0) {
-                e.preventDefault();
-                carousel.scrollBy({
-                    left: e.deltaY,
-                    behavior: 'auto'
-                });
-            }
-        }, { passive: false });
-        
-        // Touch/swipe support
-        let touchStartX = 0;
-        let touchEndX = 0;
-        
-        carousel.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        });
-        
-        carousel.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        });
-        
-        function handleSwipe() {
-            const swipeThreshold = 50;
-            if (touchStartX - touchEndX > swipeThreshold) {
-                carousel.scrollBy({
-                    left: scrollAmount,
-                    behavior: 'smooth'
-                });
-            } else if (touchEndX - touchStartX > swipeThreshold) {
-                carousel.scrollBy({
-                    left: -scrollAmount,
-                    behavior: 'smooth'
-                });
-            }
-        }
-    }
 });
 
 // ==========================================
