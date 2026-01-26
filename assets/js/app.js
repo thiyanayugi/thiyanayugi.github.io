@@ -279,10 +279,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const modalLink = document.getElementById('modal-link');
             const closeModal = document.querySelector('.modal-close');
 
-            // Select all "View Project" buttons
-            const viewButtons = document.querySelectorAll('.project-card .btn-glow');
+            // Select project images and titles for modal trigger
+            const viewTriggers = document.querySelectorAll('.project-card .project-img-thumb, .project-card .card-head');
 
-            viewButtons.forEach(btn => {
+            viewTriggers.forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     e.preventDefault(); // Stop default link behavior
 

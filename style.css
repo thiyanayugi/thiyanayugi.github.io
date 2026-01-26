@@ -1525,5 +1525,15 @@ section {
 .modal-actions {
     margin-top: 2rem;
     border-top: 1px dashed rgba(255, 255, 255, 0.1);
-    padding-top: 1.5rem;
-}
+
+    .project-img-thumb,
+    .card-head {
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .project-img-thumb:hover,
+    .card-head:hover {
+        filter: brightness(1.2);
+        color: var(--neon-cyan);
+    }
