@@ -160,6 +160,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const filterBtns = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
 
+    // SPOTLIGHT HOVER EFFECT
+    const updateSpotlight = (e) => {
+        const card = e.currentTarget;
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+    };
+
+    projectCards.forEach(card => {
+        card.addEventListener('mousemove', updateSpotlight);
+    });
+
+    // FILTER LOGIC
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             filterBtns.forEach(b => b.classList.remove('active'));
@@ -169,28 +184,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
             projectCards.forEach(card => {
                 const categories = card.getAttribute('data-category');
+
                 if (filterValue === 'all' || categories.includes(filterValue)) {
                     card.style.display = 'flex';
-                    card.style.opacity = '0';
                     setTimeout(() => card.style.opacity = '1', 50);
                 } else {
                     card.style.display = 'none';
+                    card.style.opacity = '0';
                 }
             });
 
+            // Reset scroll on filter change
             if (track) {
-                track.scrollLeft = 0;
+                track.scrollTo({ left: 0, behavior: 'smooth' });
             }
         });
     });
 
+    // CAROUSEL SCROLL LOGIC
     if (track && prevBtn && nextBtn) {
         prevBtn.addEventListener('click', () => {
-            track.scrollBy({ left: -370, behavior: 'smooth' });
+            const cardWidth = projectCards[0].offsetWidth; // Get current card width
+            const gap = 32; // 2rem gap
+            const scrollAmount = (cardWidth + gap);
+            track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
         });
+
         nextBtn.addEventListener('click', () => {
-            track.scrollBy({ left: 370, behavior: 'smooth' });
+            const cardWidth = projectCards[0].offsetWidth;
+            const gap = 32;
+            const scrollAmount = (cardWidth + gap);
+            track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         });
+    }
+
+    // Initialize Filter (Trigger click on the default active button)
+    const activeBtn = document.querySelector('.filter-btn.active');
+    if (activeBtn) {
+        activeBtn.click();
     }
 
     // ---------------------------------------------------------
