@@ -475,5 +475,61 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // ---------------------------------------------------------
+    // 10. HERO HOLOGRAPHIC TILT
+    // ---------------------------------------------------------
+    const holoSection = document.querySelector('.hero-holo');
+    const holoContainer = document.querySelector('.holo-container');
+
+    if (holoSection && holoContainer) {
+        holoSection.addEventListener('mousemove', (e) => {
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+            // Smoothly animate the rotation
+            holoContainer.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+        });
+
+        // Reset on leave
+        holoSection.addEventListener('mouseleave', () => {
+            holoContainer.style.transition = 'transform 0.5s ease';
+            holoContainer.style.transform = `rotateY(-10deg) rotateX(10deg)`;
+            setTimeout(() => {
+                holoContainer.style.transition = 'none'; // Remove transition for mousemove
+            }, 500);
+        });
+
+        // Add transition for mouse enter so it doesn't snap
+        holoSection.addEventListener('mouseenter', () => {
+            holoContainer.style.transition = 'none';
+
+            // ---------------------------------------------------------
+            // 11. MAGNETIC BUTTONS (HERO)
+            // ---------------------------------------------------------
+            const heroBtns = document.querySelectorAll('.btn-primary-holo, .btn-secondary-holo');
+
+            heroBtns.forEach(btn => {
+                btn.addEventListener('mousemove', (e) => {
+                    const rect = btn.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    // Calculate distance from center
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+
+                    const deltaX = (x - centerX) * 0.3; // Scale factor
+                    const deltaY = (y - centerY) * 0.3;
+
+                    btn.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+                });
+
+                btn.addEventListener('mouseleave', () => {
+                    btn.style.transform = 'translate(0px, 0px)';
+                });
+            });
+
+        });
+    }
+
 });
 

@@ -63,23 +63,81 @@
 
     <div class="hologram-overlay">
         <!-- 1. Hero Section -->
+        <!-- 1. Hero Section -->
         <section id="home" class="hero-holo">
-            <div class="hero-content">
-                <p class="hero-kicker">Hello, I'm</p>
-                <h1 class="glitch-text" data-text="Thiyanayugi Mariraj">
-                    Thiyanayugi Mariraj
-                </h1>
-                <h2 class="hero-subtitle">
-                    <span id="typed-output" class="neon-text"></span>
-                </h2>
-                <p class="hero-desc">
-                    I build AI-driven robotic systems and generative AI solutions. Passionate about bridging AI and
-                    the
-                    physical world through autonomous robotics, computer vision, and intelligent automation.
-                </p>
-                <div class="hero-actions">
-                    <a href="assets/resume/Resume_CV_Mariraj.pdf" class="btn-cyber" download>My Resume</a>
-                    <a href="#contact" class="btn-glass">Contact Info</a>
+            <div class="hero-grid-container">
+                <!-- Left: Text Content -->
+                <div class="hero-text-side">
+                    <div class="hero-badge">Available for Projects</div>
+                    <h1 class="glitch-text-pro" data-text="Thiyanayugi Mariraj">
+                        Thiyanayugi Mariraj
+                    </h1>
+                    <h2 class="hero-subtitle-pro">
+                        <span class="prefix">>_</span>
+                        <span id="typed-output" class="neon-text"></span>
+                        <span class="cursor-blink">|</span>
+                    </h2>
+                    <p class="hero-desc-pro">
+                        Architecting the <span class="highlight">synapse</span> between digital intelligence and
+                        physical action.
+                        Specializing in <strong>Autonomous Robotics</strong>, <strong>Generative AI</strong>, and
+                        <strong>Computer Vision</strong>.
+                    </p>
+                    <div class="hero-actions-pro">
+                        <a href="#projects" class="btn-primary-holo">
+                            <i class="fas fa-code-branch"></i> View Work
+                        </a>
+                        <a href="assets/resume/Resume_CV_Mariraj.pdf" class="btn-secondary-holo" download>
+                            <i class="fas fa-file-download"></i> Bio_Data
+                        </a>
+                    </div>
+
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-val">4+</span>
+                            <span class="stat-label">Years Exp</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-val">12+</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-val">Master's</span>
+                            <span class="stat-label">Robotics (DE)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Holographic Visualizer -->
+                <div class="hero-visual-side">
+                    <div class="holo-container">
+                        <div class="holo-core">
+                            <div class="core-inner"></div>
+                            <div class="core-outer"></div>
+                        </div>
+
+                        <!-- Orbit Ring 1 -->
+                        <div class="orbit-ring ring-1">
+                            <div class="orbit-item" title="Python"><img src="assets/img/python-logo.svg" alt="Py"></div>
+                            <div class="orbit-item" title="ROS"><img src="assets/img/ros2.png" alt="ROS"></div>
+                            <div class="orbit-item" title="AI"><i class="fas fa-brain"
+                                    style="color:var(--neon-cyan)"></i></div>
+                        </div>
+
+                        <!-- Orbit Ring 2 -->
+                        <div class="orbit-ring ring-2">
+                            <div class="orbit-item" title="C++"><img src="assets/img/cpp-logo.svg" alt="Cpp"></div>
+                            <div class="orbit-item" title="GenAI"><i class="fas fa-magic"
+                                    style="color:var(--neon-purple)"></i></div>
+                            <div class="orbit-item" title="Vision"><i class="fas fa-eye" style="color:#ff00c1"></i>
+                            </div>
+                        </div>
+
+                        <!-- Floating Tech Tags -->
+                        <div class="floating-tag tag-1">Deep Learning</div>
+                        <div class="floating-tag tag-2">SLAM</div>
+                        <div class="floating-tag tag-3">Multi-Agent</div>
+                    </div>
                 </div>
             </div>
         </section>
