@@ -895,17 +895,24 @@ section {
 }
 
 .edu-icon {
-    width: 50px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.05);
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.9);
+    /* Light bg for logos */
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
-    color: var(--neon-cyan);
     border: 1px solid var(--glass-border);
     flex-shrink: 0;
+    overflow: hidden;
+    padding: 5px;
+}
+
+.edu-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .section-label {
@@ -922,6 +929,19 @@ section {
     border-top: 1px solid var(--glass-border);
     font-size: 0.9rem;
     color: var(--text-dim);
+}
+
+.text-link {
+    color: var(--neon-cyan);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--neon-cyan);
+    transition: 0.2s;
+}
+
+.text-link:hover {
+    color: white;
+    border-bottom-style: solid;
+    text-shadow: 0 0 5px var(--neon-cyan);
 }
 
 /* CONTACT */
