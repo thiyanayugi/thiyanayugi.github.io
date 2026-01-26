@@ -248,4 +248,59 @@ if (timeDisplay) {
         timeDisplay.textContent = now.toLocaleTimeString('en-US', { hour12: false });
     }, 1000);
 }
+// ---------------------------------------------------------
+// 7. EMAILJS CONTACT FORM
+// ---------------------------------------------------------
+const contactForm = document.getElementById('contact-form');
+const submitBtn = document.getElementById('contact-submit');
+const statusMsg = document.getElementById('contact-status');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        // UI Feedback: Sending
+        submitBtn.innerHTML = '[ TRANSMITTING... ]';
+        submitBtn.disabled = true;
+        statusMsg.style.display = 'none';
+
+        // Send Email
+        // Service ID: service_uore6zr
+        // Template ID: template_td74g8g
+        emailjs.sendForm('service_uore6zr', 'template_td74g8g', this)
+            .then(function () {
+                console.log('SUCCESS!');
+                submitBtn.innerHTML = '[ TRANSMISSION COMPLETE ]';
+                submitBtn.style.borderColor = '#00ff00';
+                submitBtn.style.color = '#00ff00';
+
+                statusMsg.textContent = "> Packet delivery successful. Connection terminated.";
+                statusMsg.style.display = 'block';
+                statusMsg.style.color = '#00ff00';
+
+                contactForm.reset();
+
+                setTimeout(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '[ SEND_DATA_PACKET ]';
+                    submitBtn.style.borderColor = '';
+                    submitBtn.style.color = '';
+                }, 5000);
+            }, function (error) {
+                console.log('FAILED...', error);
+                submitBtn.innerHTML = '[ TRANSMISSION FAILED ]';
+                submitBtn.style.borderColor = 'red';
+
+                statusMsg.textContent = "> Critical Error: " + JSON.stringify(error);
+                statusMsg.style.display = 'block';
+                statusMsg.style.color = 'red';
+
+                setTimeout(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '[ RETRY_TRANSMISSION ]';
+                    submitBtn.style.borderColor = '';
+                }, 3000);
+            });
+    });
+}
 });

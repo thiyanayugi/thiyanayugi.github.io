@@ -14,6 +14,16 @@
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            // PLEASE REPLACE TEXT BELOW WITH YOUR PUBLIC KEY FROM EMAILJS DASHBOARD
+            emailjs.init("YOUR_PUBLIC_KEY");
+        })();
+    </script>
+</head>
+
 </head>
 
 <body>
@@ -25,6 +35,8 @@
         <div class="status-item"><span class="status-dot"></span> Online</div>
         <div class="status-item">Dortmund, DE</div>
         <div class="status-item" id="status-time">00:00:00</div>
+    </div>
+    <div class="status-item" id="status-time">00:00:00</div>
     </div>
 
     <!-- Canvas fixed background -->
@@ -64,7 +76,8 @@
                     <span id="typed-output" class="neon-text"></span>
                 </h2>
                 <p class="hero-desc">
-                    I build AI-driven robotic systems and generative AI solutions. Passionate about bridging AI and the
+                    I build AI-driven robotic systems and generative AI solutions. Passionate about bridging AI and
+                    the
                     physical world through autonomous robotics, computer vision, and intelligent automation.
                 </p>
                 <div class="hero-actions">
@@ -88,7 +101,8 @@
                     <p class="card-txt">
                         I engineer the <strong>synapse between digital intelligence and physical action</strong>.
                         As a Graduate Researcher in <strong>Automation & Robotics</strong> at <span class="neon-text">TU
-                            Dortmund</span>, I don't just write code, I architect <strong>embodied agents</strong> that
+                            Dortmund</span>, I don't just write code, I architect <strong>embodied agents</strong>
+                        that
                         perceive, reason, and interact with the real world.
                     </p>
                     <p class="card-txt">
@@ -201,12 +215,14 @@
                     <h3 class="skill-group-title"><i class="fas fa-magic"></i> Generative AI & LLMs</h3>
                     <div class="skill-grid-mini">
                         <div class="skill-pill"><img src="assets/img/langchain-logo.png" alt="LC"> LangChain</div>
-                        <div class="skill-pill"><img src="assets/img/huggingface-logo.svg" alt="HF"> HuggingFace</div>
+                        <div class="skill-pill"><img src="assets/img/huggingface-logo.svg" alt="HF"> HuggingFace
+                        </div>
                         <div class="skill-pill"><img src="assets/img/crewai-logo.png" alt="Crew"> CrewAI</div>
                         <div class="skill-pill"><img src="assets/img/autogen-logo.png" alt="AG"> AutoGen</div>
                         <div class="skill-pill"><img src="assets/img/n8n-logo.png" alt="n8n"> n8n</div>
                         <div class="skill-pill"><img src="assets/img/rag.png" alt="RAG"> RAG</div>
-                        <div class="skill-pill"><i class="fas fa-database" style="color: #00F0FF;"></i> Vector DB</div>
+                        <div class="skill-pill"><i class="fas fa-database" style="color: #00F0FF;"></i> Vector DB
+                        </div>
                     </div>
                 </div>
 
@@ -217,9 +233,11 @@
                         <div class="skill-pill"><img src="assets/img/ros2.png" alt="ROS"> ROS/ROS2</div>
                         <div class="skill-pill"><img src="assets/img/nvidia-logo.png" alt="Isaac"> Isaac Sim</div>
                         <div class="skill-pill"><img src="assets/img/gazebo.png" alt="Gaz"> Gazebo</div>
-                        <div class="skill-pill"><i class="fas fa-map-marked-alt" style="color: #FF5733;"></i> SLAM</div>
+                        <div class="skill-pill"><i class="fas fa-map-marked-alt" style="color: #FF5733;"></i> SLAM
+                        </div>
                         <div class="skill-pill"><i class="fas fa-bullseye" style="color: #FFC300;"></i> LiDAR</div>
-                        <div class="skill-pill"><i class="fas fa-microchip" style="color: #DAF7A6;"></i> Sensor Fusion
+                        <div class="skill-pill"><i class="fas fa-microchip" style="color: #DAF7A6;"></i> Sensor
+                            Fusion
                         </div>
                     </div>
                 </div>
@@ -231,8 +249,10 @@
                         <div class="skill-pill"><img src="assets/img/aws-logo.svg" alt="AWS"> AWS</div>
                         <div class="skill-pill"><img src="assets/img/gcp-logo.svg" alt="GCP"> Google Cloud</div>
                         <div class="skill-pill"><img src="assets/img/docker-logo.svg" alt="Doc"> Docker</div>
-                        <div class="skill-pill"><img src="assets/img/kubernetes-logo.svg" alt="K8s"> Kubernetes</div>
-                        <div class="skill-pill"><img src="assets/img/github-actions-logo.svg" alt="GHA"> GitHub Actions
+                        <div class="skill-pill"><img src="assets/img/kubernetes-logo.svg" alt="K8s"> Kubernetes
+                        </div>
+                        <div class="skill-pill"><img src="assets/img/github-actions-logo.svg" alt="GHA"> GitHub
+                            Actions
                         </div>
                         <div class="skill-pill"><img src="assets/img/grafana-logo.svg" alt="Graf"> Grafana</div>
                         <div class="skill-pill"><img src="assets/img/git-logo.svg" alt="Git"> Git</div>
@@ -255,7 +275,8 @@
                     <ul class="time-desc">
                         <li>Designed deep learning models for intelligent signal interpretation in complex
                             electromagnetic systems.</li>
-                        <li>Applied reinforcement learning for adaptive optimization and real-time parameter tuning in
+                        <li>Applied reinforcement learning for adaptive optimization and real-time parameter tuning
+                            in
                             dynamic environments.</li>
                         <li>Improved signal processing precision in high-frequency industrial applications via
                             supervised ML techniques.</li>
@@ -278,7 +299,8 @@
                             technology.</li>
                         <li>Implemented Graph Neural Network architectures for real-time occupancy prediction in
                             warehouse environments.</li>
-                        <li>Conducted comprehensive validation using dual robotic platforms with motion capture ground
+                        <li>Conducted comprehensive validation using dual robotic platforms with motion capture
+                            ground
                             truth systems.</li>
                     </ul>
                     <div class="tech-stack" style="margin-top: 1rem;">
@@ -351,7 +373,8 @@
                             <h3 class="card-head">Autolearn AI Platform</h3>
                             <div class="tech-stack"><span class="tech-pill">JS</span><span class="tech-pill">Claude
                                     API</span><span class="tech-pill">Cloud Run</span></div>
-                            <p class="card-txt">Production Web Platform with Claude API-powered Chatbot and AI-driven
+                            <p class="card-txt">Production Web Platform with Claude API-powered Chatbot and
+                                AI-driven
                                 personalized email generation system.</p>
                             <div class="links">
                                 <a href="https://teaching-platform-560659035104.europe-west1.run.app/"
@@ -416,7 +439,8 @@
                     <!-- 5. Market Intel -->
                     <div class="glass-card project-card" data-category="ai generative-ai automation">
                         <div class="project-img-thumb"><img
-                                src="assets/img/projects/project_market_intelligence_hero.png" alt="Market Intel"></div>
+                                src="assets/img/projects/project_market_intelligence_hero.png" alt="Market Intel">
+                        </div>
                         <div class="p-content">
                             <h3 class="card-head">Market Intelligence</h3>
                             <div class="tech-stack"><span class="tech-pill">CrewAI</span><span
@@ -503,7 +527,8 @@
                             <h3 class="card-head">Robotic Platform</h3>
                             <div class="tech-stack"><span class="tech-pill">ROS</span><span
                                     class="tech-pill">Motion</span></div>
-                            <p class="card-txt">Multi-DOF Robotic Arm with Omnidirectional Base for factory automation
+                            <p class="card-txt">Multi-DOF Robotic Arm with Omnidirectional Base for factory
+                                automation
                                 with adaptive motion.</p>
                             <span class="link-btn" style="opacity: 0.6;">Repository Coming Soon</span>
                         </div>
@@ -528,12 +553,14 @@
                     <!-- 12. Smart System Health -->
                     <div class="glass-card project-card" data-category="cloud automation">
                         <div class="project-img-thumb"><img src="assets/img/projects/project_system_health_monitor.png"
-                                alt="Health Monitor"></div>
+                                alt="Health Monitor">
+                        </div>
                         <div class="p-content">
                             <h3 class="card-head">System Health Monitor</h3>
                             <div class="tech-stack"><span class="tech-pill">Prometheus</span><span
                                     class="tech-pill">Grafana</span></div>
-                            <p class="card-txt">Production-ready observability platform with predictive analytics using
+                            <p class="card-txt">Production-ready observability platform with predictive analytics
+                                using
                                 Prometheus.</p>
                             <a href="https://github.com/thiyanayugi/smart-system-health-monitor" class="link-btn"><i
                                     class="fab fa-github"></i> GitHub</a>
@@ -572,7 +599,8 @@
                     <div class="cert-header"><img src="assets/img/aws-logo.svg" alt="AWS" class="cert-logo-sm"><span
                             class="cert-issuer">AWS</span></div>
                     <h3 class="cert-title">No-Code ML & Generative AI on AWS</h3>
-                    <p class="cert-desc">Certification in building machine learning and generative AI solutions using
+                    <p class="cert-desc">Certification in building machine learning and generative AI solutions
+                        using
                         AWS no-code tools.</p>
                     <a href="#" class="cert-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
                 </div>
@@ -596,15 +624,18 @@
                     <h3 class="card-head">RFID based Human Following Load Carrier</h3>
                     <p class="card-txt"><strong>NVEO - Natural Volatiles & Essential Oils Journal</strong> | Vol 8,
                         Issue 5, 2021</p>
-                    <p class="card-txt">Design and implementation of an autonomous robot system capable of tracking and
+                    <p class="card-txt">Design and implementation of an autonomous robot system capable of tracking
+                        and
                         following humans while assisting in load carrying tasks.</p>
-                    <a href="https://www.nveo.org/index.php/journal/article/view/928" class="link-btn">View Article</a>
+                    <a href="https://www.nveo.org/index.php/journal/article/view/928" class="link-btn">View
+                        Article</a>
                 </div>
                 <div class="glass-card">
                     <h3 class="card-head">Development Of Robotic Arm On An Omnidirectional Base</h3>
                     <p class="card-txt"><strong>NVEO - Natural Volatiles & Essential Oils Journal</strong> | Vol 8,
                         Issue 4, 2021</p>
-                    <p class="card-txt">Design and development of a multi-degree-of-freedom robotic arm integrated with
+                    <p class="card-txt">Design and development of a multi-degree-of-freedom robotic arm integrated
+                        with
                         an omnidirectional mobile base for enhanced maneuverability.</p>
                     <a href="https://www.nveo.org/index.php/journal/article/view/813/743" class="link-btn">View
                         Article</a>
