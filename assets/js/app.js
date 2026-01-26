@@ -531,27 +531,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
-    // ---------------------------------------------------------
-    // 12. DOSSIER TILT LOGIC (ABOUT SECTION)
-    // ---------------------------------------------------------
-    const dossierCard = document.getElementById('dossier-card');
-    const aboutSection = document.getElementById('about');
-
-    if (dossierCard && aboutSection) {
-        aboutSection.addEventListener('mousemove', (e) => {
-            // Only tilt if screen is large enough
-            if (window.innerWidth > 992) {
-                const xAxis = (window.innerWidth / 2 - e.pageX) / 40; // Subtle tilt
-                const yAxis = (window.innerHeight / 2 - e.pageY) / 40;
-                dossierCard.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-            }
-        });
-
-        aboutSection.addEventListener('mouseleave', () => {
-            dossierCard.style.transform = `rotateY(0deg) rotateX(0deg)`;
-        });
-    }
-
 });
 

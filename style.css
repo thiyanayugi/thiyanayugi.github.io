@@ -709,240 +709,128 @@ section {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* ABOUT SECTION PRO - HOLOGRAPHIC DOSSIER */
-.about-section-pro {
+/* ABOUT */
+.about-container {
     display: flex;
-    justify-content: center;
-    padding: 6rem 1rem;
-}
-
-.dossier-container {
-    background: rgba(10, 15, 25, 0.7);
-    border: 1px solid rgba(0, 240, 255, 0.15);
-    backdrop-filter: blur(15px);
-    border-radius: 4px;
-    /* More angular/tech feel */
-    max-width: 1000px;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
-    transition: transform 0.1s;
-    /* smooth tilt */
-}
-
-/* Dossier Header */
-.dossier-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.8rem 1.5rem;
-    background: rgba(0, 240, 255, 0.05);
-    border-bottom: 1px solid rgba(0, 240, 255, 0.1);
-    font-family: monospace;
-    font-size: 0.85rem;
-    color: var(--neon-cyan);
-    letter-spacing: 1px;
-}
-
-.status-badge i {
-    margin-right: 0.5rem;
-}
-
-/* Dossier Grid */
-.dossier-grid {
-    display: grid;
-    grid-template-columns: 350px 1fr;
     gap: 3rem;
-    padding: 3rem;
-    align-items: start;
+    align-items: center;
 }
 
-/* Visual Side (Avatar) */
-.dossier-visual {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.scan-frame {
+/* ABOUT - CYBER FOCUS EFFECT */
+.about-frame {
+    flex: 0 0 350px;
+    border-radius: 20px;
     position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 5px;
-    background: rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    background: transparent;
+    padding: 6px;
 }
 
-.dossier-img {
+/* Base Image */
+.about-img {
     width: 100%;
     display: block;
-    filter: grayscale(0.2) contrast(1.1);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    transition: 0.5s;
+    filter: brightness(1.05) contrast(1.05);
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 0 0px transparent;
 }
 
-/* Scanning Animation */
-.scan-line {
+/* The Glowing Border Container */
+.about-frame::before {
+    content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: var(--neon-cyan);
-    box-shadow: 0 0 10px var(--neon-cyan);
-    opacity: 0.6;
-    animation: scanAnim 4s ease-in-out infinite;
-    pointer-events: none;
-    z-index: 5;
+    inset: 0;
+    border-radius: 24px;
+    padding: 2px;
+    background: linear-gradient(135deg, var(--neon-cyan), transparent 40%, transparent 60%, var(--neon-purple));
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.8;
+    transition: 0.5s;
+    animation: borderPulse 4s infinite alternate;
 }
 
-@keyframes scanAnim {
+/* Corner Accents */
+.about-frame::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 28px;
+    border: 2px solid transparent;
+    background:
+        linear-gradient(to right, var(--neon-cyan), var(--neon-cyan)) top left,
+        linear-gradient(to bottom, var(--neon-cyan), var(--neon-cyan)) top left,
+        linear-gradient(to left, var(--neon-purple), var(--neon-purple)) bottom right,
+        linear-gradient(to top, var(--neon-purple), var(--neon-purple)) bottom right;
+    background-size: 20px 2px, 2px 20px;
+    background-repeat: no-repeat;
+    opacity: 0.6;
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+@keyframes borderPulse {
     0% {
-        top: 0%;
-        opacity: 0;
-    }
-
-    10% {
-        opacity: 1;
-    }
-
-    90% {
-        opacity: 1;
+        opacity: 0.5;
+        filter: hue-rotate(0deg);
     }
 
     100% {
-        top: 100%;
-        opacity: 0;
+        opacity: 1;
+        filter: hue-rotate(20deg);
     }
 }
 
-.corner-brackets::before,
-.corner-brackets::after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--neon-cyan);
-    transition: 0.3s;
+/* HOVER EFFECTS */
+.about-frame:hover {
+    transform: translateY(-5px);
 }
 
-.corner-brackets::before {
-    top: -5px;
-    left: -5px;
-    border-right: none;
-    border-bottom: none;
+.about-frame:hover::after {
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    opacity: 1;
+    background-size: 30px 2px, 2px 30px;
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.2);
 }
 
-.corner-brackets::after {
-    bottom: -5px;
-    right: -5px;
-    border-left: none;
-    border-top: none;
+.about-frame:hover .about-img {
+    filter: brightness(1.1) contrast(1.1);
+    box-shadow: 0 0 30px rgba(112, 0, 255, 0.3);
 }
 
-.visual-caption {
-    font-family: monospace;
-    color: var(--text-dim);
-    font-size: 0.8rem;
-    text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 0.5rem;
+.about-text-panel {
+    padding: 3rem;
+    flex: 1;
 }
 
-/* Data Side */
-.dossier-data {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.data-role {
-    font-size: 1.8rem;
-    color: white;
+.card-head {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    border-bottom: 1px solid rgba(0, 240, 255, 0.2);
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
-}
-
-.blink {
-    animation: blink 1s infinite;
-}
-
-.data-block p {
-    color: #b0b0d0;
-    line-height: 1.7;
-    margin-bottom: 1rem;
-    font-size: 1rem;
-}
-
-.data-block strong {
     color: white;
 }
 
-.data-block .highlight {
-    color: var(--neon-cyan);
-}
-
-.data-block .neon-text {
-    color: var(--neon-purple);
-    font-weight: 600;
-}
-
-/* Key Metrics Grid */
-.key-metrics-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    margin-top: 1rem;
-    border-top: 1px dashed rgba(255, 255, 255, 0.1);
-    padding-top: 2rem;
-}
-
-.metric-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    text-align: center;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 4px;
-    transition: 0.3s;
-}
-
-.metric-item:hover {
-    background: rgba(0, 240, 255, 0.05);
-    border-color: var(--neon-cyan);
-    transform: translateY(-3px);
-}
-
-.metric-item i {
-    font-size: 1.5rem;
-    color: var(--neon-cyan);
-}
-
-.metric-item span {
-    font-size: 0.75rem;
-    text-transform: uppercase;
+.card-txt {
     color: var(--text-dim);
-    letter-spacing: 0.5px;
-}
-
-/* Responsive Dossier */
-@media (max-width: 900px) {
-    .dossier-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .dossier-visual {
-        max-width: 300px;
-        margin: 0 auto;
-        width: 100%;
-    }
-
-    .key-metrics-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
 }
 
 /* SKILLS */
