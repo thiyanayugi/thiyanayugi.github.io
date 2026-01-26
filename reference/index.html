@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiyanayugi Mariraj | AI Engineer & Robotics Specialist</title>
+    <meta name="description"
+        content="AI Engineer specializing in Robotics, Computer Vision, Generative AI, and Autonomous Systems.">
+
+    <!-- CSS -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Canvas fixed background -->
+    <canvas id="neural-canvas"></canvas>
+
+    <!-- Navigation (Glass) -->
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <a href="#home" class="logo-holo">TM_V3.2</a>
+            <div class="nav-links">
+                <a href="#about" class="nav-item">About</a>
+                <a href="#skills" class="nav-item">Skills</a>
+                <a href="#projects" class="nav-item">Projects</a>
+                <a href="#experience" class="nav-item">Experience</a>
+            </div>
+            <a href="assets/resume/Resume_CV_Mariraj.pdf" class="btn-glow" download>Resume</a>
+        </div>
+    </nav>
+
+    <div class="hologram-overlay">
+        <!-- Hero Section -->
+        <section id="home" class="hero-holo">
+            <div class="hero-content">
+                <p class="hero-kicker">Hello, I'm</p>
+                <h1 class="glitch-text" data-text="Thiyanayugi Mariraj">
+                    Thiyanayugi Mariraj
+                </h1>
+                <h2 class="hero-subtitle">
+                    <span id="typed-output"></span>
+                </h2>
+                <p class="hero-desc">
+                    Graduate Engineer in <strong>Automation & Robotics</strong>. Bridging the gap between AI and the
+                    physical world through autonomous robotics, computer vision, and intelligent automation.
+                </p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn-cyber">View Systems</a>
+                    <a href="#contact" class="btn-glass">Contact</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2 class="section-title">Identity_Matrix <span class="orig-name">(About Me)</span></h2>
+            <div class="about-container">
+                <div class="about-frame">
+                    <img src="assets/img/passport-new.png" alt="Thiyanayugi Mariraj" class="about-img">
+                    <div class="about-glitch-overlay"></div>
+                </div>
+
+                <div class="about-text-panel glass-card">
+                    <h3 class="card-head">AI Engineer & Robotics Specialist</h3>
+                    <p class="card-txt">
+                        I'm <strong>Thiyanayugi Mariraj</strong>, completing my Master's at <strong>TU
+                            Dortmund</strong>.
+                        I specialize in AI-driven systems, generative AI, and autonomous robotics.
+                    </p>
+                    <p class="card-txt">
+                        My expertise spans LLM fine-tuning, RAG architectures, Computer Vision, and ROS-based robot
+                        control.
+                        I build systems that perceive, reason, and act.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2 class="section-title">Neural_Capacity <span class="orig-name">(Technical Skills)</span></h2>
+
+            <!-- Programming -->
+            <div class="skill-category-block">
+                <h3 class="cat-header">Running Processes (Languages)</h3>
+                <div class="skill-grid">
+                    <div class="skill-item">
+                        <img src="assets/img/python-logo.svg" alt="Python">
+                        <span>Python</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="assets/img/cpp-logo.svg" alt="C++">
+                        <span>C++</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="assets/img/matlab.jpeg" alt="MATLAB">
+                        <span>MATLAB</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="assets/img/bash-logo.svg" alt="Bash">
+                        <span>Bash</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="assets/img/javascript-logo.svg" alt="JS">
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="assets/img/mysql-logo.svg" alt="SQL">
+                        <span>SQL</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI -->
+            <div class="skill-category-block">
+                <h3 class="cat-header">AI & Machine Learning</h3>
+                <div class="skill-grid">
+                    <div class="skill-item"><img src="assets/img/pytorch-logo.svg" alt="PyTorch"><span>PyTorch</span>
+                    </div>
+                    <div class="skill-item"><img src="assets/img/tensorflow-logo.svg" alt="TF"><span>TensorFlow</span>
+                    </div>
+                    <div class="skill-item"><img src="assets/img/opencv-logo.svg" alt="OpenCV"><span>OpenCV</span></div>
+                    <div class="skill-item"><img src="assets/img/sklearn-logo.svg"
+                            alt="Sklearn"><span>Scikit-learn</span></div>
+                    <div class="skill-item"><img src="assets/img/pandas-logo.svg" alt="Pandas"><span>Pandas</span></div>
+                </div>
+            </div>
+
+            <!-- Gen AI -->
+            <div class="skill-category-block">
+                <h3 class="cat-header">Generative AI</h3>
+                <div class="skill-grid">
+                    <div class="skill-item"><img src="assets/img/langchain-logo.png"
+                            alt="LangChain"><span>LangChain</span></div>
+                    <div class="skill-item"><img src="assets/img/huggingface-logo.svg" alt="HF"><span>Hugging
+                            Face</span></div>
+                    <div class="skill-item"><img src="assets/img/crewai-logo.png" alt="CrewAI"><span>CrewAI</span></div>
+                    <div class="skill-item"><img src="assets/img/n8n-logo.png" alt="n8n"><span>n8n</span></div>
+                    <div class="skill-item"><img src="assets/img/rag.png" alt="RAG"><span>RAG</span></div>
+                </div>
+            </div>
+
+            <!-- Robotics -->
+            <div class="skill-category-block">
+                <h3 class="cat-header">Robotics Core</h3>
+                <div class="skill-grid">
+                    <div class="skill-item"><img src="assets/img/ros-logo.svg" alt="ROS"><span>ROS/ROS2</span></div>
+                    <div class="skill-item"><img src="assets/img/gazebo.png" alt="Gazebo"><span>Gazebo</span></div>
+                    <div class="skill-item text-only"><span>SLAM</span></div>
+                    <div class="skill-item text-only"><span>LiDAR</span></div>
+                    <div class="skill-item text-only"><span>Sensor Fusion</span></div>
+                </div>
+            </div>
+
+            <!-- Cloud -->
+            <div class="skill-category-block">
+                <h3 class="cat-header">Infrastructure</h3>
+                <div class="skill-grid">
+                    <div class="skill-item"><img src="assets/img/aws-logo.svg" alt="AWS"><span>AWS</span></div>
+                    <div class="skill-item"><img src="assets/img/gcp-logo.svg" alt="GCP"><span>GCP</span></div>
+                    <div class="skill-item"><img src="assets/img/docker-logo.svg" alt="Docker"><span>Docker</span></div>
+                    <div class="skill-item"><img src="assets/img/kubernetes-logo.svg" alt="K8s"><span>Kubernetes</span>
+                    </div>
+                    <div class="skill-item"><img src="assets/img/git-logo.svg" alt="Git"><span>Git</span></div>
+                    <div class="skill-item"><img src="assets/img/linux-logo.svg" alt="Linux"><span>Linux</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section (Filtered) -->
+        <section id="projects">
+            <h2 class="section-title">Deployed_Modules <span class="orig-name">(Projects)</span></h2>
+
+            <!-- Filters -->
+            <div class="project-filters glass-panel">
+                <button class="filter-btn active" data-filter="all">ALL SYSTEMS</button>
+                <button class="filter-btn" data-filter="ai">AI / ML</button>
+                <button class="filter-btn" data-filter="gen-ai">Generative AI</button>
+                <button class="filter-btn" data-filter="robotics">Robotics</button>
+                <button class="filter-btn" data-filter="automation">Automation</button>
+                <button class="filter-btn" data-filter="cloud">Cloud</button>
+            </div>
+
+            <div class="project-grid">
+
+                <!-- 1. Autolearn -->
+                <div class="glass-card project-card" data-category="ai gen-ai cloud">
+                    <div class="project-img-thumb">
+                        <img src="assets/img/projects/project_autolearn_platform_1765881560124.png" alt="Autolearn">
+                    </div>
+                    <div class="p-content">
+                        <h3 class="card-head">Autolearn AI Platform</h3>
+                        <div class="tech-stack">
+                            <span class="tech-pill">Claude API</span>
+                            <span class="tech-pill">Cloud Run</span>
+                        </div>
+                        <p class="card-txt">Production Web Platform with Claude API Chatbot and personalized emails.</p>
+                        <a href="https://github.com/thiyanayugi/teaching-website" class="link-btn"><i
+                                class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+
+                <!-- 2. AI Doc Explainer -->
+                <div class="glass-card project-card" data-category="ai gen-ai cloud">
+                    <div class="project-img-thumb">
+                        <img src="assets/img/projects/project_ai_doc_explainer_1765881503935.png"
+                            alt="AI Doc Explainer">
+                    </div>
+                    <div class="p-content">
+                        <h3 class="card-head">AI Doc Explainer</h3>
+                        <div class="tech-stack">
+                            <span class="tech-pill">GPT-4</span>
+                            <span class="tech-pill">Streamlit</span>
+                        </div>
+                        <p class="card-txt">GPT-4 powered document analysis tool with multi-language OCR.</p>
+                        <a href="https://github.com/thiyanayugi/ai-document-explainer" class="link-btn"><i
+                                class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+
+                <!-- 3. RoboVision -->
+                <div class="glass-card project-card" data-category="robotics ai">
+                    <div class="project-img-thumb">
+                        <img src="assets/img/projects/project_robovision_3d_1765881538284.png" alt="RoboVision">
+                    </div>
+                    <div class="p-content">
+                        <h3 class="card-head">RoboVision-3D</h3>
+                        <div class="tech-stack">
+                            <span class="tech-pill">ROS</span>
+                            <span class="tech-pill">YOLOv8</span>
+                            <span class="tech-pill">LiDAR</span>
+                        </div>
+                        <p class="card-txt">Indoor Robotics Vision System. RGB-D + LiDAR fusion with YOLOv8.</p>
+                        <a href="https://github.com/thiyanayugi/RoboVision-3D" class="link-btn"><i
+                                class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+
+                <!-- 4. AutoGen -->
+                <div class="glass-card project-card" data-category="ai gen-ai automation">
+                    <div class="project-img-thumb">
+                        <img src="assets/img/projects/project_autogen_pipeline_hero.png" alt="AutoGen">
+                    </div>
+                    <div class="p-content">
+                        <h3 class="card-head">AutoGen Pipeline</h3>
+                        <div class="tech-stack">
+                            <span class="tech-pill">AutoGen</span>
+                            <span class="tech-pill">DeepSeek</span>
+                        </div>
+                        <p class="card-txt">Enterprise multi-agent system for content creation workflows.</p>
+                        <a href="https://github.com/thiyanayugi/AutoGen-Agent-Orchestrated-Content-Framework"
+                            class="link-btn"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+
+                <!-- 5. Market Intel -->
+                <div class="glass-card project-card" data-category="ai gen-ai automation">
+                    <div class="project-img-thumb">
+                        <img src="assets/img/projects/project_market_intelligence_hero.png" alt="Market Intel">
+                    </div>
+                    <div class="p-content">
+                        <h3 class="card-head">Market Intelligence</h3>
+                        <div class="tech-stack">
+                            <span class="tech-pill">CrewAI</span>
+                            <span class="tech-pill">RAG</span>
+                        </div>
+                        <p class="card-txt">CrewAI multi-agent system for autonomous market reporting.</p>
+                        <a href="https://github.com/thiyanayugi/Autonomous-Market-Intelligence-System-Using-Multi-Agent-AI-CrewAI-"
+                            class="link-btn"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+
+                <!-- 6. GraphRAG -->
+                <div class="glass-card project-card" data-category="ai gen-ai cloud">
+                    <div class="project-img-thumb">
+                        <img src="assets/img/projects/project_graphrag_system.png" alt="GraphRAG">
+                    </div>
+                    <div class="p-content">
+                        <h3 class="card-head">GraphRAG System</h3>
+                        <div class="tech-stack">
+                            <span class="tech-pill">Graph DB</span>
+                            <span class="tech-pill">Vector Search</span>
+                        </div>
+                        <p class="card-txt">Knowledge Graph-Enhanced RAG for multi-hop reasoning.</p>
+                        <a href="https://github.com/thiyanayugi/Knowledge-Graph-Enhanced-Retrieval-Augmented-Generation"
+                            class="link-btn"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+
+                <!-- 7. Multi-modal -->
+                <div class="glass-card project-card" data-category="ai gen-ai robotics">
+                    <div class="project-img-thumb">
+                        <img src="assets/img/projects/project_ai_framework_1765881576704.png" alt="Multi-Modal">
+                    </div>
+                    <div class="p-content">
+                        <h3 class="card-head">Multi-modal Framework</h3>
+                        <div class="tech-stack">
+                            <span class="tech-pill">LangChain</span>
+                            <span class="tech-pill">CLIP</span>
+                        </div>
+                        <p class="card-txt">Robotic Task Planning with CLIP Vision & GPT-3.5.</p>
+                        <a href="https://github.com/thiyanayugi/Multi-Modal-AI-Framework-for-Robotic-Task-Automation"
+                            class="link-btn"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+
+                <!-- 8. PCB Design -->
+                <div class="glass-card project-card" data-category="ai automation">
+                    <div class="project-img-thumb">
+                        <img src="assets/img/projects/project_pcb_design_1765881598155.png" alt="PCB">
+                    </div>
+                    <div class="p-content">
+                        <h3 class="card-head">AI PCB Design</h3>
+                        <div class="tech-stack">
+                            <span class="tech-pill">TensorFlow</span>
+                            <span class="tech-pill">Edge AI</span>
+                        </div>
+                        <p class="card-txt">Neural Networks for Predictive Maintenance in PCBs.</p>
+                        <a href="https://github.com/thiyanayugi/AI-Based-SI-Compliant-PCB-Design" class="link-btn"><i
+                                class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+
+                <!-- 9. Edge Detection -->
+                <div class="glass-card project-card" data-category="robotics automation">
+                    <div class="project-img-thumb">
+                        <img src="assets/img/projects/project_edge_detection_1765881625844.png" alt="Edge Detection">
+                    </div>
+                    <div class="p-content">
+                        <h3 class="card-head">Edge Detection 3D</h3>
+                        <div class="tech-stack">
+                            <span class="tech-pill">ROS</span>
+                            <span class="tech-pill">OpenCV</span>
+                        </div>
+                        <p class="card-txt">Real-time image processing with ROS service architecture.</p>
+                        <a href="https://github.com/thiyanayugi/ros-edge-detection-3d" class="link-btn"><i
+                                class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+
+                <!-- 10. Robotic Platform -->
+                <div class="glass-card project-card" data-category="robotics automation">
+                    <div class="project-img-thumb">
+                        <img src="assets/img/projects/project_robotic_platform_1765881643352.png"
+                            alt="Robotic Platform">
+                    </div>
+                    <div class="p-content">
+                        <h3 class="card-head">Robotic Platform</h3>
+                        <div class="tech-stack">
+                            <span class="tech-pill">ROS</span>
+                            <span class="tech-pill">Motion Planning</span>
+                        </div>
+                        <p class="card-txt">Multi-DOF Robotic Arm with Omnidirectional Base.</p>
+                        <span class="link-btn" style="opacity: 0.5;">Coming Soon</span>
+                    </div>
+                </div>
+
+                <!-- 11. LinkedIn -->
+                <div class="glass-card project-card" data-category="automation cloud">
+                    <div class="project-img-thumb">
+                        <img src="assets/img/projects/project_linkedin_automation_1765881520039.png" alt="LinkedIn">
+                    </div>
+                    <div class="p-content">
+                        <h3 class="card-head">LinkedIn Sync</h3>
+                        <div class="tech-stack">
+                            <span class="tech-pill">Automation</span>
+                            <span class="tech-pill">Scraping</span>
+                        </div>
+                        <p class="card-txt">Automated job search and application tracking.</p>
+                        <a href="https://github.com/thiyanayugi/linkedin-job-automation" class="link-btn"><i
+                                class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+
+                <!-- 12. Health Monitor -->
+                <div class="glass-card project-card" data-category="cloud automation">
+                    <div class="project-img-thumb">
+                        <img src="assets/img/projects/project_system_health_monitor.png" alt="Health Monitor">
+                    </div>
+                    <div class="p-content">
+                        <h3 class="card-head">System Health Monitor</h3>
+                        <div class="tech-stack">
+                            <span class="tech-pill">Prometheus</span>
+                            <span class="tech-pill">Grafana</span>
+                        </div>
+                        <p class="card-txt">Observability platform with predictive analytics.</p>
+                        <a href="https://github.com/thiyanayugi/smart-system-health-monitor" class="link-btn"><i
+                                class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section id="certificates">
+            <h2 class="section-title">Encrypted_Credentials <span class="orig-name">(Certifications)</span></h2>
+            <div class="hologram-grid">
+                <div class="glass-card cert-card">
+                    <div class="cert-icon"><img src="assets/img/aws-logo.svg" alt="AWS"></div>
+                    <h3 class="card-head">AWS GenAI Learning Plan</h3>
+                    <p class="card-txt">Model building with AWS & Bedrock.</p>
+                </div>
+                <div class="glass-card cert-card">
+                    <div class="cert-icon"><img src="assets/img/huggingface-logo.svg" alt="HF"></div>
+                    <h3 class="card-head">Hugging Face AI Agents</h3>
+                    <p class="card-txt">Building autonomous agents with transformers.</p>
+                </div>
+                <div class="glass-card cert-card">
+                    <div class="cert-icon"><img src="assets/img/aws-logo.svg" alt="AWS"></div>
+                    <h3 class="card-head">No-Code ML on AWS</h3>
+                    <p class="card-txt">Machine learning solutions without code.</p>
+                </div>
+                <div class="glass-card cert-card">
+                    <div class="cert-icon"><img src="assets/img/deeplearning-logo.png.png" alt="DeepLearning"></div>
+                    <h3 class="card-head">ChatGPT Prompt Engineering</h3>
+                    <p class="card-txt">DeepLearning.AI Certification.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications -->
+        <section id="publications">
+            <h2 class="section-title">Research_Output <span class="orig-name">(Publications)</span></h2>
+            <div class="hologram-grid">
+                <div class="glass-card">
+                    <h3 class="card-head">RFID Human Following Robot</h3>
+                    <p class="card-txt">Natural Volatiles & Essential Oils Journal (2021)</p>
+                    <p class="card-txt">Autonomous tracking and load carrying system.</p>
+                    <a href="https://www.nveo.org/index.php/journal/article/view/928" class="link-btn">Read Paper</a>
+                </div>
+                <div class="glass-card">
+                    <h3 class="card-head">Omnidirectional Robotic Arm</h3>
+                    <p class="card-txt">Natural Volatiles & Essential Oils Journal (2021)</p>
+                    <p class="card-txt">Multi-DOF arm on mobile base.</p>
+                    <a href="https://www.nveo.org/index.php/journal/article/view/813/743" class="link-btn">Read
+                        Paper</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience">
+            <h2 class="section-title">Execution_Logs <span class="orig-name">(Experience)</span></h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="time-meta">June 2024 — May 2025 | Dortmund, DE</div>
+                    <h3 class="time-role">Research Assistant</h3>
+                    <span class="time-org">TU Dortmund University</span>
+                </div>
+                <!-- Other items... -->
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <footer class="cyber-footer" id="contact">
+            <h2 class="section-title">Initiate_Handshake <span class="orig-name">(Contact)</span></h2>
+            <div class="contact-form-glass">
+                <form id="contact-form">
+                    <input type="text" placeholder="Protocol ID (Name)" required class="glass-input">
+                    <input type="email" placeholder="Signal Source (Email)" required class="glass-input">
+                    <textarea placeholder="Transmission Data (Message)" rows="5" required
+                        class="glass-input"></textarea>
+                    <button type="submit" class="btn-cyber">TRANSMIT</button>
+                </form>
+            </div>
+
+            <div class="footer-socials">
+                <a href="https://github.com/thiyanayugi"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/thiyanayugi-mariraj-a2b1b820b"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:yugimariraj01@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p style="margin-top: 2rem; color: var(--text-dim);">SYSTEM V3.2 // MARIRAJ</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
