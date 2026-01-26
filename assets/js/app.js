@@ -397,4 +397,83 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
         });
     }
+
+    // ---------------------------------------------------------
+    // 8. HOLOGRAPHIC MODAL LOGIC (MOVED OUTSIDE FORM)
+    // ---------------------------------------------------------
+    const modal = document.getElementById('project-modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDesc = document.getElementById('modal-desc');
+    const modalTechs = document.getElementById('modal-techs');
+    const modalLink = document.getElementById('modal-link');
+    const closeModal = document.querySelector('.modal-close');
+
+    // Select project images and titles for modal trigger
+    const viewTriggers = document.querySelectorAll('.project-card .project-img-thumb, .project-card .card-head');
+
+    viewTriggers.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault(); // Stop default link behavior
+
+            // Find parent card
+            const card = btn.closest('.project-card');
+
+            // Extract Data
+            const title = card.querySelector('h3').textContent;
+            const desc = card.querySelector('p').textContent;
+            const imgSrc = card.querySelector('img') ? card.querySelector('img').src : '';
+            const techStackHTML = card.querySelector('.tech-stack').innerHTML;
+            const projectUrl = card.querySelector('.link-btn') ? card.querySelector('.link-btn').getAttribute('href') : '#';
+
+            // Populate Modal
+            modalTitle.textContent = title;
+            modalDesc.textContent = desc;
+            modalImg.src = imgSrc;
+            modalTechs.innerHTML = techStackHTML;
+            modalLink.href = projectUrl;
+
+            // Show Modal
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Lock scroll
+        });
+    });
+
+    // Close Logic
+    if (closeModal) {
+        closeModal.addEventListener('click', () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Unlock scroll
+        });
+    }
+
+    // Close on backdrop click
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+
+    // ---------------------------------------------------------
+    // 9. COPY CITATION LOGIC
+    // ---------------------------------------------------------
+    const copyButtons = document.querySelectorAll('.btn-copy-citation');
+    copyButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const citationText = btn.getAttribute('data-citation');
+            navigator.clipboard.writeText(citationText).then(() => {
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied';
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                }, 2000);
+            });
+        });
+    });
+
 });
+
