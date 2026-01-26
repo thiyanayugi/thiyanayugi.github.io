@@ -238,6 +238,19 @@ document.addEventListener('DOMContentLoaded', () => {
         if (progressBar) progressBar.style.width = scrolled + '%';
     });
 
+    // ---------------------------------------------------------
+    // 6. SYSTEM CLOCK
+    // ---------------------------------------------------------
+    const timeDisplay = document.getElementById('status-time');
+    function updateClock() {
+        if (timeDisplay) {
+            const now = new Date();
+            timeDisplay.textContent = now.toLocaleTimeString('en-US', { hour12: false });
+        }
+    }
+    // Run immediately then interval
+    updateClock();
+    setInterval(updateClock, 1000);
 
     // ---------------------------------------------------------
     // 7. EMAILJS CONTACT FORM
