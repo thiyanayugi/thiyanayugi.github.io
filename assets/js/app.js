@@ -1,8 +1,6 @@
 /* 
-   NEURAL HOLOGRAM APP SCRIPT v4.2
-   - Neural Background
-   - Typed.js
-   - Carousel with FILTERING Logic
+   NEURAL HOLOGRAM APP SCRIPT v4.4
+   - Mobile Logic Added
 */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -20,12 +18,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let mouse = { x: null, y: null };
 
+        // Handle Touch for Mobile
+        window.addEventListener('touchmove', (e) => {
+            mouse.x = e.touches[0].clientX;
+            mouse.y = e.touches[0].clientY;
+        });
+
         window.addEventListener('mousemove', (e) => {
             mouse.x = e.x;
             mouse.y = e.y;
         });
 
         window.addEventListener('mouseout', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        window.addEventListener('touchend', () => {
             mouse.x = null;
             mouse.y = null;
         });
@@ -70,7 +79,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const initParticles = () => {
             particles = [];
-            let count = (width * height) / 10000;
+            // Reduce count on mobile for performance
+            let divider = (width < 768) ? 15000 : 10000;
+            let count = (width * height) / divider;
             if (count > 150) count = 150;
             for (let i = 0; i < count; i++) particles.push(new Particle());
         };
@@ -133,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ---------------------------------------------------------
     if (document.getElementById('typed-output')) {
         new Typed('#typed-output', {
-            strings: ['AI Engineer', 'Robotics Specialist', 'Computer Vision Expert', 'System Architect'],
+            strings: ['Autonomous Systems Engineer', 'AI Engineer', 'Robotics Specialist', 'Computer Vision Expert', 'System Architect'],
             typeSpeed: 50,
             backSpeed: 30,
             loop: true
@@ -141,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ---------------------------------------------------------
-    // 3. CAROUSEL & FILTER LOGIC (NEW)
+    // 3. CAROUSEL & FILTER LOGIC
     // ---------------------------------------------------------
     const track = document.querySelector('.project-carousel-track');
     const prevBtn = document.querySelector('.prev-btn');
@@ -149,23 +160,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const filterBtns = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
 
-    // Filter Click Handling
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            // Remove active from all
             filterBtns.forEach(b => b.classList.remove('active'));
-            // Add active to clicked
             btn.classList.add('active');
 
             const filterValue = btn.getAttribute('data-filter');
 
-            // Filter Projects
             projectCards.forEach(card => {
                 const categories = card.getAttribute('data-category');
-
                 if (filterValue === 'all' || categories.includes(filterValue)) {
                     card.style.display = 'flex';
-                    // Optional: Add fade-in animation
                     card.style.opacity = '0';
                     setTimeout(() => card.style.opacity = '1', 50);
                 } else {
@@ -173,20 +178,120 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            // Reset Carousel Scroll
             if (track) {
                 track.scrollLeft = 0;
             }
         });
     });
 
-    // Navigation Buttons
     if (track && prevBtn && nextBtn) {
         prevBtn.addEventListener('click', () => {
-            track.scrollBy({ left: -370, behavior: 'smooth' }); // Card width + gap
+            track.scrollBy({ left: -370, behavior: 'smooth' });
         });
         nextBtn.addEventListener('click', () => {
             track.scrollBy({ left: 370, behavior: 'smooth' });
+        });
+    }
+
+    // ---------------------------------------------------------
+    // 4. MOBILE MENU LOGIC
+    // ---------------------------------------------------------
+    const mobileBtn = document.querySelector('.mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const navItems = document.querySelectorAll('.nav-item, .nav-btn-mobile');
+
+    if (mobileBtn && navLinks) {
+        mobileBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+
+            // Icon Toggle
+            const icon = mobileBtn.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close on Link Click
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = mobileBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+    }
+
+
+    // ---------------------------------------------------------
+    // 5. SCROLL PROGRESS BAR
+    // ---------------------------------------------------------
+    const progressBar = document.getElementById('scroll-progress');
+    window.addEventListener('scroll', () => {
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (scrollTop / scrollHeight) * 100;
+        if (progressBar) progressBar.style.width = scrolled + '%';
+    });
+
+
+    // ---------------------------------------------------------
+    // 7. EMAILJS CONTACT FORM
+    // ---------------------------------------------------------
+    const contactForm = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('contact-submit');
+    const statusMsg = document.getElementById('contact-status');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // UI Feedback: Sending
+            submitBtn.innerHTML = '[ TRANSMITTING... ]';
+            submitBtn.disabled = true;
+            statusMsg.style.display = 'none';
+
+            // Send Email
+            // Service ID: service_uore6zr
+            // Template ID: template_qzn9hoa
+            emailjs.sendForm('service_uore6zr', 'template_qzn9hoa', this)
+                .then(function () {
+                    console.log('SUCCESS!');
+                    submitBtn.innerHTML = '[ TRANSMISSION COMPLETE ]';
+                    submitBtn.style.borderColor = '#00ff00';
+                    submitBtn.style.color = '#00ff00';
+
+                    statusMsg.textContent = "> Packet delivery successful. Connection terminated.";
+                    statusMsg.style.display = 'block';
+                    statusMsg.style.color = '#00ff00';
+
+                    contactForm.reset();
+
+                    setTimeout(() => {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = '[ SEND_DATA_PACKET ]';
+                        submitBtn.style.borderColor = '';
+                        submitBtn.style.color = '';
+                    }, 5000);
+                }, function (error) {
+                    console.log('FAILED...', error);
+                    submitBtn.innerHTML = '[ TRANSMISSION FAILED ]';
+                    submitBtn.style.borderColor = 'red';
+
+                    statusMsg.textContent = "> Critical Error: " + JSON.stringify(error);
+                    statusMsg.style.display = 'block';
+                    statusMsg.style.color = 'red';
+
+                    setTimeout(() => {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = '[ RETRY_TRANSMISSION ]';
+                        submitBtn.style.borderColor = '';
+                    }, 3000);
+                });
         });
     }
 });
