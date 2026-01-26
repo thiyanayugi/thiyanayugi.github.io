@@ -268,6 +268,65 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.disabled = true;
             statusMsg.style.display = 'none';
 
+            // ---------------------------------------------------------
+            // 8. HOLOGRAPHIC MODAL LOGIC
+            // ---------------------------------------------------------
+            const modal = document.getElementById('project-modal');
+            const modalImg = document.getElementById('modal-img');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDesc = document.getElementById('modal-desc');
+            const modalTechs = document.getElementById('modal-techs');
+            const modalLink = document.getElementById('modal-link');
+            const closeModal = document.querySelector('.modal-close');
+
+            // Select all "View Project" buttons
+            const viewButtons = document.querySelectorAll('.project-card .btn-glow');
+
+            viewButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault(); // Stop default link behavior
+
+                    // Find parent card
+                    const card = btn.closest('.project-card');
+
+                    // Extract Data
+                    const title = card.querySelector('h3').textContent;
+                    const desc = card.querySelector('p').textContent;
+                    const imgSrc = card.querySelector('img') ? card.querySelector('img').src : '';
+                    const techStackHTML = card.querySelector('.tech-stack').innerHTML;
+                    const projectUrl = btn.getAttribute('href');
+
+                    // Populate Modal
+                    modalTitle.textContent = title;
+                    modalDesc.textContent = desc;
+                    modalImg.src = imgSrc;
+                    modalTechs.innerHTML = techStackHTML;
+                    modalLink.href = projectUrl;
+
+                    // Show Modal
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // Lock scroll
+                });
+            });
+
+            // Close Logic
+            if (closeModal) {
+                closeModal.addEventListener('click', () => {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto'; // Unlock scroll
+                });
+            }
+
+            // Close on backdrop click
+            if (modal) {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            }
+
             // Send Email
             // Service ID: service_uore6zr
             // Template ID: template_qzn9hoa
