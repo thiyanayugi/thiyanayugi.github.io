@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const initParticles = () => {
             particles = [];
             // Reduce count on mobile for performance
-            let divider = (width < 768) ? 15000 : 10000;
+            let divider = (width < 768) ? 20000 : 10000; // Fewer particles on mobile
             let count = (width * height) / divider;
             if (count > 150) count = 150;
             for (let i = 0; i < count; i++) particles.push(new Particle());
@@ -234,6 +234,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (mobileBtn && navLinks) {
         mobileBtn.addEventListener('click', () => {
             navLinks.classList.toggle('nav-active');
+            // Clean up any potential conflicting styles
+            navLinks.style.right = '';
+            navLinks.style.left = '';
 
             // Icon Toggle
             const icon = mobileBtn.querySelector('i');

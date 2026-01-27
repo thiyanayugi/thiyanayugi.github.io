@@ -1,0 +1,129 @@
+/* 
+   MOBILE FIX OVERRIDES v2.0 - PREMIUM EDITION
+   Bypassing style.css due to file lock issues
+*/
+
+@media (max-width: 992px) {
+
+    /* NAVIGATION - PREMIUM GLASS LAYOUT */
+    .nav-links {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        max-width: none !important;
+
+        /* Premium Gradient Background */
+        background: linear-gradient(135deg, rgba(5, 5, 10, 0.95), rgba(5, 5, 16, 0.98)) !important;
+        backdrop-filter: blur(30px) !important;
+        -webkit-backdrop-filter: blur(30px) !important;
+
+        flex-direction: column !important;
+        justify-content: center !important;
+        /* Center vertically for balance */
+        align-items: center !important;
+        padding-top: 0 !important;
+        /* Remove top padding, use flex centering */
+        z-index: 99999 !important;
+
+        transform: translateX(100%);
+        transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        /* Smooth pro ease */
+        border: none !important;
+        box-shadow: none !important;
+        display: flex !important;
+        visibility: visible !important;
+
+        /* Subtle grid pattern overlay */
+        background-image:
+            linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px) !important;
+        background-size: 40px 40px !important;
+    }
+
+    .nav-links.nav-active {
+        transform: translateX(0) !important;
+        right: 0 !important;
+        left: 0 !important;
+    }
+
+    .nav-item {
+        margin: 1rem 0 !important;
+        font-size: 1.8rem !important;
+        font-weight: 700 !important;
+        width: auto !important;
+        border: none !important;
+        display: block !important;
+        color: rgba(255, 255, 255, 0.7) !important;
+        transition: 0.3s !important;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        position: relative;
+    }
+
+    .nav-item:hover,
+    .nav-item:active {
+        color: #00F0FF !important;
+        text-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+        transform: scale(1.1);
+    }
+
+    /* Mobile Resume Button */
+    .nav-btn-mobile {
+        margin-top: 2rem !important;
+        padding: 1rem 3rem !important;
+        font-size: 1.2rem !important;
+        border: 1px solid #7000FF !important;
+        background: rgba(112, 0, 255, 0.1) !important;
+        color: #fff !important;
+        box-shadow: 0 0 20px rgba(112, 0, 255, 0.2);
+    }
+
+    /* SYSTEM WIDGET - HIDE */
+    #system-status {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+
+    /* HERO - FIX TEXT & PADDING */
+    .hero-holo {
+        padding-top: 7rem !important;
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+        height: auto !important;
+        min-height: 100vh !important;
+    }
+
+    .glitch-text-pro {
+        font-size: clamp(2.5rem, 10vw, 3.5rem) !important;
+        line-height: 1.1 !important;
+    }
+
+    .hero-subtitle-pro {
+        flex-wrap: wrap !important;
+        height: auto !important;
+    }
+
+    /* TIMELINE - FIX MARGINS */
+    .timeline-item {
+        margin-left: 0 !important;
+        padding-left: 3rem !important;
+        width: 100% !important;
+    }
+
+    .timeline-item::before {
+        left: 0.6rem !important;
+    }
+
+    /* VISUAL SIDE - SHRINK 3D */
+    .holo-container {
+        transform: scale(0.5) !important;
+        margin-top: -50px !important;
+    }
+}
