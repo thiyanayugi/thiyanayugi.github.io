@@ -301,7 +301,51 @@
 
                 <!-- Right: Holographic Visualizer -->
                 <div class="hero-visual-side">
-                    <div id="hero-3d-scene" style="width: 100%; height: 100%; min-height: 400px;"></div>
+                    <div class="hero-terminal-wrapper">
+                        <div class="terminal-window glass-card">
+                            <div class="terminal-header">
+                                <div class="term-buttons">
+                                    <span class="term-btn close"></span>
+                                    <span class="term-btn min"></span>
+                                    <span class="term-btn max"></span>
+                                </div>
+                                <div class="term-title">YUGI-AI // CORTEX MONITOR v2.0</div>
+                            </div>
+                            <div class="terminal-dashboard">
+                                <!-- Left: Active Process Logs -->
+                                <div class="term-col main-log">
+                                    <div class="col-header">>> SYSTEM_LOGS</div>
+                                    <div id="term-log-content"></div>
+                                </div>
+
+                                <!-- Right: System Vitals -->
+                                <div class="term-col sidebar-stats">
+                                    <div class="col-header">>> VITALS</div>
+
+                                    <div class="stat-group">
+                                        <div class="stat-label">NEURAL_LOAD</div>
+                                        <div class="progress-bar-container">
+                                            <div class="progress-bar-fill" id="cpu-bar" style="width: 45%;"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="stat-group">
+                                        <div class="stat-label">MEMORY_ALLOC</div>
+                                        <div class="progress-bar-container">
+                                            <div class="progress-bar-fill" id="mem-bar" style="width: 72%;"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="active-agents-list">
+                                        <div class="col-header" style="margin-top: 15px;">>> AGENTS</div>
+                                        <div class="agent-item"><span class="status-dot"></span> ARCHITECT</div>
+                                        <div class="agent-item"><span class="status-dot"></span> CODER</div>
+                                        <div class="agent-item"><span class="status-dot"></span> REVIEWER</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -927,7 +971,7 @@
                         <h3 class="cert-name">Generative AI Learning Plan</h3>
                         <div class="cert-meta">
                             <span class="cert-issuer">AWS</span>
-                            <span class="cert-status"><i class="fas fa-check-circle"></i> Verified</span>
+                            <span class="cert-status"><i class="fas fa-check-circle"></i></span>
                         </div>
                         <a href="https://explore.skillbuilder.aws/learn/public/learning_plan/view/1044/generative-ai-learning-plan-for-developers"
                             target="_blank" class="btn-verify">View Credential</a>
@@ -945,7 +989,7 @@
                         <h3 class="cert-name">AI Agents with HuggingFace</h3>
                         <div class="cert-meta">
                             <span class="cert-issuer">HuggingFace</span>
-                            <span class="cert-status"><i class="fas fa-check-circle"></i> Verified</span>
+                            <span class="cert-status"><i class="fas fa-check-circle"></i></span>
                         </div>
                         <a href="https://huggingface.co/learn/ai-agents-course/unit0/introduction" target="_blank"
                             class="btn-verify">View Credential</a>
@@ -963,7 +1007,7 @@
                         <h3 class="cert-name">No-Code ML & GenAI on AWS</h3>
                         <div class="cert-meta">
                             <span class="cert-issuer">AWS</span>
-                            <span class="cert-status"><i class="fas fa-check-circle"></i> Verified</span>
+                            <span class="cert-status"><i class="fas fa-check-circle"></i></span>
                         </div>
                         <a href="https://www.coursera.org/learn/no-code-ml-and-generative-ai-on-aws" target="_blank"
                             class="btn-verify">View Credential</a>
@@ -981,7 +1025,7 @@
                         <h3 class="cert-name">ChatGPT Prompt Engineering</h3>
                         <div class="cert-meta">
                             <span class="cert-issuer">DeepLearning.AI</span>
-                            <span class="cert-status"><i class="fas fa-check-circle"></i> Verified</span>
+                            <span class="cert-status"><i class="fas fa-check-circle"></i></span>
                         </div>
                         <a href="https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/"
                             target="_blank" class="btn-verify">View Credential</a>
@@ -1146,8 +1190,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="assets/js/pill-nav.js"></script>
     <script src="assets/js/app.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="assets/js/hero-3d.js"></script>
+
+    <script src="assets/js/hero-terminal.js"></script>
 </body>
 
 </html>
