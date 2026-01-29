@@ -1,0 +1,302 @@
+/* Pill Nav CSS - Ported from React */
+:root {
+    --base: #000;
+    --pill-bg: #fff;
+    --hover-text: #000;
+    --pill-text: #fff;
+}
+
+.pill-nav-container {
+    position: fixed;
+    /* Changed from absolute to fixed for sticky nav */
+    top: 1em;
+    z-index: 999;
+    /* Increased z-index */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Modifier for Project Filters */
+.project-filters-pill {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.project-filters-pill .pill-nav {
+    background: transparent;
+    /* No background for filters */
+}
+
+.project-filters-pill .pill-nav-items {
+    background: rgba(255, 255, 255, 0.05);
+    /* Slight glass background */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+
+@media (max-width: 768px) {
+    .pill-nav-container {
+        width: 100%;
+        left: 0;
+        transform: none;
+        padding: 0 1rem;
+        box-sizing: border-box;
+    }
+}
+
+.pill-nav {
+    --nav-h: 42px;
+    --logo: 36px;
+    --pill-pad-x: 18px;
+    --pill-gap: 3px;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .pill-nav {
+        width: 100%;
+        justify-content: space-between;
+        padding: 0;
+        background: transparent;
+    }
+}
+
+.pill-nav-items {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: var(--nav-h);
+    background: var(--base, #000);
+    border-radius: 9999px;
+    padding: 0 3px;
+}
+
+.pill-logo {
+    width: var(--nav-h);
+    height: var(--nav-h);
+    border-radius: 50%;
+    background: var(--base, #000);
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-right: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
+}
+
+.pill-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.pill-list {
+    list-style: none;
+    display: flex;
+    align-items: stretch;
+    gap: var(--pill-gap);
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.pill-list>li {
+    display: flex;
+    height: 100%;
+}
+
+.pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    /* Ensure full height */
+    min-height: 36px;
+    /* Match inner height approx */
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 0 var(--pill-pad-x);
+    background: transparent;
+    /* Changed from pill-bg to transparent initially */
+    color: var(--pill-text, #fff);
+    /* Default text color */
+    text-decoration: none;
+    border-radius: 9999px;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover circle element */
+.pill .hover-circle {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    border-radius: 50%;
+    background: var(--pill-bg, #fff);
+    /* The white circle */
+    z-index: 1;
+    display: block;
+    pointer-events: none;
+    will-change: transform;
+}
+
+.pill .label-stack {
+    position: relative;
+    display: inline-block;
+    line-height: 1;
+    z-index: 2;
+}
+
+.pill .pill-label {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    line-height: 1;
+    will-change: transform;
+    color: var(--pill-text, #fff);
+}
+
+.pill .pill-label-hover {
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--hover-text, #000);
+    /* Black text on white pill */
+    z-index: 3;
+    display: inline-block;
+    will-change: transform, opacity;
+    opacity: 0;
+}
+
+/* Active state indicator dot */
+.pill.is-active::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    /* Adjusted position */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    background: var(--pill-bg, #fff);
+    border-radius: 50%;
+    z-index: 4;
+}
+
+.desktop-only {
+    display: block;
+}
+
+.mobile-only {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none;
+    }
+
+    .mobile-only {
+        display: block;
+    }
+}
+
+.mobile-menu-button {
+    width: var(--nav-h);
+    height: var(--nav-h);
+    border-radius: 50%;
+    background: var(--base, #000);
+    border: none;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    z-index: 1000;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-button {
+        display: flex;
+    }
+}
+
+.hamburger-line {
+    width: 16px;
+    height: 2px;
+    background: #fff;
+    border-radius: 1px;
+    transition: all 0.01s ease;
+    transform-origin: center;
+}
+
+.mobile-menu-popover {
+    position: fixed;
+    /* Fixed for mobile menu */
+    top: 4em;
+    left: 1rem;
+    right: 1rem;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    transform-origin: top center;
+    visibility: hidden;
+    overflow: hidden;
+}
+
+.mobile-menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.mobile-menu-popover .mobile-menu-link {
+    display: block;
+    padding: 15px 20px;
+    color: #fff;
+    background-color: transparent;
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 15px;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.mobile-menu-popover .mobile-menu-link:hover,
+.mobile-menu-popover .mobile-menu-link.is-active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #00F0FF;
+}

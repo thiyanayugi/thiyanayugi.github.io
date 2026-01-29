@@ -54,6 +54,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="mobile-fix.css">
+    <link rel="stylesheet" href="assets/css/pill-nav.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <!-- EmailJS SDK -->
@@ -170,28 +171,99 @@
     <!-- Canvas fixed background -->
     <canvas id="neural-canvas"></canvas>
 
-    <!-- Navigation (Glass) -->
-    <nav class="glass-nav">
-        <div class="nav-container">
-            <a href="#home" class="logo-holo">TM</a>
+    <!-- Pill Nav -->
+    <div class="pill-nav-container">
+        <nav class="pill-nav" aria-label="Primary">
+            <a class="pill-logo" href="#home" aria-label="Home">
+                <img src="assets/img/nav-profile.jpg" alt="TM">
+            </a>
 
-            <button class="mobile-menu-toggle" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
-
-            <div class="nav-links">
-                <a href="#about" class="nav-item">About</a>
-                <a href="#education" class="nav-item">Education</a>
-                <a href="#skills" class="nav-item">Skills</a>
-                <a href="#experience" class="nav-item">Experience</a>
-                <a href="#projects" class="nav-item">Projects</a>
-                <a href="#contact" class="nav-item">Contact</a>
-                <a href="assets/resume/Resume_CV_Mariraj.pdf" class="nav-btn-mobile" download>Resume</a>
+            <div class="pill-nav-items desktop-only">
+                <ul class="pill-list" role="menubar">
+                    <li role="none">
+                        <a role="menuitem" href="#about" class="pill">
+                            <span class="hover-circle" aria-hidden="true"></span>
+                            <span class="label-stack">
+                                <span class="pill-label">About</span>
+                                <span class="pill-label-hover" aria-hidden="true">About</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a role="menuitem" href="#education" class="pill">
+                            <span class="hover-circle" aria-hidden="true"></span>
+                            <span class="label-stack">
+                                <span class="pill-label">Education</span>
+                                <span class="pill-label-hover" aria-hidden="true">Education</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a role="menuitem" href="#skills" class="pill">
+                            <span class="hover-circle" aria-hidden="true"></span>
+                            <span class="label-stack">
+                                <span class="pill-label">Skills</span>
+                                <span class="pill-label-hover" aria-hidden="true">Skills</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a role="menuitem" href="#experience" class="pill">
+                            <span class="hover-circle" aria-hidden="true"></span>
+                            <span class="label-stack">
+                                <span class="pill-label">Experience</span>
+                                <span class="pill-label-hover" aria-hidden="true">Experience</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a role="menuitem" href="#projects" class="pill">
+                            <span class="hover-circle" aria-hidden="true"></span>
+                            <span class="label-stack">
+                                <span class="pill-label">Projects</span>
+                                <span class="pill-label-hover" aria-hidden="true">Projects</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a role="menuitem" href="#contact" class="pill">
+                            <span class="hover-circle" aria-hidden="true"></span>
+                            <span class="label-stack">
+                                <span class="pill-label">Contact</span>
+                                <span class="pill-label-hover" aria-hidden="true">Contact</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a role="menuitem" href="assets/resume/Resume_CV_Mariraj.pdf" download class="pill">
+                            <span class="hover-circle" aria-hidden="true"></span>
+                            <span class="label-stack">
+                                <span class="pill-label">Resume</span>
+                                <span class="pill-label-hover" aria-hidden="true">Resume</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
             </div>
 
-            <a href="assets/resume/Resume_CV_Mariraj.pdf" class="btn-glow desktop-only" download>Resume</a>
+            <button class="mobile-menu-button mobile-only" aria-label="Toggle menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </nav>
+
+        <div class="mobile-menu-popover mobile-only">
+            <ul class="mobile-menu-list">
+                <li><a href="#about" class="mobile-menu-link">About</a></li>
+                <li><a href="#education" class="mobile-menu-link">Education</a></li>
+                <li><a href="#skills" class="mobile-menu-link">Skills</a></li>
+                <li><a href="#experience" class="mobile-menu-link">Experience</a></li>
+                <li><a href="#projects" class="mobile-menu-link">Projects</a></li>
+                <li><a href="#contact" class="mobile-menu-link">Contact</a></li>
+                <li><a href="assets/resume/Resume_CV_Mariraj.pdf" download class="mobile-menu-link">Resume</a></li>
+            </ul>
         </div>
-    </nav>
+    </div>
 
     <div class="hologram-overlay">
         <!-- 1. Hero Section -->
@@ -229,49 +301,7 @@
 
                 <!-- Right: Holographic Visualizer -->
                 <div class="hero-visual-side">
-                    <div class="holo-container">
-                        <div class="holo-core">
-                            <div class="core-inner"></div>
-                            <div class="core-outer"></div>
-                        </div>
-
-                        <!-- Orbit Ring 1 (Inner) -->
-                        <div class="orbit-ring ring-1">
-                            <!-- GenAI (LangChain) -->
-                            <div class="orbit-item" title="LangChain"><img src="assets/img/langchain-logo.png"
-                                    alt="LangChain Framework Logo" loading="lazy">
-                            </div>
-                            <!-- Robotics (ROS) - The 20% -->
-                            <div class="orbit-item" title="ROS"><img src="assets/img/ros2.png"
-                                    alt="ROS2 Robotics Framework Logo" loading="lazy"></div>
-                            <!-- GenAI (HuggingFace) -->
-                            <div class="orbit-item" title="HuggingFace"><img src="assets/img/huggingface-logo.svg"
-                                    alt="HuggingFace AI Platform Logo" loading="lazy"></div>
-                        </div>
-
-                        <!-- Orbit Ring 2 (Outer) -->
-                        <div class="orbit-ring ring-2">
-                            <!-- GenAI (CrewAI) -->
-                            <div class="orbit-item" title="CrewAI"><img src="assets/img/crewai-logo.png"
-                                    alt="CrewAI Multi-Agent Framework Logo" loading="lazy">
-                            </div>
-                            <!-- GenAI (AutoGen) -->
-                            <div class="orbit-item" title="AutoGen"><img src="assets/img/autogen-logo.png"
-                                    alt="AutoGen Framework Logo" loading="lazy">
-                            </div>
-                            <!-- GenAI (RAG) -->
-                            <div class="orbit-item" title="RAG"><img src="assets/img/rag.png"
-                                    alt="Retrieval Augmented Generation Icon" loading="lazy"></div>
-                            <!-- GenAI (LLM) -->
-                            <div class="orbit-item" title="LLM"><i class="fas fa-brain" style="color:var(--neon-purple)"
-                                    aria-label="Large Language Models"></i></div>
-                        </div>
-
-                        <!-- Floating Tech Tags -->
-                        <div class="floating-tag tag-1">Generative AI</div>
-                        <div class="floating-tag tag-2">Agentic Flows</div>
-                        <div class="floating-tag tag-3">Robotics</div>
-                    </div>
+                    <div id="hero-3d-scene" style="width: 100%; height: 100%; min-height: 400px;"></div>
                 </div>
             </div>
         </section>
@@ -291,8 +321,8 @@
                     <h3 class="card-head">AI Engineer & Robotics Specialist</h3>
                     <p class="card-txt">
                         I engineer the <strong>synapse between digital intelligence and physical action</strong>.
-                        As a Graduate Researcher in <strong>Automation & Robotics</strong> at <span class="neon-text">TU
-                            Dortmund</span>, I don't just write code, I architect <strong>embodied agents</strong>
+                        As a Graduate Researcher in <strong>Automation & Robotics</strong> at TU
+                        Dortmund, I don't just write code, I architect <strong>embodied agents</strong>
                         that
                         perceive, reason, and interact with the real world.
                     </p>
@@ -598,12 +628,68 @@
             <h2 class="section-title">Deployed_Modules <span class="orig-name">(Featured Projects)</span></h2>
 
             <!-- Filters (Visual) -->
-            <div class="project-filters glass-panel">
-                <button class="filter-btn active" data-filter="ai">AI / ML</button>
-                <button class="filter-btn" data-filter="generative-ai">GenAI</button>
-                <button class="filter-btn" data-filter="robotics">Robotics</button>
-                <button class="filter-btn" data-filter="automation">Automation</button>
-                <button class="filter-btn" data-filter="cloud">Cloud</button>
+            <!-- Filters (Pill Style) -->
+            <div class="project-filters-pill">
+                <nav class="pill-nav" aria-label="Project Filters">
+                    <div class="pill-nav-items">
+                        <ul class="pill-list" role="menubar">
+                            <li role="none">
+                                <a role="menuitem" class="pill filter-btn" data-filter="all">
+                                    <span class="hover-circle" aria-hidden="true"></span>
+                                    <span class="label-stack">
+                                        <span class="pill-label">All</span>
+                                        <span class="pill-label-hover" aria-hidden="true">All</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li role="none">
+                                <a role="menuitem" class="pill filter-btn" data-filter="ai">
+                                    <span class="hover-circle" aria-hidden="true"></span>
+                                    <span class="label-stack">
+                                        <span class="pill-label">AI/ML</span>
+                                        <span class="pill-label-hover" aria-hidden="true">AI/ML</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li role="none">
+                                <a role="menuitem" class="pill filter-btn" data-filter="generative-ai">
+                                    <span class="hover-circle" aria-hidden="true"></span>
+                                    <span class="label-stack">
+                                        <span class="pill-label">GenAI</span>
+                                        <span class="pill-label-hover" aria-hidden="true">GenAI</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li role="none">
+                                <a role="menuitem" class="pill filter-btn" data-filter="robotics">
+                                    <span class="hover-circle" aria-hidden="true"></span>
+                                    <span class="label-stack">
+                                        <span class="pill-label">Robotics</span>
+                                        <span class="pill-label-hover" aria-hidden="true">Robotics</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li role="none">
+                                <a role="menuitem" class="pill filter-btn" data-filter="automation">
+                                    <span class="hover-circle" aria-hidden="true"></span>
+                                    <span class="label-stack">
+                                        <span class="pill-label">Automation</span>
+                                        <span class="pill-label-hover" aria-hidden="true">Automation</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li role="none">
+                                <a role="menuitem" class="pill filter-btn" data-filter="cloud">
+                                    <span class="hover-circle" aria-hidden="true"></span>
+                                    <span class="label-stack">
+                                        <span class="pill-label">Cloud</span>
+                                        <span class="pill-label-hover" aria-hidden="true">Cloud</span>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
             </div>
 
             <div class="carousel-container">
@@ -1057,7 +1143,11 @@
 
     <!-- Scripts -->
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="assets/js/pill-nav.js"></script>
     <script src="assets/js/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="assets/js/hero-3d.js"></script>
 </body>
 
 </html>

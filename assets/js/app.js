@@ -157,10 +157,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Smooth cursor follow
     function animateCursor() {
-        cursorX += (mouseX - cursorX) * 0.2;
-        cursorY += (mouseY - cursorY) * 0.2;
-        trailX += (mouseX - trailX) * 0.1;
-        trailY += (mouseY - trailY) * 0.1;
+        // Increased speed factors for better responsiveness
+        cursorX += (mouseX - cursorX) * 0.6; // Was 0.2
+        cursorY += (mouseY - cursorY) * 0.6;
+        trailX += (mouseX - trailX) * 0.25; // Was 0.1
+        trailY += (mouseY - trailY) * 0.25;
 
         cursor.style.left = cursorX - 10 + 'px';
         cursor.style.top = cursorY - 10 + 'px';
@@ -237,7 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
         pill.style.animationDelay = `${Math.random() * 2}s`;
 
         // Ripple effect on click
-        pill.addEventListener('click', function(e) {
+        pill.addEventListener('click', function (e) {
             const ripple = document.createElement('span');
             ripple.style.cssText = `
                 position: absolute;
