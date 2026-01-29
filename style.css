@@ -31,6 +31,428 @@ body {
     color: var(--text-white);
     font-family: var(--font-body);
     overflow-x: hidden;
+    cursor: none; /* Hide default cursor for custom cursor */
+}
+
+/* ===================================================================
+   CUSTOM CYBERPUNK CURSOR
+   =================================================================== */
+.custom-cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--neon-cyan);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+    box-shadow: 0 0 15px var(--neon-cyan), inset 0 0 10px var(--neon-cyan);
+    opacity: 0;
+}
+
+.custom-cursor.active {
+    opacity: 1;
+}
+
+.custom-cursor-trail {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: var(--neon-purple);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 20px var(--neon-purple);
+    opacity: 0.7;
+}
+
+.custom-cursor.hover {
+    transform: scale(1.5);
+    border-color: var(--neon-purple);
+    box-shadow: 0 0 25px var(--neon-purple), inset 0 0 15px var(--neon-purple);
+}
+
+/* ===================================================================
+   SCROLL-TRIGGERED ANIMATIONS
+   =================================================================== */
+.scroll-fade {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-fade.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animation delays for child elements */
+.glass-card.animate-in {
+    animation: slideInUp 0.8s ease forwards;
+}
+
+.project-card.animate-in {
+    animation: slideInUp 0.6s ease forwards;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===================================================================
+   GLITCH TEXT EFFECTS
+   =================================================================== */
+.glitch-text-pro {
+    position: relative;
+    animation: glitch-main 3s infinite;
+}
+
+.glitch-text-pro::before,
+.glitch-text-pro::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch-text-pro::before {
+    left: 2px;
+    text-shadow: -2px 0 var(--neon-cyan);
+    animation: glitch-before 2s infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+}
+
+.glitch-text-pro::after {
+    left: -2px;
+    text-shadow: 2px 0 var(--neon-purple);
+    animation: glitch-after 2.5s infinite;
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+}
+
+@keyframes glitch-main {
+    0%, 90%, 100% {
+        transform: translate(0);
+    }
+    91%, 93%, 95%, 97% {
+        transform: translate(-2px, 2px);
+    }
+    92%, 94%, 96% {
+        transform: translate(2px, -2px);
+    }
+}
+
+@keyframes glitch-before {
+    0%, 90%, 100% {
+        transform: translate(0);
+    }
+    91%, 93%, 95% {
+        transform: translate(-3px, 0);
+    }
+}
+
+@keyframes glitch-after {
+    0%, 90%, 100% {
+        transform: translate(0);
+    }
+    92%, 94%, 96% {
+        transform: translate(3px, 0);
+    }
+}
+
+/* ===================================================================
+   3D TILT EFFECTS & ENHANCED INTERACTIVITY
+   =================================================================== */
+
+/* Skill Pills - Enhanced Hover */
+.skill-pill {
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-style: preserve-3d;
+    position: relative;
+    cursor: pointer;
+}
+
+.skill-pill:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 240, 255, 0.3),
+                0 0 20px rgba(0, 240, 255, 0.2);
+    border-color: var(--neon-cyan);
+}
+
+.skill-pill:active {
+    transform: translateY(-2px) scale(1.02);
+}
+
+/* Glass Cards - Enhanced Depth */
+.glass-card {
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-style: preserve-3d;
+}
+
+.glass-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0, 240, 255, 0.15),
+                0 0 30px rgba(112, 0, 255, 0.1);
+    border-color: rgba(0, 240, 255, 0.3);
+}
+
+/* Project Cards - Enhanced 3D Effect */
+.project-card {
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.project-card:hover {
+    transform: translateY(-15px) rotateX(2deg);
+    box-shadow: 0 30px 80px rgba(0, 240, 255, 0.2),
+                0 0 40px rgba(112, 0, 255, 0.15);
+}
+
+/* Orbit Items - Pulsing Glow */
+.orbit-item {
+    transition: all 0.3s ease;
+    animation: float 6s ease-in-out infinite;
+}
+
+.orbit-item:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 30px var(--neon-cyan),
+                inset 0 0 20px rgba(0, 240, 255, 0.2);
+    border-color: var(--neon-cyan);
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Buttons - Magnetic Effect Ready */
+.btn-primary-holo,
+.btn-secondary-holo {
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-style: preserve-3d;
+}
+
+.btn-primary-holo:hover,
+.btn-secondary-holo:hover {
+    box-shadow: 0 0 40px var(--neon-cyan),
+                0 10px 30px rgba(0, 240, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+.btn-primary-holo:active,
+.btn-secondary-holo:active {
+    transform: translateY(-1px);
+}
+
+/* Filter Buttons - Enhanced Active State */
+.filter-btn {
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(0, 240, 255, 0.2);
+}
+
+.filter-btn.active {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px var(--neon-cyan);
+}
+
+/* Parallax Layers - For scroll-based parallax */
+.parallax-layer {
+    transition: transform 0.1s ease-out;
+}
+
+/* Floating Animation for Decorative Elements */
+@keyframes floatSlow {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    33% {
+        transform: translateY(-15px) rotate(2deg);
+    }
+    66% {
+        transform: translateY(5px) rotate(-2deg);
+    }
+}
+
+.floating-tag {
+    animation: floatSlow 8s ease-in-out infinite;
+}
+
+.floating-tag:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.floating-tag:nth-child(2) {
+    animation-delay: -2.5s;
+}
+
+.floating-tag:nth-child(3) {
+    animation-delay: -5s;
+}
+
+/* Holographic Shimmer Effect */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(0, 240, 255, 0.1),
+        transparent
+    );
+    transition: left 0.5s ease;
+}
+
+.glass-card:hover::before {
+    left: 100%;
+}
+
+/* ===================================================================
+   ENHANCED SECTION TITLES
+   =================================================================== */
+.section-title {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 1rem;
+    margin-bottom: 3rem;
+}
+
+.section-title::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+    box-shadow: 0 0 10px var(--neon-cyan);
+    animation: scanLine 2s ease-in-out infinite;
+}
+
+.section-title::after {
+    content: '▌';
+    position: absolute;
+    right: -20px;
+    color: var(--neon-cyan);
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes scanLine {
+    0%, 100% {
+        transform: scaleX(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scaleX(0.9);
+        opacity: 0.7;
+    }
+}
+
+@keyframes blink {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0;
+    }
+}
+
+/* Holographic Text Effect */
+.neon-text {
+    text-shadow: 0 0 10px var(--neon-cyan),
+                 0 0 20px var(--neon-cyan),
+                 0 0 30px var(--neon-cyan);
+    animation: neonPulse 2s ease-in-out infinite;
+}
+
+@keyframes neonPulse {
+    0%, 100% {
+        text-shadow: 0 0 10px var(--neon-cyan),
+                     0 0 20px var(--neon-cyan),
+                     0 0 30px var(--neon-cyan);
+    }
+    50% {
+        text-shadow: 0 0 15px var(--neon-cyan),
+                     0 0 30px var(--neon-cyan),
+                     0 0 45px var(--neon-cyan),
+                     0 0 60px var(--neon-purple);
+    }
+}
+
+/* ===================================================================
+   MOBILE OPTIMIZATIONS FOR NEW FEATURES
+   =================================================================== */
+@media (max-width: 768px) {
+    /* Hide custom cursor on mobile */
+    .custom-cursor,
+    .custom-cursor-trail {
+        display: none !important;
+    }
+
+    /* Re-enable default cursor on mobile */
+    body {
+        cursor: default !important;
+    }
+
+    /* Reduce tilt effects on mobile for performance */
+    .glass-card:hover,
+    .project-card:hover,
+    .skill-pill:hover {
+        transform: translateY(-5px) !important;
+    }
+
+    /* Simplify parallax on mobile */
+    .holo-container {
+        transform: none !important;
+    }
+
+    /* Reduce animation complexity on mobile */
+    .loader-ring {
+        border-width: 1px;
+    }
+
+    /* Ensure glitch effect doesn't overflow on small screens */
+    .glitch-text-pro::before,
+    .glitch-text-pro::after {
+        display: none;
+    }
+
+    /* Reduce floating animation intensity */
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-5px); }
+    }
 }
 
 /* CANVAS */

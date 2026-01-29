@@ -6,6 +6,273 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // ---------------------------------------------------------
+    // 0. PAGE LOAD ANIMATION
+    // ---------------------------------------------------------
+    const loader = document.createElement('div');
+    loader.className = 'page-loader';
+    loader.innerHTML = `
+        <div class="loader-content">
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+            <div class="loader-text">INITIALIZING_NEURAL_NETWORK</div>
+        </div>
+    `;
+    document.body.appendChild(loader);
+
+    // Add loader styles
+    const loaderStyle = document.createElement('style');
+    loaderStyle.textContent = `
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #050510;
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .page-loader.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-content {
+            position: relative;
+            width: 150px;
+            height: 150px;
+        }
+
+        .loader-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            border: 2px solid transparent;
+            border-top-color: #00F0FF;
+            border-radius: 50%;
+            animation: loaderSpin 1.5s linear infinite;
+            transform: translate(-50%, -50%);
+        }
+
+        .loader-ring:nth-child(2) {
+            width: 80%;
+            height: 80%;
+            border-top-color: #7000FF;
+            animation-duration: 1s;
+            animation-direction: reverse;
+        }
+
+        .loader-ring:nth-child(3) {
+            width: 60%;
+            height: 60%;
+            border-top-color: #00F0FF;
+            animation-duration: 0.7s;
+        }
+
+        .loader-text {
+            position: absolute;
+            top: 110%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #00F0FF;
+            font-family: 'Outfit', monospace;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            animation: textBlink 1s step-end infinite;
+        }
+
+        @keyframes loaderSpin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        @keyframes textBlink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.3; }
+        }
+    `;
+    document.head.appendChild(loaderStyle);
+
+    // Remove loader after page loads
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            loader.classList.add('fade-out');
+            setTimeout(() => loader.remove(), 500);
+        }, 1000);
+    });
+
+    // ---------------------------------------------------------
+    // 0. SCROLL-TRIGGERED ANIMATIONS
+    // ---------------------------------------------------------
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+            }
+        });
+    }, observerOptions);
+
+    // Observe all sections and cards
+    document.querySelectorAll('section, .glass-card, .project-card, .exp-card, .edu-card, .skill-category').forEach(el => {
+        el.classList.add('scroll-fade');
+        scrollObserver.observe(el);
+    });
+
+    // ---------------------------------------------------------
+    // 0.5. CUSTOM CYBERPUNK CURSOR
+    // ---------------------------------------------------------
+    const cursor = document.createElement('div');
+    cursor.className = 'custom-cursor';
+    document.body.appendChild(cursor);
+
+    const cursorTrail = document.createElement('div');
+    cursorTrail.className = 'custom-cursor-trail';
+    document.body.appendChild(cursorTrail);
+
+    let mouseX = 0, mouseY = 0;
+    let cursorX = 0, cursorY = 0;
+    let trailX = 0, trailY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        cursor.classList.add('active');
+    });
+
+    document.addEventListener('mouseleave', () => {
+        cursor.classList.remove('active');
+    });
+
+    // Smooth cursor follow
+    function animateCursor() {
+        cursorX += (mouseX - cursorX) * 0.2;
+        cursorY += (mouseY - cursorY) * 0.2;
+        trailX += (mouseX - trailX) * 0.1;
+        trailY += (mouseY - trailY) * 0.1;
+
+        cursor.style.left = cursorX - 10 + 'px';
+        cursor.style.top = cursorY - 10 + 'px';
+        cursorTrail.style.left = trailX - 4 + 'px';
+        cursorTrail.style.top = trailY - 4 + 'px';
+
+        requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    // Hover effect on interactive elements
+    const hoverElements = document.querySelectorAll('a, button, .project-card, .orbit-item, .filter-btn');
+    hoverElements.forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
+
+    // ---------------------------------------------------------
+    // 0.6. 3D TILT EFFECTS FOR INTERACTIVE CARDS
+    // ---------------------------------------------------------
+    const tiltElements = document.querySelectorAll('.glass-card, .project-card, .skill-pill');
+
+    tiltElements.forEach(el => {
+        el.addEventListener('mousemove', (e) => {
+            const rect = el.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateX = ((y - centerY) / centerY) * -10; // Max 10deg tilt
+            const rotateY = ((x - centerX) / centerX) * 10;
+
+            el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+        });
+
+        el.addEventListener('mouseleave', () => {
+            el.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+        });
+    });
+
+    // ---------------------------------------------------------
+    // 0.7. PARALLAX SCROLLING EFFECT
+    // ---------------------------------------------------------
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+
+        // Parallax for hero elements
+        const heroHolo = document.querySelector('.holo-container');
+        if (heroHolo) {
+            heroHolo.style.transform = `translateY(${scrolled * 0.3}px) rotateY(-10deg) rotateX(10deg)`;
+        }
+
+        // Parallax for orbit rings
+        const ring1 = document.querySelector('.ring-1');
+        const ring2 = document.querySelector('.ring-2');
+        if (ring1) ring1.style.transform = `rotate(${scrolled * 0.1}deg)`;
+        if (ring2) ring2.style.transform = `rotate(${-scrolled * 0.15}deg)`;
+    });
+
+    // ---------------------------------------------------------
+    // 0.8. ENHANCED SKILL PILLS INTERACTION
+    // ---------------------------------------------------------
+    const skillPills = document.querySelectorAll('.skill-pill');
+
+    skillPills.forEach((pill, index) => {
+        // Staggered entrance animation
+        pill.style.animationDelay = `${index * 0.05}s`;
+
+        // Random floating animation timing
+        const floatDuration = 3 + Math.random() * 2;
+        pill.style.animation = `float ${floatDuration}s ease-in-out infinite`;
+        pill.style.animationDelay = `${Math.random() * 2}s`;
+
+        // Ripple effect on click
+        pill.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            ripple.style.cssText = `
+                position: absolute;
+                border-radius: 50%;
+                background: rgba(0, 240, 255, 0.5);
+                width: 10px;
+                height: 10px;
+                left: ${e.offsetX}px;
+                top: ${e.offsetY}px;
+                pointer-events: none;
+                transform: translate(-50%, -50%);
+                animation: rippleEffect 0.6s ease-out;
+            `;
+            this.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 600);
+        });
+    });
+
+    // Ripple effect keyframes (add via style tag)
+    const rippleStyle = document.createElement('style');
+    rippleStyle.textContent = `
+        @keyframes rippleEffect {
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(20);
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(rippleStyle);
+
+    // ---------------------------------------------------------
     // 1. NEURAL CANVAS SYSTEM
     // ---------------------------------------------------------
     const canvas = document.getElementById('neural-canvas');
@@ -46,11 +313,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.vx = (Math.random() - 0.5) * 1.5;
                 this.vy = (Math.random() - 0.5) * 1.5;
                 this.size = Math.random() * 2 + 1;
-                this.color = '#00F0FF';
+                this.color = Math.random() > 0.5 ? '#00F0FF' : '#7000FF'; // Mix of cyan and purple
+                this.opacity = Math.random() * 0.5 + 0.5; // Random opacity
+                this.pulse = Math.random() * Math.PI * 2; // For pulsing effect
             }
             update() {
                 this.x += this.vx;
                 this.y += this.vy;
+                this.pulse += 0.05; // Pulsing animation
+
                 if (this.x < 0 || this.x > width) this.vx *= -1;
                 if (this.y < 0 || this.y > height) this.vy *= -1;
 
@@ -70,10 +341,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
             draw() {
+                // Pulsing size effect
+                const pulseSize = this.size + Math.sin(this.pulse) * 0.5;
+
                 ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = this.color;
+                ctx.arc(this.x, this.y, pulseSize, 0, Math.PI * 2);
+
+                // Gradient fill for more depth
+                const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, pulseSize);
+                gradient.addColorStop(0, this.color);
+                gradient.addColorStop(1, this.color + '00');
+
+                ctx.fillStyle = gradient;
+                ctx.globalAlpha = this.opacity;
                 ctx.fill();
+                ctx.globalAlpha = 1;
+
+                // Glow effect
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = this.color;
+                ctx.fill();
+                ctx.shadowBlur = 0;
             }
         }
 
