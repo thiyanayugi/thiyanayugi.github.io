@@ -3716,3 +3716,13 @@ section {
 }
 
      
+/* SPLINE VIEWER */
+spline-viewer {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+spline-viewer::part(logo) {
+    display: none !important;
+}

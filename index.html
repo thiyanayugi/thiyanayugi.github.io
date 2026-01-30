@@ -300,52 +300,11 @@
                 </div>
 
                 <!-- Right: Holographic Visualizer -->
-                <div class="hero-visual-side">
-                    <div class="hero-terminal-wrapper">
-                        <div class="terminal-window glass-card">
-                            <div class="terminal-header">
-                                <div class="term-buttons">
-                                    <span class="term-btn close"></span>
-                                    <span class="term-btn min"></span>
-                                    <span class="term-btn max"></span>
-                                </div>
-                                <div class="term-title">YUGI-AI // CORTEX MONITOR v2.0</div>
-                            </div>
-                            <div class="terminal-dashboard">
-                                <!-- Left: Active Process Logs -->
-                                <div class="term-col main-log">
-                                    <div class="col-header">>> SYSTEM_LOGS</div>
-                                    <div id="term-log-content"></div>
-                                </div>
-
-                                <!-- Right: System Vitals -->
-                                <div class="term-col sidebar-stats">
-                                    <div class="col-header">>> VITALS</div>
-
-                                    <div class="stat-group">
-                                        <div class="stat-label">NEURAL_LOAD</div>
-                                        <div class="progress-bar-container">
-                                            <div class="progress-bar-fill" id="cpu-bar" style="width: 45%;"></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="stat-group">
-                                        <div class="stat-label">MEMORY_ALLOC</div>
-                                        <div class="progress-bar-container">
-                                            <div class="progress-bar-fill" id="mem-bar" style="width: 72%;"></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="active-agents-list">
-                                        <div class="col-header" style="margin-top: 15px;">>> AGENTS</div>
-                                        <div class="agent-item"><span class="status-dot"></span> ARCHITECT</div>
-                                        <div class="agent-item"><span class="status-dot"></span> CODER</div>
-                                        <div class="agent-item"><span class="status-dot"></span> REVIEWER</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="hero-visual-side" style="height: 600px; position: relative; z-index: 5;">
+                    <script type="module"
+                        src="https://unpkg.com/@splinetool/viewer@1.9.59/build/spline-viewer.js"></script>
+                    <spline-viewer url="https://prod.spline.design/wvaoOEdnK-FQ1BFo/scene.splinecode"
+                        hint="false"></spline-viewer>
                 </div>
             </div>
         </section>
@@ -1192,7 +1151,7 @@
     <script src="assets/js/pill-nav.js"></script>
     <script src="assets/js/app.js"></script>
 
-    <script src="assets/js/hero-terminal.js"></script>
+    <!-- <script src="assets/js/hero-terminal.js"></script> -->
 </body>
 
 </html>
