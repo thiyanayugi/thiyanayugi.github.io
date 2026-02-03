@@ -237,7 +237,6 @@ body {
 }
 
 .project-card:hover {
-    transform: translateY(-15px) rotateX(2deg);
     box-shadow: 0 30px 80px rgba(0, 240, 255, 0.2),
         0 0 40px rgba(112, 0, 255, 0.15);
 }
@@ -3716,6 +3715,7 @@ section {
 }
 
      
+
 /* SPLINE VIEWER */
 spline-viewer {
     width: 100%;
