@@ -1,114 +1,106 @@
+console.log("3D Card Script Loaded");
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("DOM Loaded - Initializing 3D Cards");
+    init3DProjectCards();
+});
+
 function init3DProjectCards() {
     const cards = document.querySelectorAll('.project-card');
+    console.log(`Found ${cards.length} project cards`);
 
-    cards.forEach(card => {
-        // Ensure card has necessary styles for 3D
-        // The container needs perspective. We can apply it to the card using transform property.
+    cards.forEach((card, index) => {
+        // Force 3D styles
+        card.style.transformStyle = 'preserve-3d';
+
+        // Add a debug border temporarily if needed, but for now just log
+        // card.style.border = "1px solid red"; 
 
         let bounds;
 
         const rotateElement = (e) => {
-            if (!bounds) bounds = card.getBoundingClientRect();
+            // Always recalculate bounds on mousemove to handle scrolling/layout shifts
+            // This is slightly more expensive but ensures accuracy
+            bounds = card.getBoundingClientRect();
 
             const mouseX = e.clientX;
             const mouseY = e.clientY;
 
-            const leftX = mouseX - bounds.x;
-            const topY = mouseY - bounds.y;
+            const leftX = mouseX - bounds.left;
+            const topY = mouseY - bounds.top;
 
-            const center = {
-                x: leftX - bounds.width / 2,
-                y: topY - bounds.height / 2
+            // Calculate center relative to the card
+            const centerX = leftX - bounds.width / 2;
+            const centerY = topY - bounds.height / 2;
+
+            // Log coordinates for the first card only to avoid spam
+            if (index === 0 && Math.random() < 0.01) {
+                console.log('Mouse:', centerX, centerY);
             }
 
-            // Logic from user's React code:
-            // const x = (e.clientX - left - width / 2) / 25;
-            // const y = (e.clientY - top - height / 2) / 25;
-            const xRotation = center.x / 25;
-            const yRotation = center.y / 25;
+            // Rotation Logic
+            // Use 25 as divider as per original React code
+            // Horizontal position controls Y-axis rotation
+            // Vertical position controls X-axis rotation (inverted for natural tilt)
+            const xRotation = centerX / 20;
+            const yRotation = -centerY / 20; // Inverted
 
-            // Apply rotation to the card
-            // User code: transform = `rotateY(${x}deg) rotateX(${y}deg)`
-            card.style.transform = `
-                perspective(1000px)
-                scale3d(1.02, 1.02, 1.02)
-                rotateX(${yRotation}deg)
-                rotateY(${xRotation}deg)
-            `;
+            // Apply Transform
+            // Using requestAnimationFrame would be better, but direct style set is usually fine
+            card.style.transform = `perspective(1000px) scale3d(1.05, 1.05, 1.05) rotateX(${yRotation}deg) rotateY(${xRotation}deg)`;
 
-            // Parallax effects for children (Simulating CardItem)
-            const imgThumb = card.querySelector('.project-img-thumb');
-            const content = card.querySelector('.p-content');
-            const techPills = card.querySelectorAll('.tech-pill');
-            const title = card.querySelector('.card-head');
-            const desc = card.querySelector('.card-txt');
-            const links = card.querySelector('.links, .link-btn');
+            // --- Parallax for Children ---
+            // We use simple selectors to find internal elements
+            const children = {
+                img: card.querySelector('.project-img-thumb'),
+                content: card.querySelector('.p-content'),
+                pills: card.querySelectorAll('.tech-pill'),
+                head: card.querySelector('.card-head'),
+                txt: card.querySelector('.card-txt'),
+                actions: card.querySelector('.links, .link-btn'),
+                stack: card.querySelector('.tech-stack')
+            };
 
-            // Apply different Z depths for parallax
-            if (imgThumb) {
-                // Image pops out most
-                imgThumb.style.transform = `translateZ(50px)`;
+            if (children.img) children.img.style.transform = 'translateZ(60px)';
+            if (children.head) children.head.style.transform = 'translateZ(50px)';
+            if (children.txt) children.txt.style.transform = 'translateZ(40px)';
+            if (children.stack) children.stack.style.transform = 'translateZ(45px)';
+            if (children.actions) children.actions.style.transform = 'translateZ(55px)';
+
+            if (children.pills) {
+                children.pills.forEach((pill, i) => {
+                    pill.style.transform = `translateZ(${40 + i * 5}px)`;
+                });
             }
-
-            if (content) {
-                // Content container
-                content.style.transform = `translateZ(30px)`;
-            }
-
-            if (title) {
-                title.style.transform = `translateZ(40px)`;
-            }
-
-            if (desc) {
-                desc.style.transform = `translateZ(30px)`;
-            }
-
-            if (links) {
-                links.style.transform = `translateZ(45px)`;
-            }
-
-            techPills.forEach((pill, index) => {
-                pill.style.transform = `translateZ(${35 + index * 2}px)`;
-            });
         };
 
         const stopRotate = () => {
-            bounds = null;
-            card.style.transform = `
-                perspective(1000px)
-                scale3d(1, 1, 1)
-                rotateX(0deg)
-                rotateY(0deg)
-            `;
+            card.style.transform = `perspective(1000px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg)`;
 
             // Reset children
-            const children = card.querySelectorAll('.project-img-thumb, .p-content, .tech-pill, .card-head, .card-txt, .links, .link-btn');
-            children.forEach(child => {
-                child.style.transform = 'translateZ(0)';
+            const allChildren = card.querySelectorAll('*');
+            allChildren.forEach(el => {
+                if (el.style.transform) el.style.transform = 'translateZ(0) rotate(0)';
             });
         };
 
+        // Events
         card.addEventListener('mouseenter', () => {
-            bounds = card.getBoundingClientRect();
-            // Remove transition for instant follow
+            // Remove CSS transition for instant interaction
             card.style.transition = 'none';
-
-            // Children transitions
-            const children = card.querySelectorAll('.project-img-thumb, .p-content, .tech-pill, .card-head, .card-txt, .links, .link-btn');
-            children.forEach(c => c.style.transition = 'none');
+            // Also remove child transitions
+            const allChildren = card.querySelectorAll('*');
+            allChildren.forEach(el => el.style.transition = 'none');
         });
 
         card.addEventListener('mousemove', rotateElement);
 
         card.addEventListener('mouseleave', () => {
-            // Add transition back for smooth reset
-            card.style.transition = 'all 0.5s ease-out';
-            const children = card.querySelectorAll('.project-img-thumb, .p-content, .tech-pill, .card-head, .card-txt, .links, .link-btn');
-            children.forEach(c => c.style.transition = 'all 0.5s ease-out');
-
+            // Restore smooth transition for reset
+            card.style.transition = 'transform 0.5s ease-out';
+            const allChildren = card.querySelectorAll('*');
+            allChildren.forEach(el => el.style.transition = 'transform 0.5s ease-out');
             stopRotate();
         });
     });
 }
-
-document.addEventListener('DOMContentLoaded', init3DProjectCards);
