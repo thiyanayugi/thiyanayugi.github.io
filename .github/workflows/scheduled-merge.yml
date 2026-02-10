@@ -9,7 +9,7 @@ on:
       source_branch:
         description: 'Source branch to merge from'
         required: false
-        default: 'Added-Almawatech-exp'
+        default: 'Added-Almawatech-experience'
       target_branch:
         description: 'Target branch to merge into'
         required: false
@@ -41,7 +41,7 @@ jobs:
             echo "source=${{ inputs.source_branch }}" >> $GITHUB_OUTPUT
             echo "target=${{ inputs.target_branch }}" >> $GITHUB_OUTPUT
           else
-            echo "source=Added-Almawatech-exp" >> $GITHUB_OUTPUT
+            echo "source=Added-Almawatech-experience" >> $GITHUB_OUTPUT
             echo "target=master" >> $GITHUB_OUTPUT
           fi
       
@@ -100,7 +100,7 @@ jobs:
         run: |
           if [ "${{ steps.create_pr.outcome }}" = "success" ]; then
             echo "🎉 Scheduled merge completed successfully!"
-            echo "Branch 'Added-Almawatech-exp' has been merged into 'master'"
+            echo "Branch 'Added-Almawatech-experience' has been merged into 'master'"
           else
             echo "⚠️ Merge encountered an issue. Please check the workflow logs."
           fi
