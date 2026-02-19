@@ -1,0 +1,106 @@
+name: Scheduled Branch Merge
+
+on:
+  schedule:
+    # Runs at 4:00 PM UTC on February 16, 2026 (5:00 PM CET)
+    - cron: '0 16 16 2 *'
+  workflow_dispatch:
+    inputs:
+      source_branch:
+        description: 'Source branch to merge from'
+        required: false
+        default: 'Added-Almawatech-experience'
+      target_branch:
+        description: 'Target branch to merge into'
+        required: false
+        default: 'master'
+
+jobs:
+  merge-branches:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+      
+      - name: Set branch variables
+        id: branches
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "source=${{ inputs.source_branch }}" >> $GITHUB_OUTPUT
+            echo "target=${{ inputs.target_branch }}" >> $GITHUB_OUTPUT
+          else
+            echo "source=Added-Almawatech-experience" >> $GITHUB_OUTPUT
+            echo "target=master" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Create Pull Request
+        id: create_pr
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Fetch latest changes
+          git fetch origin
+          
+          # Create PR using GitHub CLI
+          PR_URL=$(gh pr create \
+            --base "${{ steps.branches.outputs.target }}" \
+            --head "${{ steps.branches.outputs.source }}" \
+            --title "🚀 Scheduled Merge: ALMAWATECH Experience Update" \
+            --body "This is an automated merge scheduled for February 16, 2026 at 5:00 PM CET.
+
+          ## Changes
+          - Added ALMAWATECH GmbH professional experience entry to portfolio
+          - Updated Professional Experience section with current AI Engineer role
+          
+          ## Details
+          - **Source Branch:** ${{ steps.branches.outputs.source }}
+          - **Target Branch:** ${{ steps.branches.outputs.target }}
+          - **Scheduled Date:** February 16, 2026 at 5:00 PM CET
+          
+          ---
+          *This PR was automatically created by GitHub Actions*" \
+            --label "automated-merge") || echo "PR may already exist"
+          
+          echo "pr_url=$PR_URL" >> $GITHUB_OUTPUT
+          echo "✅ Pull Request created: $PR_URL"
+      
+      - name: Merge Pull Request
+        if: steps.create_pr.outputs.pr_url != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Wait a few seconds to ensure PR is fully created
+          sleep 5
+          
+          # Get PR number from URL
+          PR_NUMBER=$(echo "${{ steps.create_pr.outputs.pr_url }}" | grep -oP '\d+$')
+          
+          # Merge the PR
+          gh pr merge "$PR_NUMBER" \
+            --merge \
+            --auto \
+            --delete-branch || echo "Auto-merge scheduled"
+          
+          echo "✅ Pull Request #$PR_NUMBER merged successfully"
+      
+      - name: Notification
+        if: always()
+        run: |
+          if [ "${{ steps.create_pr.outcome }}" = "success" ]; then
+            echo "🎉 Scheduled merge completed successfully!"
+            echo "Branch 'Added-Almawatech-experience' has been merged into 'master'"
+          else
+            echo "⚠️ Merge encountered an issue. Please check the workflow logs."
+          fi
