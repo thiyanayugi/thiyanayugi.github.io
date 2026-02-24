@@ -1,6 +1,7 @@
 # Thiyanayugi Mariraj - Portfolio ⚡️
 
 > Professional portfolio website showcasing my expertise in AI Engineering, Robotics, and Autonomous Systems
+> Updated: February 2026
 
 > https://thiyanayugi.github.io
 
