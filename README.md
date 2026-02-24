@@ -83,10 +83,12 @@ To customize this portfolio for your own use:
 ## Contact 📫
 
 - **Email**: yugimariraj01@gmail.com
-- **Phone**: +49-163-4253579
+- **Phone (DE)**: +49-163-4253579
+- **Phone (IN)**: +91-949-808-1651
 - **LinkedIn**: [thiyanayugi-mariraj-a2b1b820b](https://linkedin.com/in/thiyanayugi-mariraj-a2b1b820b)
 - **GitHub**: [thiyanayugi](https://github.com/thiyanayugi)
 - **Location**: Dortmund, Germany
+- **Portfolio**: https://thiyanayugi.github.io
 
 ---
 
