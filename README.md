@@ -11,7 +11,7 @@
 
 ## About Me 👨‍💻
 
-I'm a **Graduate Engineer in Automation and Robotics** completing my Master's at **Technical University Dortmund**. I specialize in:
+I'm a **Graduate Engineer in Automation and Robotics** with a Master's degree from **Technical University Dortmund**. Currently working as an **AI Engineer - LLM & RAG Systems** at ALMAWATECH GmbH. I specialize in:
 
 - 🤖 AI-driven systems and autonomous robotics
 - 👁️ Computer Vision and perception systems
