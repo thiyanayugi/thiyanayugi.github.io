@@ -15,8 +15,9 @@ I'm a **Graduate Engineer in Automation and Robotics** with a Master's degree fr
 
 - 🤖 AI-driven systems and autonomous robotics
 - 👁️ Computer Vision and perception systems
-- 🧠 Generative AI and LLM applications
+- 🧠 Generative AI and LLM applications (RAG, Multi-Agent Systems)
 - 🏭 Industrial automation and smart manufacturing
+- 📊 Knowledge Management & Vector Databases
 
 ## Features 📋
 
