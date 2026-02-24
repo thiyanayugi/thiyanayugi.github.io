@@ -45,6 +45,7 @@ I'm a **Graduate Engineer in Automation and Robotics** with a Master's degree fr
 - **Animation**: Typed.js
 - **Hosting**: GitHub Pages
 - **Version Control**: Git
+- **SEO**: Sitemap, Robots.txt, Google Search Console
 
 ## Setup & Deployment 📦
 
