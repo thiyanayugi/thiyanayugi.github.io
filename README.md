@@ -8,6 +8,7 @@
 [![Website](https://img.shields.io/badge/website-live-green)](https://thiyanayugi.github.io)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://linkedin.com/in/thiyanayugi-mariraj-a2b1b820b)
 [![GitHub](https://img.shields.io/badge/GitHub-Follow-black)](https://github.com/thiyanayugi)
+[![Email](https://img.shields.io/badge/Email-Contact-red)](mailto:yugimariraj01@gmail.com)
 
 ## About Me 👨‍💻
 
