@@ -91,6 +91,13 @@ To customize this portfolio for your own use:
 - **Location**: Dortmund, Germany
 - **Portfolio**: https://thiyanayugi.github.io
 
+## Current Work 💼
+
+**AI Engineer - LLM & RAG Systems** at ALMAWATECH GmbH
+- Building production AI systems for industrial water treatment
+- Developing knowledge management systems with vector databases
+- Implementing multi-agent frameworks for enterprise workflows
+
 ---
 
 <div align="center">
