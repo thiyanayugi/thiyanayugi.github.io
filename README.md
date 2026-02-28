@@ -1,21 +1,24 @@
 # Thiyanayugi Mariraj - Portfolio ⚡️
 
 > Professional portfolio website showcasing my expertise in AI Engineering, Robotics, and Autonomous Systems
+> Updated: February 2026
 
 > https://thiyanayugi.github.io
 
 [![Website](https://img.shields.io/badge/website-live-green)](https://thiyanayugi.github.io)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://linkedin.com/in/thiyanayugi-mariraj-a2b1b820b)
 [![GitHub](https://img.shields.io/badge/GitHub-Follow-black)](https://github.com/thiyanayugi)
+[![Email](https://img.shields.io/badge/Email-Contact-red)](mailto:yugimariraj01@gmail.com)
 
 ## About Me 👨‍💻
 
-I'm a **Graduate Engineer in Automation and Robotics** completing my Master's at **Technical University Dortmund**. I specialize in:
+I'm a **Graduate Engineer in Automation and Robotics** with a Master's degree from **Technical University Dortmund**. Currently working as an **AI Engineer - LLM & RAG Systems** at ALMAWATECH GmbH. I specialize in:
 
 - 🤖 AI-driven systems and autonomous robotics
 - 👁️ Computer Vision and perception systems
-- 🧠 Generative AI and LLM applications
+- 🧠 Generative AI and LLM applications (RAG, Multi-Agent Systems)
 - 🏭 Industrial automation and smart manufacturing
+- 📊 Knowledge Management & Vector Databases
 
 ## Features 📋
 
@@ -43,6 +46,7 @@ I'm a **Graduate Engineer in Automation and Robotics** completing my Master's at
 - **Animation**: Typed.js
 - **Hosting**: GitHub Pages
 - **Version Control**: Git
+- **SEO**: Sitemap, Robots.txt, Google Search Console
 
 ## Setup & Deployment 📦
 
@@ -81,10 +85,19 @@ To customize this portfolio for your own use:
 ## Contact 📫
 
 - **Email**: yugimariraj01@gmail.com
-- **Phone**: +49-163-4253579
+- **Phone (DE)**: +49-163-4253579
+- **Phone (IN)**: +91-949-808-1651
 - **LinkedIn**: [thiyanayugi-mariraj-a2b1b820b](https://linkedin.com/in/thiyanayugi-mariraj-a2b1b820b)
 - **GitHub**: [thiyanayugi](https://github.com/thiyanayugi)
 - **Location**: Dortmund, Germany
+- **Portfolio**: https://thiyanayugi.github.io
+
+## Current Work 💼
+
+**AI Engineer - LLM & RAG Systems** at ALMAWATECH GmbH
+- Building production AI systems for industrial water treatment
+- Developing knowledge management systems with vector databases
+- Implementing multi-agent frameworks for enterprise workflows
 
 ---
 
