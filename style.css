@@ -1336,11 +1336,11 @@ section {
 }
 
 .skill-group {
-    padding: 2rem;
+    padding: 1.5rem;
 }
 
 .skill-group-title {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     color: var(--neon-cyan);
     font-size: 1.1rem;
     display: flex;
@@ -2538,6 +2538,165 @@ section {
     color: white;
     border-bottom-style: solid;
     text-shadow: 0 0 5px var(--neon-cyan);
+}
+
+/* ── EXPERIENCE CARD ENHANCED ── */
+.exp-card {
+    padding: 0;
+    overflow: hidden;
+    margin-left: 4rem;
+}
+
+.exp-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.9rem 1.5rem;
+    background: rgba(0, 240, 255, 0.04);
+    border-bottom: 1px solid rgba(0, 240, 255, 0.12);
+}
+
+.exp-company-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.exp-company-logo {
+    width: 34px;
+    height: 34px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+    padding: 3px;
+}
+
+.exp-company-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.exp-logo-initials {
+    width: 34px;
+    height: 34px;
+    background: rgba(0, 240, 255, 0.15);
+    border: 1px solid rgba(0, 240, 255, 0.3);
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--neon-cyan);
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+}
+
+.exp-company-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    letter-spacing: 0.3px;
+}
+
+.exp-status {
+    font-size: 0.68rem;
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.exp-status.active {
+    color: #00ff88;
+    background: rgba(0, 255, 136, 0.08);
+    border: 1px solid rgba(0, 255, 136, 0.25);
+}
+
+.exp-status.active::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #00ff88;
+    animation: exp-pulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+@keyframes exp-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.5); }
+    50%       { box-shadow: 0 0 0 5px rgba(0, 255, 136, 0); }
+}
+
+.exp-status.completed {
+    color: var(--text-dim);
+    border: 1px solid var(--glass-border);
+}
+
+.exp-card-body {
+    padding: 1.25rem 1.5rem 1rem;
+}
+
+.exp-card-body .time-meta {
+    font-size: 0.78rem;
+    margin-bottom: 0.3rem;
+    letter-spacing: 0.3px;
+}
+
+.exp-card-body .time-role {
+    font-size: 1.1rem;
+    margin-bottom: 0;
+}
+
+.exp-card-body .time-desc {
+    margin: 0.75rem 0 0;
+    padding-left: 1.1rem;
+}
+
+.exp-card-body .time-desc li {
+    margin-bottom: 0.45rem;
+    line-height: 1.55;
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.68);
+}
+
+.exp-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding: 0.85rem 1.5rem;
+    border-top: 1px solid var(--glass-border);
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.exp-footer .tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    flex: 1;
+}
+
+.exp-footer .tech-pill {
+    font-size: 0.72rem;
+    padding: 0.2rem 0.55rem;
+}
+
+.exp-footer .btn-glow {
+    font-size: 0.72rem;
+    flex-shrink: 0;
 }
 
 /* CONTACT */
